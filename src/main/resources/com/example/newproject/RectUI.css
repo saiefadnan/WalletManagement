@@ -1,0 +1,18 @@
+.rounded-div {
+  border-radius: 10px; /* Adjust the radius to control the amount of rounding */
+  background-color: #4A90E2; /* Background color of the div */
+  color: white; /* Text color */
+  padding: 20px; /* Padding to create content space */
+  width: 200px; /* Set the width of the div */
+  text-align: center; /* Center the text horizontally */
+}
+
+/* Add hover effect to change background color */
+.rounded-div:hover {
+  background-color: #357ABD;
+}
+
+/* Add transition for smooth hover effect */
+.rounded-div {
+  transition: background-color 0.3s ease;
+}

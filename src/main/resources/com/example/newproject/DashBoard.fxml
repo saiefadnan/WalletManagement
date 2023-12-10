@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.DashBrd_Controller">
+   <center>
+      <AnchorPane prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#232222" height="618.0" layoutX="-222.0" layoutY="89.0" stroke="BLACK" strokeType="INSIDE" width="119.0" x="224.0" y="38.0" />
+            <Button alignment="CENTER" layoutX="30.0" layoutY="191.0" minWidth="43.0" mnemonicParsing="false" onAction="#User_profile" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css" textAlignment="CENTER" textFill="#d6d6d600">
+               <graphic>
+                  <FontAwesomeIcon selectionEnd="0" selectionFill="BLACK" size="2.5em" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="32.29997634887695">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIcon>
+               </graphic>
+               <effect>
+                  <Glow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="CENTER" layoutX="30.0" layoutY="444.0" minWidth="43.0" mnemonicParsing="false" onAction="#BankAccount" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css" textAlignment="CENTER" textFill="#d6d6d600">
+               <graphic>
+                  <FontAwesomeIcon selectionEnd="0" selectionFill="BLACK" size="2.5em" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="32.29997634887695">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIcon>
+               </graphic>
+               <effect>
+                  <Glow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="CENTER" layoutX="30.0" layoutY="581.0" minWidth="30.0" mnemonicParsing="false" onAction="#Log_out" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css" textAlignment="CENTER">
+               <effect>
+                  <Glow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <FontAwesomeIcon size="3em" text="" textAlignment="CENTER" wrappingWidth="67.04996109008789">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIcon>
+               </graphic>
+            </Button>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="455.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="433.0" x="46.0" y="50.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="188.0" layoutX="1186.0" layoutY="590.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="276.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="188.0" layoutX="855.0" layoutY="590.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="276.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="188.0" layoutX="531.0" layoutY="590.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="276.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="188.0" layoutX="200.0" layoutY="590.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="276.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="272.0" layoutX="200.0" layoutY="299.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="254.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="120.0" layoutX="200.0" layoutY="130.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="254.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Button layoutX="237.0" layoutY="613.0" mnemonicParsing="false" onAction="#Budget_Goal" opacity="0.8" prefHeight="142.0" prefWidth="202.0" stylesheets="@Button.css" text="Budget Goal" textFill="#050505">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" stroke="BLACK" strokeType="INSIDE" width="305.0" x="46.0" y="50.0" />
+            <Text layoutX="74.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="93.99999999999977">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="217.0" layoutY="345.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
+            <Text layoutX="238.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter daily expenses" wrappingWidth="178.79998779296875">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="91.0" layoutX="217.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
+            <Text fx:id="text1" layoutX="537.0" layoutY="83.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="346.0000305175779">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="text2" layoutX="234.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User " wrappingWidth="187.90118408203125">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="text3" layoutX="234.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BDT 0" wrappingWidth="186.4000000000001">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="212.0" layoutY="427.0" mnemonicParsing="false" onAction="#miniScene" prefHeight="120.0" prefWidth="229.0" stylesheets="@Enter_expense_Butn.css" text="Enter Daily Expenses">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="438.0" layoutX="500.0" layoutY="133.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="489.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <LineChart fx:id="linechart" alternativeColumnFillVisible="true" createSymbols="false" focusTraversable="true" layoutX="490.0" layoutY="160.0" prefHeight="334.0" prefWidth="455.0" stylesheets="@GraphBD.css" title="Duration vs Balance" verticalGridLinesVisible="false">
+               <xAxis>
+                  <CategoryAxis label="Previous 1 Month" stylesheets="@GraphBD.css" tickLabelFill="WHITE" fx:id="xAxis" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="yAxis" label="Balance" side="LEFT" stylesheets="@GraphBD.css" tickLabelFill="WHITE" />
+               </yAxis>
+            </LineChart>
+            <Button layoutX="568.0" layoutY="613.0" mnemonicParsing="false" onAction="#Debt_Loan" opacity="0.8" prefHeight="142.0" prefWidth="202.0" stylesheets="@Button3.css" text="Debt &amp; Loan">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="892.0" layoutY="613.0" mnemonicParsing="false" onAction="#Monthly_Budget" opacity="0.8" prefHeight="142.0" prefWidth="202.0" stylesheets="@Button1.css" text="Monthly Budget">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="1223.0" layoutY="613.0" mnemonicParsing="false" onAction="#Fixed_Deposit" opacity="0.8" prefHeight="142.0" prefWidth="202.0" text="Fixed Deposit">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <stylesheets>
+                  <URL value="@Button1.css" />
+                  <URL value="@Button2.css" />
+               </stylesheets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="435.0" layoutX="1036.0" layoutY="136.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="426.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <HBox fx:id="hbox3" alignment="CENTER" layoutX="1056.0" layoutY="513.0" prefHeight="34.0" prefWidth="387.0" spacing="14.0" />
+            <HBox fx:id="hbox2" alignment="CENTER" layoutX="1056.0" layoutY="490.0" prefHeight="34.0" prefWidth="387.0" spacing="14.0" />
+            <HBox fx:id="hbox1" alignment="CENTER" layoutX="1056.0" layoutY="467.0" prefHeight="34.0" prefWidth="387.0" spacing="14.0" />
+            <Arc fx:id="arc11" fill="#ffffff00" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" startAngle="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND" />
+            <Arc fx:id="arc10" fill="#ffffff01" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND" />
+            <Arc fx:id="arc9" fill="#ffffff00" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" startAngle="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND" />
+            <Arc fx:id="arc8" fill="#ffffff00" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" startAngle="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND" />
+            <Arc fx:id="arc7" fill="#ffffff00" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND" />
+            <Arc fx:id="arc1" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.007843137718737125" green="0.929411768913269" blue="0.25882354378700256" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Arc>
+            <Arc fx:id="arc2" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" startAngle="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Arc>
+            <Arc fx:id="arc4" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Arc>
+            <Arc fx:id="arc3" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" startAngle="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Arc>
+            <Arc fx:id="arc5" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" startAngle="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Arc>
+            <Arc fx:id="arc6" layoutX="1249.0" layoutY="300.0" length="60.0" onMouseEntered="#Mouse_Entered" onMouseExited="#Mouse_Exited" radiusX="130.0" radiusY="130.0" startAngle="300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" type="ROUND">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.007843137718737125" green="0.929411768913269" blue="0.25882354378700256" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Arc>
+            <HBox fx:id="hbox4" alignment="CENTER" layoutX="1056.0" layoutY="536.0" prefHeight="34.0" prefWidth="387.0" spacing="14.0" />
+            <Button alignment="CENTER" layoutX="30.0" layoutY="320.0" minWidth="30.0" mnemonicParsing="false" onAction="#OpenNoti_pane" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css">
+               <effect>
+                  <Glow />
+               </effect>
+               <graphic>
+                  <FontAwesomeIcon rotate="30.0" size="2.5em" text="">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIcon>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label fx:id="Noti_label" alignment="TOP_CENTER" disable="true" layoutX="70.0" layoutY="340.0" prefHeight="9.0" prefWidth="18.0" style="-fx-background-color: red; -fx-background-radius: 35px;" textAlignment="CENTER" textFill="WHITE" visible="false" />
+            <AnchorPane fx:id="miniAnchor" layoutX="129.0" layoutY="172.0" prefHeight="470.0" prefWidth="371.0" stylesheets="@SubWindow.css" visible="false">
+               <children>
+                  <ChoiceBox fx:id="choicebox" layoutX="159.0" layoutY="120.0" prefHeight="38.0" prefWidth="186.0" stylesheets="@Choicebox.css" />
+                  <TextField fx:id="Tf6" disable="true" layoutX="159.0" layoutY="199.0" onKeyPressed="#pie" prefHeight="30.0" prefWidth="195.0" promptText="0 BDT" stylesheets="@textfield.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></TextField>
+                  <Text fill="WHITE" layoutX="30.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount        :" wrappingWidth="139.99999999999994">
+                     <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="280.0" layoutY="308.0" mnemonicParsing="false" onAction="#close" text="Close" />
+                  <Text fill="WHITE" layoutX="30.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category       :" wrappingWidth="139.99999999999994">
+                     <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="947.0" stroke="BLACK" strokeType="INSIDE" width="465.0" x="46.0" y="50.0" />
+            <TextField fx:id="Tb" layoutX="1196.0" layoutY="60.0" onKeyPressed="#enter_balance" prefHeight="30.0" prefWidth="231.0" promptText="Enter Your Balance" stylesheets="@textfield.css">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></TextField>
+            <Text layoutX="1008.0" layoutY="83.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Balance: BDT">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <AnchorPane fx:id="Noti_pane" disable="true" layoutX="14.0" layoutY="145.0" prefHeight="582.0" prefWidth="338.0" stylesheets="@SubWindow.css" visible="false">
+               <children>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="9.0" layoutY="21.0" prefHeight="539.0" prefWidth="318.0" stylesheets="@ScrollPane.css">
+                     <content>
+                        <VBox fx:id="vbox" alignment="TOP_RIGHT" prefHeight="474.0" prefWidth="317.0" spacing="10.0" style="-fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000044);">
+                           <children>
+                              <Button alignment="CENTER" minWidth="30.0" mnemonicParsing="false" onAction="#CloseNoti_pane" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: orange; -fx-background-radius: 35px;" text="X" textAlignment="CENTER">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <Label fx:id="Amount_label" alignment="CENTER" layoutX="1352.0" layoutY="172.0" onMouseEntered="#Mouse_Entered" prefHeight="38.0" prefWidth="109.0" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

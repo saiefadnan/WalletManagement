@@ -1,0 +1,10 @@
+/* CSS file (styles.css) */
+/* Styling for the X-axis and Y-axis labels */
+.axis-label {
+    -fx-text-fill: white;
+}
+
+/* Styling for the chart title */
+.chart-title {
+    -fx-text-fill: white;
+}

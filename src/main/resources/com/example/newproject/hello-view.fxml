@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.LoginController">
+   <center>
+      <AnchorPane prefHeight="800.0" prefWidth="200.0" styleClass="root" stylesheets="@Background-color.css" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="scenePane" layoutX="475.0" layoutY="145.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #141440;" styleClass="rounded-anchor-pane" stylesheets="@round_curve.css">
+               <children>
+                  <TextField fx:id="usernameTextField" layoutX="121.0" layoutY="254.0" prefHeight="26.0" prefWidth="380.0" promptText="Username" />
+                  <PasswordField fx:id="enterPasswordField" layoutX="121.0" layoutY="308.0" prefHeight="26.0" prefWidth="380.0" promptText="Password" />
+                  <Button fx:id="loginButton" layoutX="272.0" layoutY="415.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #5257c1;" styleClass="cursor" stylesheets="@cursor.css" text="Log In" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="251.0" layoutY="174.0" text="Sign In" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LoginPrompt" alignment="CENTER" layoutX="124.0" layoutY="373.0" prefHeight="26.0" prefWidth="374.0" textFill="RED">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="loginPhoto" fitHeight="119.0" fitWidth="205.0" layoutX="247.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/6681204.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="loginButton1" layoutX="303.0" layoutY="447.0" mnemonicParsing="false" onAction="#switch2" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #141440;" styleClass="cursor" stylesheets="@cursor.css" text="Sign up!" textFill="#5257c1" underline="true">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="230.0" layoutY="453.0" text="No account?" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="fpBtn" alignment="CENTER_RIGHT" layoutX="372.0" layoutY="335.0" mnemonicParsing="false" onAction="#switch3" prefHeight="30.0" prefWidth="139.0" style="-fx-background-color: #141440;" styleClass="cursor" stylesheets="@cursor.css" text="Forgot password?" textAlignment="RIGHT" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                  </Button>
+                  <CheckBox fx:id="seePass" layoutX="121.0" layoutY="341.0" mnemonicParsing="false" onAction="#seePassword" styleClass="cursor" text="Show password?" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@checkbox.css" />
+                        <URL value="@cursor.css" />
+                     </stylesheets>
+                  </CheckBox>
+                  <TextField fx:id="passTextField" disable="true" layoutX="121.0" layoutY="308.0" onAction="#login" prefHeight="26.0" prefWidth="380.0" promptText="Password" visible="false" />
+                  <FontAwesomeIcon glyphName="USER" layoutX="93.0" layoutY="276.0" size="2em">
+                     <fill>
+                        <LinearGradient endX="0.45075758275660605" endY="0.8863636499101466" startX="0.628787942908027" startY="0.2007575107343269">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.07680000364780426" green="0.7833600044250488" blue="0.9599999785423279" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.49361667037010193" green="0.27300000190734863" blue="0.699999988079071" opacity="0.8844984769821167" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIcon>
+                  <FontAwesomeIcon glyphName="LOCK" layoutX="94.0" layoutY="330.0" size="2em">
+                     <fill>
+                        <LinearGradient endX="0.45075758275660605" endY="0.8863636499101466" startX="0.628787942908027" startY="0.2007575107343269">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.07680000364780426" green="0.7833600044250488" blue="0.9599999785423279" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.49361667037010193" green="0.27300000190734863" blue="0.699999988079071" opacity="0.8844984769821167" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIcon>
+               </children>
+            </AnchorPane>
+            <Button fx:id="extBtn" layoutX="1513.0" layoutY="7.0" mnemonicParsing="false" onAction="#exitbtn" onMouseEntered="#exitEntered" onMouseExited="#exitExited" style="-fx-background-color: #000022;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

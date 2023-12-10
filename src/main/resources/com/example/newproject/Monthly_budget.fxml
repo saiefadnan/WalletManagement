@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.Monthly_Budget">
+   <center>
+      <AnchorPane cache="true" depthTest="DISABLE" focusTraversable="true" prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="560.0" layoutX="45.0" layoutY="161.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="390.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="46.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+            <Text fill="WHITE" layoutX="85.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Overspent" wrappingWidth="173.20002746582009">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tf1" layoutX="171.0" layoutY="262.0" prefHeight="26.0" prefWidth="226.0" promptText="Name" />
+            <TextField fx:id="tf2" layoutX="171.0" layoutY="312.0" prefHeight="26.0" prefWidth="226.0" promptText="Amount (BDT)" />
+            <ChoiceBox fx:id="choicebox2" layoutX="171.0" layoutY="425.0" prefHeight="26.0" prefWidth="147.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ChoiceBox>
+            <CheckBox fx:id="checkbox1" layoutX="85.0" layoutY="614.0" mnemonicParsing="false" text="Notify when amount has exceed the budget" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+            <CheckBox fx:id="checkbox2" layoutX="85.0" layoutY="678.0" mnemonicParsing="false" text="Notify when budget is trending to be overspent" textFill="WHITE" underline="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></CheckBox>
+            <Text fill="WHITE" layoutX="85.0" layoutY="662.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Risk of Overspent" wrappingWidth="173.20002746582009">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="choicebox1" layoutX="171.0" layoutY="368.0" prefHeight="26.0" prefWidth="150.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ChoiceBox>
+            <Text fill="WHITE" layoutX="84.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Period    :" wrappingWidth="73.60000610351562">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="cat" fill="WHITE" layoutX="85.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category:" wrappingWidth="83.20001220703125">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="68.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly Budget" wrappingWidth="173.20002746582009">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="79.0" layoutY="174.0" stroke="BLACK" strokeType="INSIDE" width="325.0" />
+            <Text layoutX="170.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new Budget" wrappingWidth="143.60005187988259">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="453.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="575.0" />
+            <Line endX="-100.0" endY="634.4000244140625" layoutX="550.0" layoutY="152.0" startX="-100.00001525878906" startY="-4.20001220703125" />
+            <Text layoutX="495.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much can I spend to meet my budget" wrappingWidth="398.80006408691384">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="85.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications" underline="true" wrappingWidth="114.00001525878884">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="datepicker" disable="true" layoutX="232.0" layoutY="426.0" prefHeight="26.0" prefWidth="105.0" visible="false" />
+            <DatePicker fx:id="datepicker1" disable="true" layoutX="109.0" layoutY="426.0" prefHeight="26.0" prefWidth="106.0" visible="false" />
+            <Text fx:id="FT" fill="WHITE" layoutX="109.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From                             To" visible="false" wrappingWidth="226.93673706054688" />
+            <Button layoutX="351.0" layoutY="522.0" mnemonicParsing="false" onAction="#Add1" text="Add+">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <TabPane fx:id="tabPane" cache="true" layoutX="495.0" layoutY="145.0" prefHeight="643.0" prefWidth="930.0" snapToPixel="false" stylesheets="@Tab_pane.css" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="One time">
+                     <content>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="643.0" prefWidth="930.0">
+                           <content>
+                              <VBox fx:id="vbox0" prefHeight="636.0" prefWidth="786.0" spacing="5.0" style="-fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000080);" />
+                           </content>
+                        </ScrollPane>
+                     </content></Tab>
+                <Tab text="Weekly">
+                     <content>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="643.0" prefWidth="930.0">
+                           <content>
+                              <VBox fx:id="vbox1" prefHeight="636.0" prefWidth="786.0" spacing="5.0" style="-fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000080);" />
+                           </content>
+                        </ScrollPane>
+                     </content>
+                </Tab>
+                  <Tab text="Monthly">
+                     <content>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="643.0" prefWidth="930.0">
+                           <content>
+                              <VBox fx:id="vbox2" prefHeight="636.0" prefWidth="786.0" spacing="5.0" style="-fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000080);" />
+                           </content>
+                        </ScrollPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Yearly">
+                     <content>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="643.0" prefWidth="930.0">
+                           <content>
+                              <VBox fx:id="vbox3" prefHeight="636.0" prefWidth="786.0" spacing="5.0" style="-fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000080);" />
+                           </content>
+                        </ScrollPane>
+                     </content></Tab>
+              </tabs>
+            </TabPane>
+            <Button alignment="CENTER" layoutX="62.0" layoutY="745.0" mnemonicParsing="false" onAction="#Back" prefHeight="12.0" prefWidth="22.0" stylesheets="@Back_btn.css">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon size="2.5em" text="" textAlignment="CENTER">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.03529411926865578" green="0.5882353186607361" blue="0.7568627595901489" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIcon>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Text fill="WHITE" layoutX="85.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name    :" wrappingWidth="73.60003662109375">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="85.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount :" wrappingWidth="72.80001831054688">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="Brif_msg" alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="534.0" prefHeight="46.0" prefWidth="146.0" style="-fx-background-color: rgb(128,128,128); -fx-background-radius: 35px;" text="Record Added" textAlignment="CENTER" textFill="#381313" visible="false" wrapText="true" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

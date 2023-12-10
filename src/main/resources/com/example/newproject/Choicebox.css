@@ -1,0 +1,10 @@
+/* Styling for the ChoiceBox */
+.choice-box {
+    -fx-font-size: 14px; /* Font size */
+    -fx-background-color: white; /* Background color */
+    -fx-border-color: #cccccc; /* Border color */
+    -fx-border-width: 2px; /* Border width */
+    -fx-padding: 3px; /* Padding around the text */
+}
+
+/* Styling for list items in the drop-down list */

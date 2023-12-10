@@ -1,0 +1,17 @@
+.button{
+    -fx-background-color:  linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #f2cc02 0.0%, #f01811 100.0%); /* Background color */
+    -fx-border-color:  #FFA500; /* Border color */
+    -fx-border-width: 2px; /* Border width */
+    -fx-border-radius: 30px; /* Border radius to create rounded corners */
+    -fx-font-size: 20px; /* Font size */
+    -fx-text-fill: black; /* Text color */
+    -fx-cursor: hand; /* Cursor style for mouse hover */
+    -fx-background-radius: 30 30 30 30
+}
+
+
+/* Define a hover effect for the button */
+.button:hover {
+    -fx-border-color: black; /* Background color on hover */
+    -fx-background-radius: 30 30 30 30
+}

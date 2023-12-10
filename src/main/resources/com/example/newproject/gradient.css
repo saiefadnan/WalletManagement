@@ -1,0 +1,9 @@
+/* Linear Gradient for Background */
+.linear-gradient-background {
+    -fx-background-color: linear-gradient(to right, #141440, #2460E1);
+}
+
+/* Radial Gradient for Text Fill */
+.radial-gradient-text {
+    -fx-fill: radial-gradient(focus-angle 45deg, red, blue);
+}

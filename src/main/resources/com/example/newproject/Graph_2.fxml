@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.Budget_Overview">
+   <center>
+      <AnchorPane prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="56.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+            <Text layoutX="76.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overview" wrappingWidth="83.60005187988259">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="146.0" layoutX="169.0" layoutY="114.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="1144.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <ProgressBar fx:id="Pgb" layoutX="210.0" layoutY="188.0" prefHeight="21.0" prefWidth="1038.0" progress="0.0" />
+            <Text fx:id="txt1" fill="WHITE" layoutX="209.0" layoutY="172.0" stroke="BLACK" strokeType="OUTSIDE" text="BDT XXXX" underline="true" wrappingWidth="246.8000335693357">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="txt2" layoutX="209.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BDT XXXX Spent" wrappingWidth="303.60002136230446">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="txt3" layoutX="985.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BDT XXXX" textAlignment="RIGHT" wrappingWidth="262.8000335693357">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="467.0" layoutX="169.0" layoutY="319.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="710.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <LineChart fx:id="linechart" alternativeColumnFillVisible="true" createSymbols="false" layoutX="227.0" layoutY="344.0" prefHeight="414.0" prefWidth="602.0" title="Time Vs spent" verticalGridLinesVisible="false">
+               <xAxis>
+                  <CategoryAxis label="Time" side="BOTTOM" tickLabelFill="WHITE" fx:id="xAxis" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="yAxis" label="Spent" side="LEFT" tickLabelFill="WHITE" />
+               </yAxis>
+            </LineChart>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="452.0" layoutX="1045.0" layoutY="319.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="433.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Text layoutX="1165.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spending Categories" textAlignment="CENTER" wrappingWidth="192.39997863769509">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="30.0" />
+               </font>
+            </Text>
+            <Arc fx:id="Expense_Arc" fill="#008cff00" layoutX="1260.0" layoutY="530.0" length="360.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#80303000" strokeLineCap="ROUND" strokeWidth="40.0" />
+            <Arc fx:id="Expense_Arc1" fill="#008cff00" layoutX="1260.0" layoutY="530.0" length="360.0" radiusX="80.0" radiusY="80.0" startAngle="90.0" stroke="#000000a1" strokeWidth="0.5" />
+            <Arc fx:id="Expense_Arc11" fill="#008cff00" layoutX="1260.0" layoutY="530.0" length="360.0" radiusX="120.0" radiusY="120.0" startAngle="90.0" stroke="#000000a1" strokeWidth="0.5" />
+            <Text fx:id="txt" layoutX="1146.0" layoutY="702.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="231.59992980957009">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Rectangle fx:id="rect" arcHeight="15.0" arcWidth="15.0" fill="DODGERBLUE" height="20.0" layoutX="1149.0" layoutY="685.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+            <Text fx:id="txt4" fill="WHITE" layoutX="209.0" layoutY="141.0" stroke="BLACK" strokeType="OUTSIDE" text="Date:" wrappingWidth="246.8000335693357">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
+            <Button alignment="CENTER" layoutX="62.0" layoutY="745.0" mnemonicParsing="false" onAction="#Back" prefHeight="12.0" prefWidth="22.0" stylesheets="@Back_btn.css">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon size="2.5em" text="" textAlignment="CENTER">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.03529411926865578" green="0.5882353186607361" blue="0.7568627595901489" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIcon>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Text fx:id="Ts" layoutX="1139.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0%" textAlignment="CENTER" wrappingWidth="245.20021057128884">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,26 @@
+/* Define a style class for the TabPane */
+.tab-pane {
+    /* Background color for the TabPane */
+    -fx-background-color: #f2f2f2;
+}
+
+/* Define a style for the Tab content area */
+.tab-content-area {
+    /* Background color for the Tab content area */
+    -fx-background-color: white;
+}
+
+/* Define a style for the Tab labels */
+.tab-label {
+    /* Text color for Tab labels */
+    -fx-text-fill: #333;
+    /* Font size and style for Tab labels */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Define a style for the selected Tab label */
+.tab:selected .tab-label {
+    /* Text color for the selected Tab label */
+    -fx-text-fill: #0077FF;
+}

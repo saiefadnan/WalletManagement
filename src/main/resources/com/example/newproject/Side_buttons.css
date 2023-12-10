@@ -1,0 +1,6 @@
+/* Define a hover effect for the button */
+.button{
+    -fx-background-color: transparent; /* Background color */
+    -fx-background-radius: 32 32 32 32;
+}
+.button:hover {-fx-background-color: black}

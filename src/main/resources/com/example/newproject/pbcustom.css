@@ -1,0 +1,4 @@
+.custom-progress-bar {
+    -fx-accent: #00FF00;
+    -fx-pref-width: 240px; -fx-pref-height: 20px;
+}

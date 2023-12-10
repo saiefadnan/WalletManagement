@@ -1,0 +1,10 @@
+.rounded-anchor-pane {
+    -fx-background-size: 1200 900;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-width:5;
+    -fx-border-color: #16E2F5;
+}
+.background-color{
+    -fx-background-color: linear-gradient(to bottom, #141428, #141440);
+}
