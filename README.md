@@ -1,3 +1,3 @@
 <p align="center">
-<b>WalletManagement</b>
+<h1>WalletManagement</h1>
 </p>
