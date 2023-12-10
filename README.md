@@ -1,6 +1,6 @@
 <h1 align="center">Wallet Management</h1>
 <h2> Introduction</h2>
-As-salamu Alaikum. Welcome to the official repository of Wallet Management application.</br>
+As-Salamu Alaikum. Welcome to the official repository of Wallet Management application.</br>
 
 1. To run the application we need to first set up the database system. To do so please create a schema named `project` in your MySQL Workbench.</br>
 2. Then run the sql script given below to create different tables that will be used to store the data.</br>
