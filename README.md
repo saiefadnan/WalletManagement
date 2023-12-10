@@ -146,7 +146,7 @@ CREATE TABLE `user_lents` (
 ```
 3. After doing so, please change the `USER` and `PASS` from the `src/main/java/com/example/newproject/SQLConnection.java`.
 4. Don't forget to add the required `.jar` files.
-5. If a the schema is created by a different name then please change the `URL` in `src/main/java/com/example/newproject/SQLConnection.java` and replace `project` with your given schema name.  
+5. If the schema is created by a different name then please change the `URL` in `src/main/java/com/example/newproject/SQLConnection.java` and replace `project` with your given schema name.  
 
 <h3 align="center">Thank you!</h3>
 
