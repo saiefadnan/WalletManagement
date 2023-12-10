@@ -1,10 +1,11 @@
 <h1 align="center">Wallet Management</h1>
 <h2> Introduction</h2>
 As-salamu Alaikum. Welcome to the official repository of Wallet Manager application.</br>
+
 1. To run the application we need to first set up the database system. To do so please create a schema named `project` in your MySQL Workbench.</br>
 2. Then run the sql script given below to create different tables that will be used to store our data.</br></br>
 
-```
+```mysql
 CREATE TABLE `expense_table` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
@@ -14,6 +15,7 @@ CREATE TABLE `expense_table` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `line_chart` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
@@ -22,6 +24,7 @@ CREATE TABLE `line_chart` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `monthly_budget` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
@@ -39,6 +42,7 @@ CREATE TABLE `monthly_budget` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `user_dashboard` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
@@ -57,6 +61,7 @@ CREATE TABLE `user_dashboard` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `user_data` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
@@ -66,6 +71,7 @@ CREATE TABLE `user_data` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `user_debts` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
@@ -77,6 +83,7 @@ CREATE TABLE `user_debts` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `user_fd` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
@@ -95,6 +102,7 @@ CREATE TABLE `user_fd` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `user_goals` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
@@ -106,6 +114,7 @@ CREATE TABLE `user_goals` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `user_info` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(45) NOT NULL DEFAULT 'no',
@@ -122,6 +131,7 @@ CREATE TABLE `user_info` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `user_lents` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
@@ -134,5 +144,5 @@ CREATE TABLE `user_lents` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
-
+3. After doing so, please change the `USER` and `PASS` from the 
 
