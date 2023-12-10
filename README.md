@@ -1,9 +1,9 @@
 <h1 align="center">Wallet Management</h1>
 <h2> Introduction</h2>
-As-salamu Alaikum. Welcome to the official repository of Wallet Manager application.</br>
+As-salamu Alaikum. Welcome to the official repository of Wallet Management application.</br>
 
 1. To run the application we need to first set up the database system. To do so please create a schema named `project` in your MySQL Workbench.</br>
-2. Then run the sql script given below to create different tables that will be used to store our data.</br></br>
+2. Then run the sql script given below to create different tables that will be used to store the data.</br>
 
 ```mysql
 CREATE TABLE `expense_table` (
@@ -144,5 +144,9 @@ CREATE TABLE `user_lents` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
-3. After doing so, please change the `USER` and `PASS` from the 
+3. After doing so, please change the `USER` and `PASS` from the `src/main/java/com/example/newproject/SQLConnection.java`.
+4. Don't forget to add the required `.jar` files.
+5. If a the schema is created by a different name then please change the `URL` in `src/main/java/com/example/newproject/SQLConnection.java` and replace `project` with your given schema name.  
+
+<h3 align="center">Thank you!</h3>
 
