@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class SQLConnection {
+    private static final String URL="jdbc:mysql://localhost:3306/project";
+    private static final String USER="root";
+    private static final String PASS="Sayef@312469";
     protected static void connection(String[] s) {
         Connection conn=null;
         PreparedStatement stmt=null;
@@ -18,7 +21,7 @@ public class SQLConnection {
             {
                 System.out.println(e);
             }
-            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+            conn= DriverManager.getConnection(URL,USER,PASS);
             String firstname=s[0];
             String lastname=s[1];
             String username=s[2];
@@ -73,7 +76,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="SELECT * FROM user_info WHERE username = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,name);
@@ -96,7 +99,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="UPDATE user_info SET firstname = ?,lastname = ?,email = ?,gender = ?,dob = ?,profession = ?,address = ?,phone = ? WHERE username = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,User.userInfo.get(0));
@@ -117,7 +120,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="UPDATE user_dashboard SET total_balance = ?,food=?,shopping=?,housing=?,transportation=?,vehicle=?,entertainment=?,investments=?,incomes=?,communication=?,fin_expenses=?,others=? WHERE user_name = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setDouble(1,User.Balance);
@@ -143,7 +146,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="SELECT * FROM user_dashboard WHERE user_name = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,name);
@@ -171,7 +174,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="INSERT INTO user_dashboard (user_name,total_balance,food,shopping,housing,transportation,vehicle,entertainment,investments,incomes,communication,fin_expenses,others) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,name);
@@ -197,7 +200,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="INSERT INTO user_fd (user_name,bank_name,deposit_amount,invested_amount,maturity_value,earned_interest,init_date,final_date,notify,comp_freq,maturity_unit,maturity_duration,interest) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,name);
@@ -224,7 +227,7 @@ public class SQLConnection {
         PreparedStatement stmt=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+            conn= DriverManager.getConnection(URL,USER,PASS);
             String sql = "SELECT * FROM user_fd WHERE user_name = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1,name);
@@ -258,7 +261,7 @@ public class SQLConnection {
         PreparedStatement stmt=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+            conn= DriverManager.getConnection(URL,USER,PASS);
             String sql = "DELETE FROM user_fd WHERE user_name = ? AND bank_name = ? AND deposit_amount = ? AND invested_amount = ? AND maturity_value = ? AND earned_interest = ? AND init_date = ? AND final_date = ? AND notify = ? AND comp_freq = ? AND maturity_unit = ? AND maturity_duration = ? AND interest = ?";
             stmt=conn.prepareStatement(sql);
             stmt.setString(1,name);
@@ -287,7 +290,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql = "SELECT username, password FROM user_info";
         stmt = conn.prepareStatement(sql);
         ResultSet resultSet = stmt.executeQuery(sql);
@@ -307,7 +310,7 @@ public class SQLConnection {
         PreparedStatement stmt = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+            conn= DriverManager.getConnection(URL,USER,PASS);
             String sql = "SELECT * FROM user_info WHERE username = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1,user);
@@ -327,7 +330,7 @@ public class SQLConnection {
         PreparedStatement stmt = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+            conn= DriverManager.getConnection(URL,USER,PASS);
             String sql = "SELECT email FROM user_info WHERE username = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1,user);
@@ -346,7 +349,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql = "UPDATE user_info SET password = ? WHERE username = ?";
         stmt = conn.prepareStatement(sql);
         System.out.println(password + " Hey yo "+ user);
@@ -364,7 +367,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql = "INSERT INTO user_data (username,goals_count,debts_count,lents_count) VALUES (?,?,?,?)";
         stmt = conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -380,7 +383,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql = "SELECT goals_count,debts_count,lents_count FROM user_data WHERE username = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -400,7 +403,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn = DriverManager.getConnection(URL,USER,PASS);
         String sql = "UPDATE user_data SET goals_count = ?,debts_count=?,lents_count=? WHERE username = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setInt(1,gcount);
@@ -416,7 +419,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn = DriverManager.getConnection(URL,USER,PASS);
         String sql="SELECT * FROM user_goals WHERE user_name = ? ORDER BY id";
         stmt = conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -442,7 +445,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="SELECT * FROM user_debts WHERE user_name = ? ORDER BY id";
         stmt = conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -468,7 +471,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="SELECT * FROM user_lents WHERE user_name = ? ORDER BY id";
         stmt = conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -494,7 +497,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="INSERT INTO user_goals (user_name,goals_name,target_amount,saved_amount,target_date,note) VALUES (?,?,?,?,?,?)";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -512,7 +515,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="INSERT INTO user_debts (user_name,debts_name,debt_amount,repaid_amount,target_date,note) VALUES (?,?,?,?,?,?)";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -530,7 +533,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="INSERT INTO user_lents (user_name,lents_name,lent_amount,rec_amount,target_date,note) VALUES (?,?,?,?,?,?)";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -548,7 +551,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn = DriverManager.getConnection(URL,USER,PASS);
         String sql = "DELETE FROM user_goals WHERE user_name = ? AND goals_name = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -563,7 +566,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn = DriverManager.getConnection(URL,USER,PASS);
         String sql = "UPDATE user_goals SET target_amount = ?,saved_amount=?,target_date=?,goals_name=?,note=? WHERE user_name = ? AND goals_name = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setDouble(1,target);
@@ -584,7 +587,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn = DriverManager.getConnection(URL,USER,PASS);
         String sql = "UPDATE user_debts SET debt_amount = ?,repaid_amount=?,target_date=?,debts_name=?,note=? WHERE user_name = ? AND debts_name = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setDouble(1,target);
@@ -603,7 +606,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn = DriverManager.getConnection(URL,USER,PASS);
         String sql = "DELETE FROM user_debts WHERE user_name = ? AND debts_name = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -618,7 +621,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn = DriverManager.getConnection(URL,USER,PASS);
         String sql = "UPDATE user_lents SET lent_amount = ?,rec_amount=?,target_date=?,lents_name=?,note=? WHERE user_name = ? AND lents_name = ?";
         stmt = conn.prepareStatement(sql);
         stmt.setDouble(1,target);
@@ -637,7 +640,7 @@ public class SQLConnection {
         Connection conn = null;
         PreparedStatement stmt = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+        conn = DriverManager.getConnection(URL,USER,PASS);
         String sql = "DELETE FROM user_lents WHERE user_name = ? AND lents_name = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -652,7 +655,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="INSERT INTO expense_table (user_name,expense_type,date,expense_val) VALUES (?,?,?,?)";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -669,7 +672,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="UPDATE expense_table SET expense_val = ? WHERE user_name = ? AND expense_type = ? AND date = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setDouble(1,amount);
@@ -685,7 +688,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="SELECT * FROM expense_table WHERE user_name = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,user);
@@ -709,7 +712,7 @@ public class SQLConnection {
         PreparedStatement stmt=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+            conn= DriverManager.getConnection(URL,USER,PASS);
             String sql = "SELECT * FROM expense_table WHERE user_name = ? AND date = ? AND expense_type = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1,name);
@@ -730,7 +733,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="INSERT INTO monthly_budget (user_name,budget_name,limit_amount,expense_amount,period,init_date,final_date,selected_category,expense_index,category_color,notification1,notification2) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,User.Name);
@@ -754,7 +757,7 @@ public class SQLConnection {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Sayef@312469");
+        conn= DriverManager.getConnection(URL,USER,PASS);
         String sql="SELECT * FROM monthly_budget WHERE user_name = ?";
         stmt=conn.prepareStatement(sql);
         stmt.setString(1,name);
@@ -784,7 +787,7 @@ public class SQLConnection {
         PreparedStatement stmt=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+            conn= DriverManager.getConnection(URL,USER,PASS);
             String sql = "UPDATE monthly_budget SET expense_amount = ? WHERE user_name = ? AND budget_name = ? AND selected_category = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setDouble(1,expense);
@@ -804,7 +807,7 @@ public class SQLConnection {
         PreparedStatement stmt=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+            conn= DriverManager.getConnection(URL,USER,PASS);
             String sql = "UPDATE line_chart SET amount = ? WHERE user_name = ? AND date = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setDouble(1,amount);
@@ -824,7 +827,7 @@ public class SQLConnection {
         PreparedStatement stmt=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Sayef@312469");
+            conn= DriverManager.getConnection(URL,USER,PASS);
             String sql = "SELECT * FROM line_chart WHERE user_name = ? AND date = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1,name);
