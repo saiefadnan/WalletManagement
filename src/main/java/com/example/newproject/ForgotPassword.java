@@ -1,6 +1,5 @@
 package com.example.newproject;
 
-import com.sun.mail.util.MailConnectException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

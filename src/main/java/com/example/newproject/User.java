@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class User {
+    public static int id;
     public static double Balance,SUM;
     public static double[] A;
     public static double[] storeY;
@@ -41,8 +42,6 @@ public class User {
     public static ScheduledExecutorService scheduler;
 
     public User(String Name) throws SQLException, ClassNotFoundException {
-        System.out.println("Account logged in for "+Name+"!!!");
-        User.Name =Name;
         A=new double[11];
         Expense_data= new HashMap<>();
         storeY=new double[30];
@@ -50,18 +49,18 @@ public class User {
         MB_data=new ArrayList<>();
         NF_data=new ArrayList<>();
         Expense_Cat=new double[11];
-        int[] count=SQLConnection.getCount(Name);
+        int[] count={0, 1,2, 3};
         goals_count=count[0];
         debts_count=count[1];
         lents_count=count[2];
-        SQLConnection.getInfo(Name);
-        SQLConnection.wholeTable(Name);
-        SQLConnection.wholeTableDebt(Name);
-        SQLConnection.wholeTableLent(Name);
-        SQLConnection.getDashboard(Name);
-        SQLConnection.retrieveExpense(Name);
-        SQLConnection.getMB(Name);
-        SQLConnection.getFD(Name);
+        Supabase.getInstance().getUserInfo();
+//        SQLConnection.wholeTable(Name);
+//        SQLConnection.wholeTableDebt(Name);
+//        SQLConnection.wholeTableLent(Name);
+//        SQLConnection.getDashboard(Name);
+//        SQLConnection.retrieveExpense(Name);
+//        SQLConnection.getMB(Name);
+//        SQLConnection.getFD(Name);
     }
     public static void reset()
     {
