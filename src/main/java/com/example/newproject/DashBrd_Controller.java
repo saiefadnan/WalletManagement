@@ -212,7 +212,7 @@ public class DashBrd_Controller extends Abstract_controller{
                 });
                 Expense_Amount_Update();
             }
-            else if (User.SUM == 0) {
+            else if (User.SUM == 0){
                 LinearGradient paint = new LinearGradient(
                         0.0, 0.0, 1.0, 1.0, true, CycleMethod.NO_CYCLE,
                         new Stop(0.0, new Color(0.1922, 0.3216, 0.8392, 1.0)),
