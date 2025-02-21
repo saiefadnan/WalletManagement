@@ -67,7 +67,6 @@ public class Monthly_Budget extends Abstract_controller{
     public void Init(){
         for(int i=0;i< User.MB_data.size();++i){
             MonthlyBudget_data mb_data=User.MB_data.get(i);
-
             AnchorPane rect=new AnchorPane();
             rect.setPrefSize(730,81);
             rect.setStyle(
@@ -237,8 +236,11 @@ public class Monthly_Budget extends Abstract_controller{
 
         User.MB_data.add(mb_data);
         Add2(mb_data);
-        SQLConnection.insertMonthlyBudget(mb_data.Budget_name, mb_data.limit_amount, mb_data.expense_amount, mb_data.period,
-                String.valueOf(mb_data.init_date), String.valueOf(mb_data.final_date), mb_data.selected_cat,
+//        SQLConnection.insertMonthlyBudget(mb_data.Budget_name, mb_data.limit_amount, mb_data.expense_amount, mb_data.period,
+//                String.valueOf(mb_data.init_date), String.valueOf(mb_data.final_date), mb_data.selected_cat,
+//                String.valueOf(mb_data.cat_color), mb_data.notify1, mb_data.notify2, mb_data.Expense_index);
+        Supabase.getInstance().insertBudgetInfo(mb_data.Budget_name, mb_data.limit_amount, mb_data.expense_amount, mb_data.period,
+                mb_data.init_date, mb_data.final_date, mb_data.selected_cat,
                 String.valueOf(mb_data.cat_color), mb_data.notify1, mb_data.notify2, mb_data.Expense_index);
     }
 

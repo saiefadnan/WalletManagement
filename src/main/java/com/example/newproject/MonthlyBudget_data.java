@@ -13,13 +13,15 @@ public class MonthlyBudget_data {
     public Color cat_color;
     public String period;
     public double limit_amount;
-    public double progress;
     public int Expense_index;
     public double expense_amount;
+    public LocalDate init_date,final_date;
+    public boolean notify1,notify2;
+    //------------------>
     public double[] Ypoints;
+    public double progress;
     public LocalDate Today1;
     public LocalDate Today2;
-    public LocalDate init_date,final_date;
     public LocalDateTime init_time;
     public ScheduledExecutorService periodic_update;
     public ScheduledFuture<?> scheduledTask1;
@@ -27,7 +29,7 @@ public class MonthlyBudget_data {
     public ScheduledFuture<?> scheduledTask2;
     public ScheduledExecutorService Chart_updater;
     public ScheduledFuture<?> scheduledTask3;
-    public boolean notify1,notify2;
+
     MonthlyBudget_data(){
         Ypoints=new double[30];
     }

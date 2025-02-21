@@ -54,12 +54,12 @@ public class User {
         debts_count=count[1];
         lents_count=count[2];
         Supabase.getInstance().getUserInfo();
+        Supabase.getInstance().getFinancialRecords();
+        Supabase.getInstance().getBudgetInfo();
 //        SQLConnection.wholeTable(Name);
 //        SQLConnection.wholeTableDebt(Name);
 //        SQLConnection.wholeTableLent(Name);
-//        SQLConnection.getDashboard(Name);
-//        SQLConnection.retrieveExpense(Name);
-//        SQLConnection.getMB(Name);
+        //SQLConnection.retrieveExpense(Name);
 //        SQLConnection.getFD(Name);
     }
     public static void reset()

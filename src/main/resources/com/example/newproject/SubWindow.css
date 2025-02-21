@@ -7,7 +7,7 @@
     -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #3152d6 0.0%, #1fff7ce0 100.0%);
 }
 #miniAnchor1{
-    -fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000044);
+    -fx-background-color: black;
     -fx-background-radius: 35px;
     -fx-border-width: 4px;
     -fx-border-radius: 35px;

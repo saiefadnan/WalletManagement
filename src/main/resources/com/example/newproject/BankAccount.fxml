@@ -17,34 +17,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.BankAcnt_Controller">
-   <center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.BankAcnt_Controller">
+   <top>
       <AnchorPane prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="56.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" height="48.0" layoutX="56.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
             <Text layoutX="90.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Account" wrappingWidth="127.59997558593727">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="560.0" layoutX="62.0" layoutY="159.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="390.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" focusTraversable="true" height="560.0" layoutX="62.0" layoutY="159.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="390.0" />
             <Text fill="WHITE" layoutX="88.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Country    :" wrappingWidth="131.9999755859376">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
@@ -100,15 +83,9 @@
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="567.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
-            <Text layoutX="592.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Details" wrappingWidth="127.59997558593727">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <AnchorPane fx:id="miniAnchor1" layoutX="537.0" layoutY="146.0" prefHeight="676.0" prefWidth="890.0" stylesheets="@SubWindow.css">
+            <AnchorPane fx:id="miniAnchor1" layoutX="562.0" layoutY="60.0" prefHeight="724.0" prefWidth="890.0" stylesheets="@SubWindow.css">
                <children>
-                  <Button layoutX="711.0" layoutY="610.0" mnemonicParsing="false" onAction="#webBrowse" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: black; -fx-background-radius: 35px;" text="View more details " textFill="WHITE">
+                  <Button layoutX="705.0" layoutY="642.0" mnemonicParsing="false" onAction="#webBrowse" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: black; -fx-background-radius: 35px;" text="View more details " textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -218,6 +195,12 @@
                         </LinearGradient>
                      </stroke>
                   </Arc>
+                  <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#17b08a" height="48.0" layoutX="55.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+                  <Text layoutX="80.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Details" wrappingWidth="127.59997558593727">
+                     <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
             <Text fill="WHITE" layoutX="90.0" layoutY="606.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account No.      :" wrappingWidth="127.99997558593759">
@@ -230,5 +213,5 @@
             <PasswordField fx:id="Acc_no" layoutX="224.0" layoutY="587.0" prefWidth="205.0" />
          </children>
       </AnchorPane>
-   </center>
+   </top>
 </BorderPane>

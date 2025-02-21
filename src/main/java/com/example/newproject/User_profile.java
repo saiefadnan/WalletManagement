@@ -81,7 +81,7 @@ public class User_profile extends Abstract_controller{
         emailTf.setDisable(false);emailTf.setVisible(true);
         emailTf.setText(User.userInfo.get(2));
         dateTf.setDisable(false);dateTf.setVisible(true);
-        dateTf.setValue(LocalDate.parse(User.userInfo.get(4), DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        dateTf.setValue(LocalDate.parse(User.userInfo.get(4), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         maleRd.setDisable(false);maleRd.setVisible(true);
         femaleRd.setDisable(false);femaleRd.setVisible(true);
         othersRd.setDisable(false);othersRd.setVisible(true);
@@ -134,7 +134,7 @@ public class User_profile extends Abstract_controller{
         User.userInfo.set(7,phone);
         changeComplete();
         setValue();
-        SQLConnection.updateInfo();
+        Supabase.getInstance().updateUserInfo();
         warnLabel.setText("Information updated successfully");
         warnLabel.setStyle("-fx-text-fill: green");
         FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(1), warnLabel);

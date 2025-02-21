@@ -150,7 +150,7 @@ public class DashBrd_Controller extends Abstract_controller{
     public void pie(KeyEvent e) throws SQLException, ClassNotFoundException {
         if(e.getCode()==KeyCode.ENTER && !choicebox.getValue().isEmpty() && !Tf6.getText().isEmpty()) {
             double val = Double.parseDouble(Tf6.getText());
-            if((!choicebox.getValue().equals("Income") && User.Balance>=val && val>0) || (choicebox.getValue().equals("Income") && val>0)){//insert db
+            if((!choicebox.getValue().equals("Income") && User.Balance>=val && val>0) || (choicebox.getValue().equals("Income") && val>0)){
                 User.SUM+=val;
                 int l=0;
                 for(int i=0;i<11;++i){
@@ -181,17 +181,13 @@ public class DashBrd_Controller extends Abstract_controller{
                 double sum_val1=User.Expense_data.get(key1)+val;
                 User.Expense_data.put(key,sum_val);
                 User.Expense_data.put(key1,sum_val1);
-                if(SQLConnection.checkCategory(User.Name,String.valueOf(LocalDate.now()),choice[l])){
-                    SQLConnection.updateExpense(User.Name,choice[l], String.valueOf(LocalDate.now()),sum_val);
-                    //System.out.println(sum_val+ "   Something updated!!!!");
-                    //System.out.println(LocalDate.now());
-                }
-                else{
-                    SQLConnection.insertExpense(User.Name,choice[l], String.valueOf(LocalDate.now()),sum_val);
-                    //System.out.println(sum_val+"   Something inserted!!!!");
-                    //System.out.println(LocalDate.now());
-                }
-
+//                if(SQLConnection.checkCategory(User.Name,String.valueOf(LocalDate.now()),choice[l])) {
+//                    SQLConnection.updateExpense(User.Name, choice[l], String.valueOf(LocalDate.now()), sum_val);
+//                }
+//                else{
+//                    SQLConnection.insertExpense(User.Name,choice[l], String.valueOf(LocalDate.now()),sum_val);
+//                }
+                Supabase.getInstance().updateFinancialExpenses(choice[l], String.valueOf(LocalDate.now()), sum_val);
                 Platform.runLater(() -> {
                     Tb.setText(Double.toString(User.Balance));
                     Tf6.clear();
