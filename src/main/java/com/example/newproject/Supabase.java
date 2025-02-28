@@ -32,7 +32,7 @@ public class Supabase {
     public void closeConnection() {
         try {
             if (conn != null) {
-                conn.close();
+                conn.close();//
                 System.out.println("Database connection closed.");
             }
         } catch (SQLException e) {
