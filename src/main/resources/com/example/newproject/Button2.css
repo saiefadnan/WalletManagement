@@ -1,17 +1,17 @@
 .button{
-    -fx-background-color:  linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #ed0e02 0.0%, #9702ed 100.0%); /* Background color */
-    -fx-border-color: #FFB6C1; /* Border color */
+    -fx-background-color:  #c71c43;
+    -fx-border-color: #5bc0de; /* Border color */
     -fx-border-width: 2px; /* Border width */
-    -fx-border-radius: 30px; /* Border radius to create rounded corners */
-    -fx-font-size: 20px; /* Font size */
+    -fx-border-radius: 15px; /* Border radius to create rounded corners */
+    -fx-font-size: 13px; /* Font size */
     -fx-text-fill: black; /* Text color */
     -fx-cursor: hand; /* Cursor style for mouse hover */
-    -fx-background-radius: 30 30 30 30;
+    -fx-background-radius: 15 15 15 15;
 }
 
 
 /* Define a hover effect for the button */
 .button:hover {
     -fx-border-color: black; /* Background color on hover */
-    -fx-background-radius: 30 30 30 30;
+    -fx-background-radius: 15 15 15 15;
 }

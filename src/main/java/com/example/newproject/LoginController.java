@@ -112,7 +112,7 @@ public class LoginController extends SQLConnection
         String password=enterPasswordField.getText();
         String password1=passTextField.getText();
         if(!Supabase.getInstance().loginController(username, password)){
-            LoginPrompt.setText("Invalid username or password. Please try again.");
+            LoginPrompt.setText("An error occured...Please try again.");
             return;
         }
         new User(username);

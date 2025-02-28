@@ -49,18 +49,19 @@ public class User {
         MB_data=new ArrayList<>();
         NF_data=new ArrayList<>();
         Expense_Cat=new double[11];
-        int[] count={0, 1,2, 3};
+        int[] count={0, 1, 2, 3};
         goals_count=count[0];
         debts_count=count[1];
         lents_count=count[2];
         Supabase.getInstance().getUserInfo();
         Supabase.getInstance().getFinancialRecords();
         Supabase.getInstance().getBudgetInfo();
+        Supabase.getInstance().getFixedDepositInfo();
 //        SQLConnection.wholeTable(Name);
 //        SQLConnection.wholeTableDebt(Name);
 //        SQLConnection.wholeTableLent(Name);
         //SQLConnection.retrieveExpense(Name);
-//        SQLConnection.getFD(Name);
+        //SQLConnection.getFD(Name);
     }
     public static void reset()
     {

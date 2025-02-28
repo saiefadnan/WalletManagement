@@ -27,7 +27,7 @@
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" focusTraversable="true" height="560.0" layoutX="62.0" layoutY="159.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" focusTraversable="true" height="560.0" layoutX="62.0" layoutY="159.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="450.0" />
             <Text fill="WHITE" layoutX="88.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Country    :" wrappingWidth="131.9999755859376">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
@@ -38,7 +38,7 @@
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <ChoiceBox fx:id="choicebox1" layoutX="225.0" layoutY="349.0" prefHeight="26.0" prefWidth="203.0" />
+            <ChoiceBox fx:id="choicebox1" layoutX="225.0" layoutY="349.0" prefHeight="26.0" prefWidth="246.0" />
             <Button alignment="CENTER" layoutX="62.0" layoutY="745.0" mnemonicParsing="false" onAction="#Back" prefHeight="12.0" prefWidth="22.0" stylesheets="@Back_btn.css">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -67,12 +67,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="361.0" layoutY="640.0" mnemonicParsing="false" onAction="#Call" text="Submit">
+            <Button layoutX="400.0" layoutY="641.0" mnemonicParsing="false" onAction="#Call" stylesheets="@button4.css" text="Submit">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <ChoiceBox fx:id="choicebox" layoutX="225.0" layoutY="275.0" prefHeight="26.0" prefWidth="203.0" />
-            <TextField fx:id="user_field" layoutX="224.0" layoutY="432.0" prefHeight="26.0" prefWidth="205.0" />
+            <ChoiceBox fx:id="choicebox" layoutX="225.0" layoutY="275.0" prefHeight="26.0" prefWidth="246.0" />
+            <TextField fx:id="user_field" layoutX="224.0" layoutY="432.0" prefHeight="26.0" prefWidth="248.0" />
             <Text fill="WHITE" layoutX="88.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name         :" wrappingWidth="131.19998779296884">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
@@ -209,8 +209,14 @@
                </font>
             </Text>
             <Label fx:id="Brif_msg" alignment="CENTER" contentDisplay="CENTER" layoutX="917.0" layoutY="630.0" prefHeight="46.0" prefWidth="146.0" style="-fx-background-color: rgb(128,128,128); -fx-background-radius: 35px;" textAlignment="CENTER" textFill="#381313" visible="false" wrapText="true" />
-            <PasswordField fx:id="cust_no" layoutX="224.0" layoutY="510.0" prefWidth="205.0" />
-            <PasswordField fx:id="Acc_no" layoutX="224.0" layoutY="587.0" prefWidth="205.0" />
+            <PasswordField fx:id="cust_no" layoutX="224.0" layoutY="510.0" prefHeight="25.0" prefWidth="248.0" />
+            <PasswordField fx:id="Acc_no" layoutX="224.0" layoutY="587.0" prefHeight="25.0" prefWidth="248.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" height="48.0" layoutX="135.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+            <Text layoutX="209.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Bank Balance" wrappingWidth="156.59997558593727">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </top>

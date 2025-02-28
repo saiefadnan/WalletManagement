@@ -22,30 +22,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.Monthly_Budget">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.Monthly_Budget">
    <center>
       <AnchorPane cache="true" depthTest="DISABLE" focusTraversable="true" prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="560.0" layoutX="45.0" layoutY="161.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="390.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="46.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
-            <Text fill="WHITE" layoutX="85.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Overspent" wrappingWidth="173.20002746582009">
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#17b08ae0" focusTraversable="true" height="560.0" layoutX="45.0" layoutY="161.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" height="48.0" layoutX="46.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+            <Text fill="WHITE" layoutX="87.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Overspent" wrappingWidth="173.20002746582009">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
@@ -56,7 +39,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ChoiceBox>
-            <CheckBox fx:id="checkbox1" layoutX="85.0" layoutY="614.0" mnemonicParsing="false" text="Notify when amount has exceed the budget" textFill="WHITE" underline="true">
+            <CheckBox fx:id="checkbox1" layoutX="87.0" layoutY="588.0" mnemonicParsing="false" text="Notify when amount has exceed the budget" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -64,14 +47,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </CheckBox>
-            <CheckBox fx:id="checkbox2" layoutX="85.0" layoutY="678.0" mnemonicParsing="false" text="Notify when budget is trending to be overspent" textFill="WHITE" underline="true">
+            <CheckBox fx:id="checkbox2" layoutX="87.0" layoutY="652.0" mnemonicParsing="false" text="Notify when budget is trending to be overspent" textFill="WHITE" underline="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></CheckBox>
-            <Text fill="WHITE" layoutX="85.0" layoutY="662.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Risk of Overspent" wrappingWidth="173.20002746582009">
+            <Text fill="WHITE" layoutX="87.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Risk of Overspent" wrappingWidth="173.20002746582009">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
@@ -95,20 +78,20 @@
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="79.0" layoutY="174.0" stroke="BLACK" strokeType="INSIDE" width="325.0" />
-            <Text layoutX="170.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new Budget" wrappingWidth="143.60005187988259">
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" height="48.0" layoutX="79.0" layoutY="182.0" stroke="BLACK" strokeType="INSIDE" width="325.0" />
+            <Text layoutX="170.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new Budget" wrappingWidth="143.60005187988259">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="453.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="575.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" height="48.0" layoutX="453.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="575.0" />
             <Line endX="-100.0" endY="634.4000244140625" layoutX="550.0" layoutY="152.0" startX="-100.00001525878906" startY="-4.20001220703125" />
             <Text layoutX="495.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much can I spend to meet my budget" wrappingWidth="398.80006408691384">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="85.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications" underline="true" wrappingWidth="114.00001525878884">
+            <Text fill="WHITE" layoutX="87.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications" underline="true" wrappingWidth="114.00001525878884">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
@@ -116,7 +99,7 @@
             <DatePicker fx:id="datepicker" disable="true" layoutX="232.0" layoutY="426.0" prefHeight="26.0" prefWidth="105.0" visible="false" />
             <DatePicker fx:id="datepicker1" disable="true" layoutX="109.0" layoutY="426.0" prefHeight="26.0" prefWidth="106.0" visible="false" />
             <Text fx:id="FT" fill="WHITE" layoutX="109.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From                             To" visible="false" wrappingWidth="226.93673706054688" />
-            <Button layoutX="351.0" layoutY="522.0" mnemonicParsing="false" onAction="#Add1" text="Add+">
+            <Button layoutX="364.0" layoutY="675.0" mnemonicParsing="false" onAction="#Add1" stylesheets="@button4.css" text="Add+">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

@@ -3,6 +3,7 @@ package com.example.newproject;
 import io.github.cdimascio.dotenv.Dotenv;
 import javafx.scene.paint.Color;
 
+import java.math.RoundingMode;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -54,9 +55,51 @@ public class Supabase {
 
             } else {
                 System.out.println("Connection failed.");
+                Main.connect_Database_On_New_thread();
             }
         }catch(SQLException e){
             e.printStackTrace();
+        }
+    }
+
+    public boolean signupController(String[] signup){
+        try{
+            if(conn!=null){
+                System.out.println("signup request ongoing...");
+                PreparedStatement ps = conn.prepareStatement("INSERT INTO userinfo (firstname,lastname,name,email,password,gender,dob,profession,address,phone) " +
+                        "VALUES (?,?,?,?,?,?,?,?,?,?)");
+                ps.setString(1,signup[0]);
+                ps.setString(2,signup[1]);
+                ps.setString(3,signup[2]);
+                ps.setString(4,signup[3]);
+                ps.setString(5,signup[4]);
+                ps.setString(6,signup[5]);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                LocalDate dob =LocalDate.parse(signup[6], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                ps.setDate(7, java.sql.Date.valueOf(dob));
+                ps.setString(8,signup[7]);
+                ps.setString(9,signup[8]);
+                ps.setString(10,signup[9]);
+                int rs = ps.executeUpdate();
+                if(rs>0){
+                    System.out.println("sign up successful...");
+                    return true;
+                }
+                else{
+                    System.out.println("failure occured...try again");
+                    return false;
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+                return false;
+            }
+
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return false;
         }
     }
 
@@ -81,6 +124,7 @@ public class Supabase {
             }
             else{
                 System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
                 return false;
             }
 
@@ -116,6 +160,7 @@ public class Supabase {
             }
             else{
                 System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
             }
         }
         catch(SQLException e){
@@ -147,6 +192,7 @@ public class Supabase {
             }
             else{
                 System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
             }
         }
         catch(SQLException e){
@@ -162,6 +208,7 @@ public class Supabase {
                 ResultSet rs = ps.executeQuery();
                 if(!rs.next()){
                     System.out.println("no data available...");
+                    return;
                 }
                 User.Balance=rs.getDouble("balance");
                 User.Expense_Cat[0]=rs.getDouble("food");
@@ -183,6 +230,7 @@ public class Supabase {
             }
             else{
                 System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
             }
         }
         catch(SQLException e){
@@ -190,23 +238,23 @@ public class Supabase {
         }
     }
 
-    public void insertBudgetInfo(String budgetName, double limit, double expense, String period,  LocalDate idate, LocalDate fdate, String cat, String color, boolean not1, boolean not2, int index){
+    public void insertBudgetInfo(MonthlyBudget_data mb_data){
         try{
             if(conn!=null){
                 PreparedStatement ps = conn.prepareStatement("INSERT INTO budget_info(user_id, budget_name, limited_budget,expense_amount, period, init_date, " +
                         "final_date,category, color, notify1, notify2, expense_index) VALUES(?,?,?,?,?,?,?,?,?,?,?,?) ");
                 ps.setInt(1, User.id);
-                ps.setString(2,budgetName);
-                ps.setBigDecimal(3,new java.math.BigDecimal(limit));
-                ps.setBigDecimal(4,new java.math.BigDecimal(expense));
-                ps.setString(5,period);
-                ps.setDate(6,java.sql.Date.valueOf(idate));
-                ps.setDate(7,java.sql.Date.valueOf(fdate));
-                ps.setString(8,cat);
-                ps.setString(9,color);
-                ps.setBoolean(10,not1);
-                ps.setBoolean(11,not2);
-                ps.setInt(12,index);
+                ps.setString(2,mb_data.Budget_name);
+                ps.setBigDecimal(3,new java.math.BigDecimal(mb_data.limit_amount));
+                ps.setBigDecimal(4,new java.math.BigDecimal(mb_data.expense_amount));
+                ps.setString(5,mb_data.period);
+                ps.setDate(6,java.sql.Date.valueOf(mb_data.init_date));
+                ps.setDate(7,java.sql.Date.valueOf(mb_data.final_date));
+                ps.setString(8,mb_data.selected_cat);
+                ps.setString(9,String.valueOf(mb_data.cat_color));
+                ps.setBoolean(10,mb_data.notify1);
+                ps.setBoolean(11,mb_data.notify2);
+                ps.setInt(12,mb_data.Expense_index);
                 int ri = ps.executeUpdate();
                 if(ri>0){
                     System.out.println("data inserted...");
@@ -215,6 +263,7 @@ public class Supabase {
             }
             else{
                 System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
             }
         }
         catch(SQLException e){
@@ -230,6 +279,7 @@ public class Supabase {
                 ResultSet rs = ps.executeQuery();
                 if(!rs.next()){
                     System.out.println("no data available...");
+                    return;
                 }
 
                 do{
@@ -251,6 +301,7 @@ public class Supabase {
             }
             else{
                 System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
             }
         }
         catch(SQLException e){
@@ -283,6 +334,75 @@ public class Supabase {
             }
             else{
                 System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void insertFixedDepositInfo(FixedDeposit_data fd_data){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("INSERT INTO fixed_deposit_info(user_id, bank_name, initial_saving, current_saving, maturity_amount, idate, " +
+                        "fdate, notify, comp_freq, maturity_unit, maturity_duration, interest) VALUES(?,?,?,?,?,?,?,?,?,?,?,?) ");
+                ps.setInt(1, User.id);
+                ps.setString(2,fd_data.dpst_BankName);
+                ps.setBigDecimal(3,new java.math.BigDecimal(fd_data.Invested));
+                ps.setBigDecimal(4,new java.math.BigDecimal(fd_data.Saving_amnt));
+                ps.setBigDecimal(5,new java.math.BigDecimal(fd_data.Maturity_val).setScale(4, RoundingMode.HALF_UP));
+                ps.setDate(6,java.sql.Date.valueOf(fd_data.Init_date));
+                ps.setDate(7,java.sql.Date.valueOf(fd_data.Final_date));
+                ps.setBoolean(8,fd_data.notify);
+                ps.setBigDecimal(9, new java.math.BigDecimal(fd_data.Comp_freq));
+                ps.setBigDecimal(10, new java.math.BigDecimal(fd_data.Maturity_unit).setScale(4, RoundingMode.HALF_UP));
+                ps.setBigDecimal(11, new java.math.BigDecimal(fd_data.Maturity_duration));
+                ps.setBigDecimal(12, new java.math.BigDecimal(fd_data.interest));
+                int ri = ps.executeUpdate();
+
+                if(ri>0){
+                    System.out.println("Fixed Deposit data inserted...");
+                }
+                else System.out.println("Error occured...Try again" );
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    void getFixedDepositInfo(){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("SELECT * FROM fixed_deposit_info WHERE user_id=?");
+                ps.setInt(1, User.id);
+                ResultSet rs = ps.executeQuery();
+                if(!rs.next()){
+                    System.out.println("no data available...");
+                    return;
+                }
+                do{
+                    String bank_name=rs.getString("bank_name");
+                    double invested=rs.getDouble("initial_saving");
+                    double saving=rs.getDouble("current_saving");
+                    double maturity_val=rs.getDouble("maturity_amount");
+                    String idate=rs.getString("idate");
+                    String fdate=rs.getString("fdate");
+                    boolean notify=rs.getBoolean("notify");
+                    double compFreq=rs.getDouble("comp_freq");
+                    double maturityUnit=rs.getDouble("maturity_unit");
+                    double maturityDuration=rs.getDouble("maturity_duration");
+                    double interest=rs.getDouble("interest");
+                    User.FD_data.add(new FixedDeposit_data(bank_name, saving, invested, maturity_val, maturity_val-invested, LocalDate.parse(idate), LocalDate.parse(fdate), notify, compFreq, maturityUnit, maturityDuration, interest));
+                }while(rs.next());
+                System.out.println("Fixed_deposit_info retrieved...!" );
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
             }
         }
         catch(SQLException e){

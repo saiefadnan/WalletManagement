@@ -155,11 +155,15 @@ public class SignUpController extends SQLConnection implements Initializable {
             }
             textPrompt.setText("Valid phone number.");
             textPrompt.setTextFill(Color.GREEN);
-            connection(signUp);
-            insertGoalsCount(signUp[2]);
+            if(!Supabase.getInstance().signupController(signUp)) {
+                textPrompt.setText("Error occurred!");
+                textPrompt.setTextFill(Color.RED);
+                return;
+            }
+            //insertGoalsCount(signUp[2]);
             textPrompt.setText("All set!");
             textPrompt.setTextFill(Color.GREEN);
-            SQLConnection.insertDashboard(signUp[2]);
+            //SQLConnection.insertDashboard(signUp[2]);
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             System.out.println("2");

@@ -86,6 +86,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         }
         Ts5.setText("My current net worth: BDT "+(String.format("%.2f",User.net_worth)));
         for(int i=0;i<User.FD_data.size();++i){
+            FixedDeposit_data fd_data=User.FD_data.get(i);
             AnchorPane anchorpane=new AnchorPane();
             anchorpane.setStyle(
                     "-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #3152d6 0.0%, #1fff7ce0 100.0%);" +
@@ -93,7 +94,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
             );
             anchorpane.setPrefSize(160,80);
 
-            Text text=new Text("Bank Name: "+User.FD_data.get(i).dpst_BankName);
+            Text text=new Text("Bank Name: "+fd_data.dpst_BankName);
             text.setFill(Color.BLACK);
             text.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, 12));
 
@@ -102,7 +103,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
 
             btn.getStylesheets().add(getClass().getResource("Dynamic_Btn.css").toExternalForm());
             btn1.getStylesheets().add(getClass().getResource("Dynamic_Btn.css").toExternalForm());
-            FixedDeposit_data fd_data=User.FD_data.get(i);
+            //FixedDeposit_data fd_data=User.FD_data.get(i);
             btn.setOnAction(e->OpenOverview(fd_data));
             btn1.setOnAction(e->Deletion(anchorpane,fd_data));
 
@@ -166,7 +167,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         if(fd_data.Final_date.equals(LocalDate.now()) || fd_data.Final_date.isBefore(LocalDate.now())) {
             return;
         }
-        fd_data.Maturity_val= fd_data.Invested*Math.pow((1+fd_data.interest/(100*fd_data.Comp_freq)),fd_data.Comp_freq*(fd_data.Maturity_duration)*fd_data.Maturity_unit);
+        fd_data.Maturity_val= fd_data.Invested*Math.pow((1+fd_data.interest/(100*fd_data.Comp_freq)),fd_data.Comp_freq*fd_data.Maturity_duration*fd_data.Maturity_unit);
         fd_data.Earned_Interest= fd_data.Maturity_val- fd_data.Invested;
         fd_data.Saving_amnt = current_Saving(fd_data);
         User.net_worth+=fd_data.Saving_amnt;
@@ -206,7 +207,9 @@ public class FixedDeposit_Controller extends Abstract_controller{
                 })
         );
         timeline.play();
-        SQLConnection.insertFD(User.Name,fd_data);
+        Supabase.getInstance().insertFixedDepositInfo(fd_data);
+        //SQLConnection.insertFD(User.Name,fd_data);
+        Close();
     }
     public void Add2(FixedDeposit_data fd_data){
         AnchorPane anchorpane=new AnchorPane();
@@ -301,13 +304,13 @@ public class FixedDeposit_Controller extends Abstract_controller{
     }
 
     public void OpenOverview(FixedDeposit_data fd_data){
-        Ts0.setText("Initial deposit date:"+fd_data.Init_date);
+        Ts0.setText("Initial deposit date: "+fd_data.Init_date);
         Ts1.setText("BDT "+ (String.format("%.2f",fd_data.Saving_amnt)));
         Ts2.setText("You Invested: BDT "+(String.format("%.2f",fd_data.Invested)));
         Ts3.setText("Maturity Value: BDT "+(String.format("%.2f",fd_data.Maturity_val)));
         Ts4.setText("Interest Earned: BDT "+(String.format("%.2f",fd_data.Earned_Interest)));
         Ts5.setText("My current net worth: BDT "+(String.format("%.2f",User.net_worth)));
-        Ts6.setText("Final date:"+fd_data.Final_date);
+        Ts6.setText("Final date: "+fd_data.Final_date);
         Cir_ProgressBar(fd_data);
     }
 
@@ -411,6 +414,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         miniAnchor1.setVisible(false);
     }
     public void Close(){
+        System.out.println("closing...");
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), miniAnchor);
         fadeTransition.setFromValue(1.0);
         fadeTransition.setToValue(0.0);

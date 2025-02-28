@@ -114,7 +114,7 @@ public class Monthly_Budget extends Abstract_controller{
             AnchorPane.setLeftAnchor(category,45.0);
 
             Button btn=new Button("Overview");
-            btn.getStylesheets().add(Objects.requireNonNull(getClass().getResource("Dynamic_Btn.css")).toExternalForm());
+            btn.getStylesheets().add(Objects.requireNonNull(getClass().getResource("button4.css")).toExternalForm());
             btn.setOnAction(event -> {
                 try {
                     graph2(event,mb_data);
@@ -239,9 +239,7 @@ public class Monthly_Budget extends Abstract_controller{
 //        SQLConnection.insertMonthlyBudget(mb_data.Budget_name, mb_data.limit_amount, mb_data.expense_amount, mb_data.period,
 //                String.valueOf(mb_data.init_date), String.valueOf(mb_data.final_date), mb_data.selected_cat,
 //                String.valueOf(mb_data.cat_color), mb_data.notify1, mb_data.notify2, mb_data.Expense_index);
-        Supabase.getInstance().insertBudgetInfo(mb_data.Budget_name, mb_data.limit_amount, mb_data.expense_amount, mb_data.period,
-                mb_data.init_date, mb_data.final_date, mb_data.selected_cat,
-                String.valueOf(mb_data.cat_color), mb_data.notify1, mb_data.notify2, mb_data.Expense_index);
+        Supabase.getInstance().insertBudgetInfo(mb_data);
     }
 
     public void checkNotification(MonthlyBudget_data mb_data) {
@@ -318,7 +316,7 @@ public class Monthly_Budget extends Abstract_controller{
         AnchorPane.setLeftAnchor(name,45.0);
 
         Button btn=new Button("Overview");
-        btn.getStylesheets().add(getClass().getResource("Dynamic_Btn.css").toExternalForm());
+        btn.getStylesheets().add(getClass().getResource("button4.css").toExternalForm());
         btn.setOnAction(event -> {
             try {
                 graph2(event,mb_data);

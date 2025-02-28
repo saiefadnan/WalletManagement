@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -21,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.FixedDeposit_Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.FixedDeposit_Controller">
    <center>
       <AnchorPane prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,34 +35,22 @@
                               <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
                            </color>
                         </Stop>
+                        <Stop offset="0.9966442953020134">
+                           <color>
+                              <Color red="0.10196078568696976" green="0.21960784494876862" blue="0.5411764979362488" opacity="0.5" />
+                           </color>
+                        </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                              <Color red="0.10196078568696976" green="0.21960784494876862" blue="0.5411764979362488" opacity="0.5" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" height="139.0" layoutX="1024.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="387.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.8313725590705872" green="0.20000000298023224" blue="0.2823529541492462" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.12941177189350128" green="0.8745098114013672" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="46.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab08880" height="139.0" layoutX="1025.0" layoutY="202.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab088" height="48.0" layoutX="46.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
             <Text layoutX="71.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fixed Deposit" wrappingWidth="122.00001525878884">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
@@ -78,7 +67,7 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                              <Color red="0.10196078568696976" green="0.21960784494876862" blue="0.5411764979362488" opacity="0.5" />
                            </color>
                         </Stop>
                      </stops>
@@ -86,46 +75,14 @@
                </fill>
             </Rectangle>
             <Line endX="-100.0" endY="634.4000244140625" layoutX="550.0" layoutY="145.0" startX="-100.00001525878906" startY="-4.20001220703125" />
-            <Rectangle arcHeight="35.0" arcWidth="35.0" height="139.0" layoutX="541.0" layoutY="185.0" stroke="BLACK" strokeType="INSIDE" width="387.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.8313725590705872" green="0.20000000298023224" blue="0.2823529541492462" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.12941177189350128" green="0.8745098114013672" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill></Rectangle>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" height="282.0" layoutX="541.0" layoutY="406.0" stroke="BLACK" strokeType="INSIDE" width="387.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.8313725590705872" green="0.20000000298023224" blue="0.2823529541492462" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.12941177189350128" green="0.8745098114013672" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill></Rectangle>
-            <Text fx:id="Ts1" layoutX="559.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BDT 0.0" wrappingWidth="355.60011291503884">
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab08880" height="139.0" layoutX="541.0" layoutY="202.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab08880" height="282.0" layoutX="541.0" layoutY="406.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+            <Text fx:id="Ts1" layoutX="559.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BDT 0.0" wrappingWidth="355.60011291503884">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="555.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yout current savings:" wrappingWidth="182.39999999999995">
+            <Text layoutX="555.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yout current savings:" wrappingWidth="182.39999999999995">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
@@ -145,13 +102,13 @@
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="943.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="413.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab088" height="48.0" layoutX="943.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="413.0" />
             <Text fx:id="Ts5" layoutX="955.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My current net worth :" wrappingWidth="389.19996643066384">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="146.0" layoutX="56.0" layoutY="160.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="349.0">
+            <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="146.0" layoutX="53.0" layoutY="257.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="349.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -169,11 +126,11 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Button layoutX="84.0" layoutY="187.0" mnemonicParsing="false" onAction="#miniScene" prefHeight="97.0" prefWidth="292.0" stylesheets="@Button1.css" text="Click to add your savings +">
+            <Button layoutX="81.0" layoutY="284.0" mnemonicParsing="false" onAction="#miniScene" prefHeight="97.0" prefWidth="292.0" stylesheets="@Button4.css" text="Add savings +">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="146.0" layoutX="56.0" layoutY="399.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="349.0">
+            <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="146.0" layoutX="53.0" layoutY="496.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="349.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -191,13 +148,13 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Button layoutX="84.0" layoutY="423.0" mnemonicParsing="false" onAction="#Recordscene" prefHeight="97.0" prefWidth="292.0" stylesheets="@Button1.css" text="Click to see your records">
+            <Button layoutX="81.0" layoutY="520.0" mnemonicParsing="false" onAction="#Recordscene" prefHeight="97.0" prefWidth="292.0" stylesheets="@Button4.css" text="See records">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <AnchorPane fx:id="miniAnchor" disable="true" layoutX="40.0" layoutY="149.0" prefHeight="586.0" prefWidth="390.0" stylesheets="@SubWindow.css" visible="false">
+            <AnchorPane fx:id="miniAnchor" disable="true" layoutX="40.0" layoutY="140.0" prefHeight="595.0" prefWidth="398.0" stylesheets="@SubWindow.css" visible="false">
                <children>
-                  <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="560.0" layoutX="12.0" layoutY="13.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="367.0">
+                  <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="569.0" layoutX="12.0" layoutY="13.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="375.0">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -215,31 +172,30 @@
                         </LinearGradient>
                      </fill>
                   </Rectangle>
-                  <TextField fx:id="tf1" layoutX="148.0" layoutY="57.0" prefHeight="26.0" prefWidth="190.0" promptText="Bank name" />
-                  <TextField fx:id="tf2" layoutX="148.0" layoutY="99.0" prefHeight="26.0" prefWidth="190.0" promptText="Saving amount (BDT)" />
-                  <CheckBox fx:id="checkbox" layoutX="28.0" layoutY="486.0" mnemonicParsing="false" text="Notify when maturity period ends" textFill="WHITE" underline="true">
+                  <TextField fx:id="tf1" layoutX="172.0" layoutY="60.0" prefHeight="26.0" prefWidth="190.0" promptText="Bank name" />
+                  <TextField fx:id="tf2" layoutX="172.0" layoutY="102.0" prefHeight="26.0" prefWidth="190.0" promptText="Saving amount (BDT)" />
+                  <CheckBox fx:id="checkbox" layoutX="28.0" layoutY="435.0" mnemonicParsing="false" text="Notify when maturity period ends" textFill="WHITE" underline="true">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </CheckBox>
-                  <ChoiceBox fx:id="choicebox2" layoutX="261.0" layoutY="336.0" prefHeight="28.0" prefWidth="80.0" />
-                  <Text fill="WHITE" layoutX="28.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications" underline="true" wrappingWidth="121.20001220703102">
+                  <ChoiceBox fx:id="choicebox2" layoutX="288.0" layoutY="320.0" prefHeight="28.0" prefWidth="80.0" />
+                  <Text fill="WHITE" layoutX="28.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications" underline="true" wrappingWidth="121.20001220703102">
                      <font>
                         <Font name="Berlin Sans FB" size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="tf4" layoutX="148.0" layoutY="337.0" prefHeight="26.0" prefWidth="100.0" promptText="Maturity Period " />
+                  <TextField fx:id="tf4" layoutX="175.0" layoutY="321.0" prefHeight="26.0" prefWidth="100.0" promptText="Maturity Period " />
                   <Text fill="WHITE" layoutX="28.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compounding frequency :" wrappingWidth="118.80012512207009">
                      <font>
                         <Font name="Berlin Sans FB" size="18.0" />
                      </font>
                   </Text>
-                  <ChoiceBox fx:id="choicebox1" layoutX="148.0" layoutY="265.0" prefHeight="28.0" prefWidth="80.0" />
-                  <TextField fx:id="tf3" layoutX="148.0" layoutY="210.0" prefHeight="26.0" prefWidth="190.0" promptText="Rate of interest(%)" />
-                  <Button layoutX="285.0" layoutY="404.0" mnemonicParsing="false" onAction="#Add1" text="Add+" />
-                  <DatePicker fx:id="datepicker" layoutX="148.0" layoutY="157.0" prefHeight="26.0" prefWidth="148.0" promptText="Initial deposit date" />
-                  <Button layoutX="285.0" layoutY="522.0" mnemonicParsing="false" onAction="#Close" text="Close" />
-                  <Text fill="WHITE" layoutX="28.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maturity Period :" wrappingWidth="71.60014343261696">
+                  <ChoiceBox fx:id="choicebox1" layoutX="172.0" layoutY="268.0" prefHeight="28.0" prefWidth="80.0" />
+                  <TextField fx:id="tf3" layoutX="172.0" layoutY="213.0" prefHeight="26.0" prefWidth="190.0" promptText="Rate of interest(%)" />
+                  <Button layoutX="288.0" layoutY="488.0" mnemonicParsing="false" onAction="#Add1" stylesheets="@button4.css" text="Add+" />
+                  <DatePicker fx:id="datepicker" layoutX="172.0" layoutY="160.0" prefHeight="26.0" prefWidth="148.0" promptText="Initial deposit date" />
+                  <Text fill="WHITE" layoutX="28.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maturity Period :" wrappingWidth="129.60014343261696">
                      <font>
                         <Font name="Berlin Sans FB" size="18.0" />
                      </font>
@@ -259,11 +215,16 @@
                         <Font name="Berlin Sans FB" size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="28.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate of Interest (%):" wrappingWidth="110.00007629394509">
+                  <Text fill="WHITE" layoutX="28.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Interest (%):" wrappingWidth="110.00007629394509">
                      <font>
                         <Font name="Berlin Sans FB" size="18.0" />
                      </font>
                   </Text>
+                  <Button layoutX="345.0" layoutY="20.0" mnemonicParsing="false" onAction="#Close" stylesheets="@Button2.css" text="X" textAlignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </AnchorPane>
             <Text fx:id="Ts0" layoutX="558.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initial Deposit Date:" wrappingWidth="362.80006408691384">
@@ -276,26 +237,29 @@
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="1054.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maturity Period Progress Tracking" textAlignment="CENTER" wrappingWidth="325.19996643066384">
+            <Text layoutX="1055.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maturity Period Progress Tracking" textAlignment="CENTER" wrappingWidth="325.19996643066384">
                <font>
                   <Font name="Berlin Sans FB Bold" size="25.0" />
                </font>
             </Text>
             <Label fx:id="Brif_msg" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="587.0" prefHeight="46.0" prefWidth="146.0" style="-fx-background-color: rgb(128,128,128); -fx-background-radius: 35px;" text="Record Added" textAlignment="CENTER" textFill="#381313" visible="false" wrapText="true" />
-            <AnchorPane fx:id="miniAnchor1" disable="true" layoutX="75.0" layoutY="149.0" prefHeight="586.0" prefWidth="334.0" stylesheets="@SubWindow.css" visible="false">
+            <AnchorPane fx:id="miniAnchor1" disable="true" layoutX="40.0" layoutY="140.0" prefHeight="611.0" prefWidth="398.0" stylesheets="@SubWindow.css" visible="false">
                <children>
-                  <ScrollPane fx:id="scrollpane" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" layoutX="17.0" layoutY="18.0" prefHeight="520.0" prefWidth="300.0" stylesheets="@ScrollPane.css">
+                  <ScrollPane fx:id="scrollpane" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" layoutX="17.0" layoutY="18.0" prefHeight="520.0" prefWidth="364.0" stylesheets="@ScrollPane.css">
                      <content>
-                        <VBox fx:id="vbox" prefHeight="444.0" prefWidth="248.0" spacing="2.0" style="-fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000044); -fx-background-radius: 0;" />
+                        <VBox fx:id="vbox" prefHeight="340.0" prefWidth="248.0" spacing="2.0" style="-fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000044); -fx-background-radius: 0;">
+                           <padding>
+                              <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                           </padding></VBox>
                      </content>
                   </ScrollPane>
-                  <Button layoutX="252.0" layoutY="544.0" mnemonicParsing="false" onAction="#Close1" text="Close" />
+                  <Button layoutX="300.0" layoutY="545.0" mnemonicParsing="false" onAction="#Close1" prefWidth="81.0" stylesheets="@button4.css" text="Close" />
                </children>
             </AnchorPane>
-            <Arc fx:id="Cir_prog11" fill="#09ff0000" layoutX="1219.0" layoutY="500.0" length="360.0" radiusX="80.0" radiusY="80.0" startAngle="90.0" stroke="#020302fa" strokeType="INSIDE" strokeWidth="0.2" />
-            <Arc fx:id="Cir_prog1" fill="#09ff0000" layoutX="1219.0" layoutY="500.0" length="360.0" radiusX="120.0" radiusY="120.0" startAngle="90.0" stroke="#020302fa" strokeType="INSIDE" strokeWidth="0.2" />
-            <Arc fx:id="Cir_prog" fill="#09ff0000" layoutX="1219.0" layoutY="500.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#349e08" strokeLineCap="ROUND" strokeWidth="40.0" />
-            <Text fx:id="Ts7" layoutX="1097.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0%" textAlignment="CENTER" wrappingWidth="245.20021057128884">
+            <Arc fx:id="Cir_prog11" fill="#09ff0000" layoutX="1219.0" layoutY="538.0" length="360.0" radiusX="80.0" radiusY="80.0" startAngle="90.0" stroke="#020302fa" strokeType="INSIDE" strokeWidth="0.2" />
+            <Arc fx:id="Cir_prog1" fill="#09ff0000" layoutX="1219.0" layoutY="538.0" length="360.0" radiusX="120.0" radiusY="120.0" startAngle="90.0" stroke="#020302fa" strokeType="INSIDE" strokeWidth="0.2" />
+            <Arc fx:id="Cir_prog" fill="#09ff0000" layoutX="1219.0" layoutY="538.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#349e08" strokeLineCap="ROUND" strokeWidth="40.0" />
+            <Text fx:id="Ts7" layoutX="1097.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0%" textAlignment="CENTER" wrappingWidth="245.20021057128884">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>

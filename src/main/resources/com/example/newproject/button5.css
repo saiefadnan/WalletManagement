@@ -1,18 +1,18 @@
 .button{
-    -fx-background-color:#9200ff;
-    -fx-opacity: 0.8;
+    -fx-background-color:  #c71c43;
     -fx-border-color: #5bc0de; /* Border color */
+     -fx-opacity: 0.8;
     -fx-border-width: 2px; /* Border width */
     -fx-border-radius: 30px; /* Border radius to create rounded corners */
     -fx-font-size: 20px; /* Font size */
     -fx-text-fill: black; /* Text color */
     -fx-cursor: hand; /* Cursor style for mouse hover */
-    -fx-background-radius: 30 30 30 30
+    -fx-background-radius: 30 30 30 30;
 }
 
 
 /* Define a hover effect for the button */
 .button:hover {
     -fx-border-color: black; /* Background color on hover */
-    -fx-background-radius: 30 30 30 30
+    -fx-background-radius: 30 30 30 30;
 }

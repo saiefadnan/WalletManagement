@@ -1,6 +1,7 @@
 .button{
-    -fx-background-color:  linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #f2cc02 0.0%, #f01811 100.0%); /* Background color */
-    -fx-border-color:  #FFA500; /* Border color */
+    -fx-background-color:  #ff8c00; /* Background color */
+    -fx-border-color: #5bc0de; /* Border color */
+     -fx-opacity: 0.8;
     -fx-border-width: 2px; /* Border width */
     -fx-border-radius: 30px; /* Border radius to create rounded corners */
     -fx-font-size: 20px; /* Font size */

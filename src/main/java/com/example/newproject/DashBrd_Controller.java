@@ -594,8 +594,8 @@ public class DashBrd_Controller extends Abstract_controller{
     }
 
     public void Log_out(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
-        SQLConnection.updateDashboard();
-        SQLConnection.updateCount(User.Name,User.goals_count,User.debts_count,User.lents_count);
+//        SQLConnection.updateDashboard();
+//        SQLConnection.updateCount(User.Name,User.goals_count,User.debts_count,User.lents_count);
         User.reset();
         flag=true;
         FixedDeposit_Controller.flag=true;

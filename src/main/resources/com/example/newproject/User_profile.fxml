@@ -25,11 +25,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.User_profile">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.User_profile">
    <top>
       <AnchorPane prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#0996c1" height="48.0" layoutX="112.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#2d977b" height="48.0" layoutX="112.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
             <Text layoutX="130.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Profile" wrappingWidth="122.00001525878884">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
