@@ -2,7 +2,6 @@ package com.example.newproject;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import javafx.scene.paint.Color;
-
 import java.math.RoundingMode;
 import java.sql.*;
 import java.time.LocalDate;
@@ -14,7 +13,7 @@ public class Supabase {
     private static final String USER = dotenv.get("DB_USER");
     private static final String PASSWORD = dotenv.get("DB_PASSWORD");
     private static Supabase instance;
-    private Connection conn;
+    private static Connection conn;
 
     public Supabase() {
         try {
@@ -25,7 +24,10 @@ public class Supabase {
         }
     }
     public static Supabase getInstance(){
-        if(instance==null) instance= new Supabase();
+        System.out.println("hello"+instance);
+        if(instance==null || conn==null) {
+            instance= new Supabase();
+        }
         return instance;
     }
 
@@ -33,7 +35,7 @@ public class Supabase {
         try {
             if (conn != null) {
                 conn.close();//
-                System.out.println("Database connection closed.");
+                System.out.println("Database connection closing....");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -399,6 +401,132 @@ public class Supabase {
                     User.FD_data.add(new FixedDeposit_data(bank_name, saving, invested, maturity_val, maturity_val-invested, LocalDate.parse(idate), LocalDate.parse(fdate), notify, compFreq, maturityUnit, maturityDuration, interest));
                 }while(rs.next());
                 System.out.println("Fixed_deposit_info retrieved...!" );
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    protected boolean queryUser(String user_email) {
+        try {
+            if (conn != null) {
+                PreparedStatement ps = conn.prepareStatement("SELECT * FROM userinfo WHERE email=?");
+                ps.setString(1, user_email);
+                ResultSet rs = ps.executeQuery();
+                if (!rs.next()) {
+                    System.out.println("no data available...");
+                    return false;
+                }
+                System.out.println("got it...");
+                return true;
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    protected boolean resetPassword(String email, String new_password){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("UPDATE userinfo SET" +
+                        " password=? WHERE email=?");
+                ps.setString(1,new_password);
+                ps.setString(2, email);
+                int ru = ps.executeUpdate();
+
+                if(ru>0){
+                    System.out.println("Password updated...");
+                    return true;
+                }
+                else {
+                    System.out.println("Error occured...Try again" );
+                    return false;
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+                return false;
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public void update_notify_status(){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("UPDATE fixed_deposit_info SET" +
+                        " notify=? WHERE user_id=?");
+                ps.setBoolean(1,false);
+                ps.setInt(2, User.id);
+                int ru = ps.executeUpdate();
+
+                if(ru>0){
+                    System.out.println("notify status updated");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void fetchNotifs(){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("SELECT content FROM notifications " +
+                        "WHERE user_id=?");
+                ps.setInt(1,User.id);
+                ResultSet rs = ps.executeQuery();
+                if(!rs.next()){
+                    System.out.println("no data available...");
+                    return;
+                }
+
+                do{
+                    String notif_content=rs.getString("content");
+                    Notification_data nf_data = new Notification_data();
+                    nf_data.messsage.setText(notif_content);
+                    User.NF_data.add(nf_data);
+                }while(rs.next());
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void storeNotifs(String content){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("INSERT INTO notifications (user_id,content)" +
+                        " VALUES(?,?)");
+                ps.setInt(1,User.id);
+                ps.setString(2, content);
+                int ri = ps.executeUpdate();
+
+                if(ri>0){
+                    System.out.println("notification stored");
+                }
             }
             else{
                 System.out.println("Connection error...try later");

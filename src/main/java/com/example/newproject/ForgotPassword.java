@@ -1,5 +1,15 @@
 package com.example.newproject;
 
+
+import io.github.cdimascio.dotenv.Dotenv;
+import jakarta.activation.DataHandler;
+import jakarta.activation.DataSource;
+import jakarta.activation.FileDataSource;
+import jakarta.activation.CommandMap;
+import jakarta.activation.MailcapCommandMap;
+import jakarta.mail.*;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +22,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -26,6 +32,9 @@ import java.util.Random;
 import java.util.regex.Pattern;
 
 public class ForgotPassword extends SQLConnection{
+    private static final Dotenv dotenv = Dotenv.load();
+    private static final String app_acc = dotenv.get("APP_ACCOUNT");
+    private static final String app_pass = dotenv.get("APP_PASSWORD");
     private static final Pattern passwordPattern =
             Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$");
     @FXML
@@ -37,11 +46,11 @@ public class ForgotPassword extends SQLConnection{
     @FXML
     Button rpBtn,sendBtn,cancelBtn,submitBtn,confirmBtn1,cancelBtn1,submitBtn1;
     @FXML
-    TextField usernameTextField, codeTextfield;
+    TextField userEmail, codeTextfield;
     @FXML
     PasswordField npField,cpField;
     private static int genCode;
-    private static String username;
+    private static String user_email;
     public void getCode(ActionEvent event)
     {
         int code=Integer.parseInt(codeTextfield.getText());
@@ -66,7 +75,7 @@ public class ForgotPassword extends SQLConnection{
         scene = new Scene(root);
         stage.setX(0);
         stage.setY(0);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -81,7 +90,7 @@ public class ForgotPassword extends SQLConnection{
         scene = new Scene(root);
         stage.setX(0);
         stage.setY(0);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -98,32 +107,30 @@ public class ForgotPassword extends SQLConnection{
     public void getVal(ActionEvent event) throws SQLException, ClassNotFoundException {
         Random rand=new Random();
         genCode= rand.nextInt(999999);
-        username=usernameTextField.getText();
-        if(!UserQuery(username))
+        user_email=userEmail.getText();
+        if(!Supabase.getInstance().queryUser(user_email))
         {
-            userPrompt.setText("Invalid username or username not found.");
+            userPrompt.setText("Invalid email or user not found.");
             return;
         }
-        System.out.println("Username: " + username);
-        String email=emailQuery(username);
+        System.out.println("email: " + user_email);
+        //String email=emailQuery(username);
         String subject="Reset password";
         String body="Your confirmation code is "+genCode+". Please enter this code to reset your password." +
-                " If you did not request a password reset, please ignore this email. Thank you. \n\n" + "Regards,\n" + "Budget Tracker Team" +
-                "\n\n" + "This is an automated email. Please do not reply to this email." + "\n\n";
-        String user="budgettracker697291@gmail.com";
+                "\n\n" + "Regards,\n" + "Budget Tracker Team" + "\n\n";
         if (!isInternetConnectionAvailable()) {
             userPrompt.setText("No internet connection.");
             return;
         }
-        sendEmail(body,subject,email,user);
-        userPrompt.setText("Confirmation code has been sent to your email account");
+        sendEmail(body,subject,user_email);
+        userPrompt.setText("Confirmation code has been sent to your email account, \n check spam folder if not found");
         userPrompt.setTextFill(Color.GREEN);
         cc2.setDisable(false);
         codeTextfield.setDisable(false);
         codePrompt.setDisable(false);
         submitBtn.setDisable(false);
     }
-    private static void sendEmail(String body, String subject, String email, String user){
+    private static void sendEmail(String body, String subject, String email){
         String host="smtp.gmail.com";
         Properties properties=System.getProperties();
         properties.put("mail.smtp.host", host);
@@ -134,15 +141,14 @@ public class ForgotPassword extends SQLConnection{
             Session session = Session.getInstance(properties, new Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("budgettracker697291@gmail.com",
-                            "cgnbaawpqylyoskh");
+                    return new PasswordAuthentication(app_acc, app_pass);
                 }
             });
             session.setDebug(true);
 
             MimeMessage m = new MimeMessage(session);
             try {
-                m.setFrom(new InternetAddress(user));
+                m.setFrom(new InternetAddress(app_acc));
                 m.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
                 m.setSubject(subject);
                 m.setText(body);
@@ -162,21 +168,28 @@ public class ForgotPassword extends SQLConnection{
         if(password.length()<10)
         {
             rpPrompt.setText("Password too short.");
+            rpPrompt.setTextFill(Color.RED);
             return;
         }
         if(!passwordPattern.matcher(password).matches())
         {
-            rpPrompt.setText("Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character(!@#$%^&*).");
+            rpPrompt.setText("Password must contain at least one uppercase letter, one lowercase letter, \n one digit, and one special character(!@#$%^&*).");
+            rpPrompt.setTextFill(Color.RED);
             return;
         }
         if(!Objects.equals(password, cPassword)) {
             rpPrompt.setText("The password information doesn't match. Please try again!");
+            rpPrompt.setTextFill(Color.RED);
             return;
         }
         rpPrompt.setText("Valid.");
         rpPrompt.setTextFill(Color.GREEN);
-        System.out.println("Username: " + username);
-        updatePassword(username,password);
+        if(!Supabase.getInstance().resetPassword(user_email, password)){
+            rpPrompt.setText("An Error occured, Try again...");
+            rpPrompt.setTextFill(Color.RED);
+        }
         confirmBtn1.setDisable(false);
     }
 }
+
+//123@Adnan23412432

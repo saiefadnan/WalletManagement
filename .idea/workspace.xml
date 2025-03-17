@@ -4,31 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="frontend modification done...95%">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/button4.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/button5.css" afterDir="false" />
+    <list default="true" id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="frontend modification done...100%backend config done 50%">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/InternetConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/LoginManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/WebSocketClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/WebSocketServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/BankAcnt_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BankAcnt_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Budget_Overview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Budget_Overview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Debts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Debts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/DebtsInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/DebtsInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/ForgotPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/ForgotPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Goals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Goals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/LentsInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/LentsInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Monthly_Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Monthly_Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/SignUpController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/BankAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/BankAccount.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Button1.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Button1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Button2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Button2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Button3.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Button3.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/DashBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/DashBoard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Dynamic_Btn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Dynamic_Btn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Enter_expense_Butn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Enter_expense_Butn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Fixed_Deposit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Fixed_Deposit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Graph_2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Graph_2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Monthly_budget.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Monthly_budget.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/User_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/User_profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/textfield.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/textfield.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/User_profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/User_profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Forget-password.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Forget-password.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Reset-password.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Reset-password.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +63,14 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/scene_builder/SceneBuilder.exe&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Project_Java/jars/kotlin-stdlib-1.8.0.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -161,30 +167,73 @@
       <option name="project" value="LOCAL" />
       <updated>1740138603474</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="frontend modification done...100%backend config done 50%">
+      <option name="closed" value="true" />
+      <created>1740769262591</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740769262591</updated>
+    </task>
+    <task id="LOCAL-00006" summary="frontend modification done...100%backend config done 50%">
+      <option name="closed" value="true" />
+      <created>1740769538612</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740769538612</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="supabase connected....login controller working fine..." />
     <MESSAGE value="database work on going...." />
     <MESSAGE value="database work on going..." />
-    <option name="LAST_COMMIT_MESSAGE" value="database work on going..." />
+    <MESSAGE value="frontend modification done...100%backend config done 50%" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend modification done...100%backend config done 50%" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>596</line>
+          <line>598</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>597</line>
+          <line>599</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
+          <line>377</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/LoginController.java</url>
+          <line>123</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -18,6 +18,7 @@ import javafx.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -65,7 +66,7 @@ public class LoginController extends SQLConnection
             scene = new Scene(root);
             stage.setX(0);
             stage.setY(0);
-            stage.setFullScreen(true);
+            //stage.setFullScreen(true);
             stage.setScene(scene);
             stage.show();
         }catch(Exception e){
@@ -80,7 +81,7 @@ public class LoginController extends SQLConnection
         scene = new Scene(root);
         stage.setX(0);
         stage.setY(0);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -99,7 +100,7 @@ public class LoginController extends SQLConnection
             System.exit(0);
     }
 
-    public void login(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+    public void login(ActionEvent event) throws IOException, SQLException, ClassNotFoundException, NoSuchAlgorithmException {
         if(usernameTextField.getText().isEmpty()) {
             LoginPrompt.setText("Please enter username.");
             return;
@@ -116,10 +117,11 @@ public class LoginController extends SQLConnection
             return;
         }
         new User(username);
+        LoginManager.saveLoginDetails(User.id,username,password);
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashBoard.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }

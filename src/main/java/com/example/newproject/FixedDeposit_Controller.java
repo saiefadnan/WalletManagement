@@ -270,6 +270,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         }
         if(LocalDate.now().equals(fd_data.Final_date) || LocalDate.now().isAfter(fd_data.Final_date)) {
             showNotification(fd_data);
+            System.out.println("yeahhh");
         }
         if(!Today.isEqual(LocalDate.now())) {
             Cir_ProgressBar(fd_data);
@@ -296,8 +297,12 @@ public class FixedDeposit_Controller extends Abstract_controller{
                 + (String.format("%.2f",fd_data.Maturity_val))+"\n\n");
         nf_data.localdate=LocalDate.now();
         nf_data.localtime= LocalTime.now();
-        User.NF_data.add(nf_data);
-
+        Platform.runLater(() -> {
+            Supabase.getInstance().update_notify_status();
+            Supabase.getInstance().storeNotifs(nf_data.messsage.getText());
+            User.NF_data.add(nf_data);
+            System.out.println("Adding: " + nf_data + ", List size: " + User.NF_data.size());
+        });
         fd_data.notify=false;
         fd_data.scheduledTask.cancel(true);
         fd_data.Notification_checker.shutdown();
@@ -385,7 +390,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashBoard.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }

@@ -315,6 +315,7 @@ public class DashBrd_Controller extends Abstract_controller{
             FixedDeposit_data fd_data = User.FD_data.get(i);
             FixedDeposit_Controller fd = new FixedDeposit_Controller();
             if ((fd_data.Notification_checker == null || fd_data.Notification_checker.isShutdown()) && fd_data.notify) {
+                System.out.println(fd_data.notify+" helooooooooooooooooooooo");
                 fd_data.Notification_checker= Executors.newScheduledThreadPool(1);
                 fd_data.scheduledTask = fd_data.Notification_checker.scheduleAtFixedRate(()->fd.checkTime(fd_data), 0, 15, TimeUnit.SECONDS);
                 //System.out.println("sucessfully->t4");
@@ -374,19 +375,19 @@ public class DashBrd_Controller extends Abstract_controller{
             Noti_label.setText(String.valueOf(User.noti_counter));
             System.out.println("Update!!!");
 
-            for (int i = User.noti_num; i < User.NF_data.size(); ++i) {
-                AnchorPane anchorpane = new AnchorPane();
-                anchorpane.setStyle(
-                        "-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #3152d6 0.0%, #1fff7ce0 100.0%);" +
-                                "-fx-background-radius: 20px;"
-                );
-                AnchorPane.setTopAnchor(User.NF_data.get(i).messsage, 20.0);
-                AnchorPane.setLeftAnchor(User.NF_data.get(i).messsage, 10.0);
-                anchorpane.setPrefSize(120, 80);
-                anchorpane.getChildren().add(User.NF_data.get(i).messsage);
-                vbox.getChildren().add(1,anchorpane);
-            }
-            vbox.requestLayout();
+//            for (int i = User.noti_num; i < User.NF_data.size(); ++i) {
+//                AnchorPane anchorpane = new AnchorPane();
+//                anchorpane.setStyle(
+//                        "-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #3152d6 0.0%, #1fff7ce0 100.0%);" +
+//                                "-fx-background-radius: 20px;"
+//                );
+//                AnchorPane.setTopAnchor(User.NF_data.get(i).messsage, 20.0);
+//                AnchorPane.setLeftAnchor(User.NF_data.get(i).messsage, 10.0);
+//                anchorpane.setPrefSize(120, 80);
+//                anchorpane.getChildren().add(User.NF_data.get(i).messsage);
+//                vbox.getChildren().add(0,anchorpane);
+//            }
+//            vbox.requestLayout();
             User.noti_num=User.NF_data.size();
         });
     }
@@ -520,7 +521,7 @@ public class DashBrd_Controller extends Abstract_controller{
             AnchorPane.setLeftAnchor(User.NF_data.get(i).messsage, 10.0);
             anchorpane.setPrefSize(120, 80);
             anchorpane.getChildren().add(User.NF_data.get(i).messsage);
-            vbox.getChildren().add(1,anchorpane);
+            vbox.getChildren().add(0,anchorpane);
         }
     }
 
@@ -530,6 +531,7 @@ public class DashBrd_Controller extends Abstract_controller{
         Noti_label.setDisable(true);
         Noti_pane.setVisible(true);
         Noti_pane.setDisable(false);
+
     }
 
     public void CloseNoti_pane() {
@@ -542,7 +544,7 @@ public class DashBrd_Controller extends Abstract_controller{
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -551,7 +553,7 @@ public class DashBrd_Controller extends Abstract_controller{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Monthly_budget.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -560,7 +562,7 @@ public class DashBrd_Controller extends Abstract_controller{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Fixed_Deposit.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -570,7 +572,7 @@ public class DashBrd_Controller extends Abstract_controller{
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -579,7 +581,7 @@ public class DashBrd_Controller extends Abstract_controller{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("BankAccount.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -588,7 +590,7 @@ public class DashBrd_Controller extends Abstract_controller{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("User_profile.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
@@ -602,7 +604,7 @@ public class DashBrd_Controller extends Abstract_controller{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }

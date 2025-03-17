@@ -13,6 +13,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -34,9 +35,22 @@ public class splashWindow implements Initializable {
                     public void run() {
                         Parent root = null;
                         try {
-                            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+                            if(!Objects.equals(LoginManager.getPassword(), "")){
+                                User.id = Integer.parseInt(LoginManager.getUserID());
+                                User.Name = LoginManager.getUsername();
+                                new User(User.Name);
+                                System.out.println("dashboard!!!");
+                                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashBoard.fxml")));
+                            }
+                            else{
+                                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+                            }
                         } catch (IOException e) {
                             e.printStackTrace();
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        } catch (ClassNotFoundException e) {
+                            throw new RuntimeException(e);
                         }
                         Scene scene = new Scene(root, 1550, 890);
                         Stage stage=new Stage();

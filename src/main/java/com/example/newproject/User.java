@@ -53,15 +53,7 @@ public class User {
         goals_count=count[0];
         debts_count=count[1];
         lents_count=count[2];
-        Supabase.getInstance().getUserInfo();
-        Supabase.getInstance().getFinancialRecords();
-        Supabase.getInstance().getBudgetInfo();
-        Supabase.getInstance().getFixedDepositInfo();
-//        SQLConnection.wholeTable(Name);
-//        SQLConnection.wholeTableDebt(Name);
-//        SQLConnection.wholeTableLent(Name);
-        //SQLConnection.retrieveExpense(Name);
-        //SQLConnection.getFD(Name);
+        fetch_User_data();
     }
     public static void reset()
     {
@@ -92,6 +84,19 @@ public class User {
         noti_num=0;
         noti_counter=0;
         net_worth=0;
+        LoginManager.clearLoginInfo();
     }
 
+    private void fetch_User_data(){
+        Supabase.getInstance().getUserInfo();
+        Supabase.getInstance().getFinancialRecords();
+        Supabase.getInstance().getBudgetInfo();
+        Supabase.getInstance().getFixedDepositInfo();
+        Supabase.getInstance().fetchNotifs();
+//        SQLConnection.wholeTable(Name);
+//        SQLConnection.wholeTableDebt(Name);
+//        SQLConnection.wholeTableLent(Name);
+        //SQLConnection.retrieveExpense(Name);
+        //SQLConnection.getFD(Name);
+    }
 }
