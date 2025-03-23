@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.Monthly_Budget">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.BudgetPlan_Controller">
    <center>
       <AnchorPane cache="true" depthTest="DISABLE" focusTraversable="true" prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
          <children>

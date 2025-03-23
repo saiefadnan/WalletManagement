@@ -196,7 +196,7 @@ public class SQLConnection {
         System.out.println("Successfully dashboard inserted");
     }
 
-    public static void insertFD(String name, FixedDeposit_data fdData) throws ClassNotFoundException, SQLException {
+    public static void insertFD(String name, FixedDeposit fdData) throws ClassNotFoundException, SQLException {
         Connection conn=null;
         PreparedStatement stmt=null;
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -246,7 +246,7 @@ public class SQLConnection {
                 double maturity_unit=rs.getDouble("maturity_unit");
                 double maturity_duration=rs.getDouble("maturity_duration");
                 double interest=rs.getDouble("interest");
-                User.FD_data.add(new FixedDeposit_data(bank_name,deposit_amount,invested_amount,maturity_value,earned_interest,LocalDate.parse(init_date),LocalDate.parse(final_date),notify,comp_freq,maturity_unit,maturity_duration,interest));
+                User.FD_data.add(new FixedDeposit(bank_name,deposit_amount,invested_amount,maturity_value,earned_interest,LocalDate.parse(init_date),LocalDate.parse(final_date),notify,comp_freq,maturity_unit,maturity_duration,interest));
             }
             rs.close();
             stmt.close();
@@ -256,7 +256,7 @@ public class SQLConnection {
         }
     }
 
-    public static void deleteFD(String name, FixedDeposit_data fdData) {
+    public static void deleteFD(String name, FixedDeposit fdData) {
         Connection conn=null;
         PreparedStatement stmt=null;
         try {
@@ -764,6 +764,7 @@ public class SQLConnection {
         ResultSet rs = stmt.executeQuery();
         while(rs.next())
         {
+            int budget_id=rs.getInt("id");
             String budget_name=rs.getString("budget_name");
             double limit=rs.getDouble("limit_amount");
             double expense=rs.getDouble("expense_amount");
@@ -775,7 +776,7 @@ public class SQLConnection {
             int index=rs.getInt("expense_index");
             boolean not1=rs.getBoolean("notification1");
             boolean not2=rs.getBoolean("notification2");
-            User.MB_data.add(new MonthlyBudget_data(budget_name,cat,index,Color.valueOf(color),period,limit,expense,idate,fdate,not1,not2));
+            User.MB_data.add(new BudgetPlan(budget_id, budget_name,cat,index,Color.valueOf(color),period,limit,expense,idate,fdate,not1,not2));
         }
         rs.close();
         stmt.close();

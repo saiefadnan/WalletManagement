@@ -35,7 +35,8 @@ public class splashWindow implements Initializable {
                     public void run() {
                         Parent root = null;
                         try {
-                            if(!Objects.equals(LoginManager.getPassword(), "")){
+
+                            if(!Objects.equals(LoginManager.getUserID(), "") && Supabase.getInstance().checkValidity()){
                                 User.id = Integer.parseInt(LoginManager.getUserID());
                                 User.Name = LoginManager.getUsername();
                                 new User(User.Name);

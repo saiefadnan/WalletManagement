@@ -3,9 +3,11 @@ package com.example.newproject;
 import io.github.cdimascio.dotenv.Dotenv;
 import javafx.scene.paint.Color;
 import java.math.RoundingMode;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Supabase {
     private static final Dotenv dotenv = Dotenv.load();
@@ -74,7 +76,7 @@ public class Supabase {
                 ps.setString(2,signup[1]);
                 ps.setString(3,signup[2]);
                 ps.setString(4,signup[3]);
-                ps.setString(5,signup[4]);
+                ps.setString(5,LoginManager.hashPassword(signup[4]));
                 ps.setString(6,signup[5]);
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 LocalDate dob =LocalDate.parse(signup[6], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -102,16 +104,47 @@ public class Supabase {
         catch(SQLException e){
             e.printStackTrace();
             return false;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Boolean checkValidity(){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("SELECT name, password FROM userinfo WHERE id=?");
+                ps.setInt(1, Integer.parseInt(LoginManager.getUserID()));
+                ResultSet rs = ps.executeQuery();
+                if(!rs.next()){
+                    return false;
+                }
+                String username = rs.getString("name");
+                String fetchedPass = rs.getString("password");
+                if(Objects.equals(username, LoginManager.getUsername()) && Objects.equals(fetchedPass, LoginManager.getPassword())){
+                    System.out.println("User validity matched..." );
+                    return true;
+                }
+                return false;
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+                return false;
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return false;
         }
     }
 
     public boolean loginController(String name, String password){
         try{
             if(conn!=null){
-                System.out.println("checking user credentials...");
+                System.out.println("checking user credentials... "+LoginManager.hashPassword(password));
                 PreparedStatement ps = conn.prepareStatement("SELECT id, name FROM userinfo WHERE name=? and password=?");
                 ps.setString(1,name);
-                ps.setString(2,password);
+                ps.setString(2,LoginManager.hashPassword(password));
                 ResultSet rs = ps.executeQuery();
                 if(!rs.next()){
                     System.out.println("Try again...");
@@ -134,17 +167,20 @@ public class Supabase {
         catch(SQLException e){
             e.printStackTrace();
             return false;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
     }
 
     public void getUserInfo(){
         try{
             if(conn!=null){
-                PreparedStatement ps = conn.prepareStatement("SELECT firstname,lastname,email,gender,dob,profession,address,phone FROM userinfo WHERE id=?");
+                PreparedStatement ps = conn.prepareStatement("SELECT firstname,lastname,email,gender,dob,profession,address,phone,unread_notifs FROM userinfo WHERE id=?");
                 ps.setInt(1, User.id);
                 ResultSet rs = ps.executeQuery();
                 if(!rs.next()){
-                    System.out.println("no data available...");
+                    System.out.println("no data available of user ID: "+ User.id);
+                    return;
                 }
                     User.userInfo.add(rs.getString("firstname"));
                     User.userInfo.add(rs.getString("lastname"));
@@ -154,7 +190,7 @@ public class Supabase {
                     User.userInfo.add(rs.getString("profession"));
                     User.userInfo.add(rs.getString("address"));
                     User.userInfo.add(rs.getString("phone"));
-
+                    User.temp_unread_notif = rs.getInt("unread_notifs");
                     System.out.println("UserInfo retrieved...!" );
                     for(int i=0;i<User.userInfo.size();++i){
                         System.out.println(User.userInfo.get(i));
@@ -205,7 +241,8 @@ public class Supabase {
     public void getFinancialRecords(){
         try{
             if(conn!=null){
-                PreparedStatement ps = conn.prepareStatement("SELECT * FROM financial_records WHERE id=?");
+                System.out.println(User.id);
+                PreparedStatement ps = conn.prepareStatement("SELECT * FROM financial_records WHERE user_id=?");
                 ps.setInt(1, User.id);
                 ResultSet rs = ps.executeQuery();
                 if(!rs.next()){
@@ -213,16 +250,16 @@ public class Supabase {
                     return;
                 }
                 User.Balance=rs.getDouble("balance");
-                User.Expense_Cat[0]=rs.getDouble("food");
+                User.Expense_Cat[0]=rs.getDouble("foods & drinks");
                 User.Expense_Cat[1]=rs.getDouble("shopping");
                 User.Expense_Cat[2]=rs.getDouble("housing");
                 User.Expense_Cat[3]=rs.getDouble("transportation");
                 User.Expense_Cat[4]=rs.getDouble("vehicle");
-                User.Expense_Cat[5]=rs.getDouble("entertainment");
+                User.Expense_Cat[5]=rs.getDouble("life & entertainment");
                 User.Expense_Cat[6]=rs.getDouble("investments");
-                User.Expense_Cat[7]=rs.getDouble("incomes");
+                User.Expense_Cat[7]=rs.getDouble("income");
                 User.Expense_Cat[8]=rs.getDouble("communication");
-                User.Expense_Cat[9]=rs.getDouble("fin_expenses");
+                User.Expense_Cat[9]=rs.getDouble("financial expenses");
                 User.Expense_Cat[10]=rs.getDouble("others");
 
                 System.out.println("Financial records retrieved...!" );
@@ -240,7 +277,7 @@ public class Supabase {
         }
     }
 
-    public void insertBudgetInfo(MonthlyBudget_data mb_data){
+    public void insertBudgetInfo(BudgetPlan mb_data){
         try{
             if(conn!=null){
                 PreparedStatement ps = conn.prepareStatement("INSERT INTO budget_info(user_id, budget_name, limited_budget,expense_amount, period, init_date, " +
@@ -285,6 +322,7 @@ public class Supabase {
                 }
 
                 do{
+                    int budget_id = rs.getInt("id");
                     String budget_name=rs.getString("budget_name");
                     double limit=rs.getDouble("limited_budget");
                     double expense=rs.getDouble("expense_amount");
@@ -296,7 +334,7 @@ public class Supabase {
                     int index=rs.getInt("expense_index");
                     boolean not1=rs.getBoolean("notify1");
                     boolean not2=rs.getBoolean("notify2");
-                    User.MB_data.add(new MonthlyBudget_data(budget_name,cat,index, Color.valueOf(color),period,limit,expense,idate,fdate,not1,not2));
+                    User.MB_data.add(new BudgetPlan(budget_id, budget_name,cat,index, Color.valueOf(color),period,limit,expense,idate,fdate,not1,not2));
                     System.out.println(period);
                 }while(rs.next());
                 System.out.println("Budget info retrieved...!" );
@@ -310,40 +348,7 @@ public class Supabase {
             e.printStackTrace();
         }
     }
-    public void updateFinancialExpenses(String cat, String date, Double expense){
-        try{
-            if(conn!=null){
-                PreparedStatement ps = conn.prepareStatement("UPDATE expense_info set " +
-                        "expense=? WHERE user_id=? and category=? and idate=?");
-                ps.setBigDecimal(1, new java.math.BigDecimal(expense));
-                ps.setInt(2, User.id);
-                ps.setString(3, cat);
-                ps.setDate(4, java.sql.Date.valueOf(date));
-                int ru = ps.executeUpdate();
-                if(ru>0){
-                    System.out.println("UserInfo updated..." );
-                }
-                else {
-                    PreparedStatement ps1 = conn.prepareStatement("INSERT INTO expense_info " +
-                            "(user_id,category,expense,idate)"+
-                            "VALUES (?,?,?,?) ");
-                    ps1.setInt(1, User.id);
-                    ps1.setString(2, cat);
-                    ps1.setBigDecimal(3, new java.math.BigDecimal(expense));
-                    ps1.setDate(4,java.sql.Date.valueOf(date));
-                    int ru1 = ps1.executeUpdate();
-                }
-            }
-            else{
-                System.out.println("Connection error...try later");
-                Main.connect_Database_On_New_thread();
-            }
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
-    }
-    public void insertFixedDepositInfo(FixedDeposit_data fd_data){
+    public void insertFixedDepositInfo(FixedDeposit fd_data){
         try{
             if(conn!=null){
                 PreparedStatement ps = conn.prepareStatement("INSERT INTO fixed_deposit_info(user_id, bank_name, initial_saving, current_saving, maturity_amount, idate, " +
@@ -398,7 +403,7 @@ public class Supabase {
                     double maturityUnit=rs.getDouble("maturity_unit");
                     double maturityDuration=rs.getDouble("maturity_duration");
                     double interest=rs.getDouble("interest");
-                    User.FD_data.add(new FixedDeposit_data(bank_name, saving, invested, maturity_val, maturity_val-invested, LocalDate.parse(idate), LocalDate.parse(fdate), notify, compFreq, maturityUnit, maturityDuration, interest));
+                    User.FD_data.add(new FixedDeposit(bank_name, saving, invested, maturity_val, maturity_val-invested, LocalDate.parse(idate), LocalDate.parse(fdate), notify, compFreq, maturityUnit, maturityDuration, interest));
                 }while(rs.next());
                 System.out.println("Fixed_deposit_info retrieved...!" );
             }
@@ -437,9 +442,10 @@ public class Supabase {
     protected boolean resetPassword(String email, String new_password){
         try{
             if(conn!=null){
+                String np=LoginManager.hashPassword(new_password);
                 PreparedStatement ps = conn.prepareStatement("UPDATE userinfo SET" +
                         " password=? WHERE email=?");
-                ps.setString(1,new_password);
+                ps.setString(1,np);
                 ps.setString(2, email);
                 int ru = ps.executeUpdate();
 
@@ -461,6 +467,8 @@ public class Supabase {
         catch(SQLException e){
             e.printStackTrace();
             return false;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -505,6 +513,7 @@ public class Supabase {
                     nf_data.messsage.setText(notif_content);
                     User.NF_data.add(nf_data);
                 }while(rs.next());
+                User.noti_num = User.NF_data.size() - User.temp_unread_notif;
             }
             else{
                 System.out.println("Connection error...try later");
@@ -526,6 +535,292 @@ public class Supabase {
 
                 if(ri>0){
                     System.out.println("notification stored");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void insertExpense(String cat, Double expense){
+        try{
+            if(conn!=null){
+                System.out.println(cat.toLowerCase());
+                PreparedStatement ps = conn.prepareStatement("UPDATE financial_records set \"" +
+                        cat.toLowerCase() + "\" =? , balance=? WHERE user_id=? ");
+
+                ps.setBigDecimal(1, new java.math.BigDecimal(expense));
+                ps.setDouble(2, User.Balance);
+                ps.setInt(3, User.id);
+                int ru = ps.executeUpdate();
+                if(ru>0){
+                    System.out.println("financial info updated..." );
+                }
+                else {
+                    PreparedStatement ps1 = conn.prepareStatement("INSERT INTO financial_records " +
+                            "(user_id,balance, \"" + cat.toLowerCase() +"\")"+
+                            "VALUES (?,?,?) ");
+                    ps1.setInt(1, User.id);
+                    ps1.setDouble(2, User.Balance);
+                    ps1.setBigDecimal(3, new java.math.BigDecimal(expense));
+                    int ri = ps1.executeUpdate();
+                    if(ri>0){
+                        System.out.println("financial info inserted..." );
+                    }
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void updateBalance(){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("UPDATE financial_records set " +
+                        "balance=? WHERE user_id=? ");
+
+                ps.setDouble(1, User.Balance);
+                ps.setInt(2, User.id);
+                int ru = ps.executeUpdate();
+                if(ru>0){
+                    System.out.println("balance updated..." );
+                }
+                else {
+                    PreparedStatement ps1 = conn.prepareStatement("INSERT INTO financial_records " +
+                            "(user_id,balance) "+
+                            "VALUES (?,?) ");
+                    ps1.setInt(1, User.id);
+                    ps1.setDouble(2, User.Balance);
+                    int ri = ps1.executeUpdate();
+                    if(ri>0){
+                        System.out.println("financial info inserted..." );
+                    }
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateUnreadNotifs(int count){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("UPDATE userinfo set " +
+                        "unread_notifs=? WHERE id=? ");
+
+                ps.setInt(1, count);
+                ps.setInt(2, User.id);
+                int ru = ps.executeUpdate();
+                if(ru>0){
+                    System.out.println("unread notifs stored as 0" );
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void getExpenseByDate(){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("SELECT * FROM expense_by_date WHERE user_id=? ");
+                ps.setInt(1, User.id);
+
+                ResultSet rs = ps.executeQuery();
+                if(!rs.next()){
+                    System.out.println("no data available..." );
+                    return;
+                }
+                do{
+                    Date_CategoryKey key=new Date_CategoryKey(LocalDate.parse(rs.getString("date_")),rs.getString("category"));
+                    User.Expense_data.put(key, rs.getDouble("amount"));
+                    //System.out.println(key);
+                }while(rs.next());
+
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void insertExpenseByDate(Date_CategoryKey key, Date_CategoryKey key1, Double val, Double val1){
+        try{
+            LocalDate date_ = key.date;
+            String cat = key.category;
+            LocalDate date_1 = key1.date;
+            String cat1 = key1.category;
+            System.out.println(cat);
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("UPDATE expense_by_date SET " +
+                        "amount = CASE " +
+                        "WHEN category = ? AND date_ = ? THEN ? " +
+                        "WHEN category = ? AND date_ = ? THEN ? " +
+                        "ELSE amount END " +
+                        "WHERE user_id=? AND (category = ? AND date_ = ? OR category = ? AND date_ = ?)");
+                ps.setString(1, cat);
+                ps.setDate(2, java.sql.Date.valueOf(date_));
+                ps.setDouble(3, val);
+                ps.setString(4, cat1);
+                ps.setDate(5, java.sql.Date.valueOf(date_1));
+                ps.setDouble(6, val1);
+                ps.setInt(7, User.id);
+                ps.setString(8, cat);
+                ps.setDate(9, java.sql.Date.valueOf(date_));
+                ps.setString(10, cat1);
+                ps.setDate(11, java.sql.Date.valueOf(date_1));
+
+                int ru = ps.executeUpdate();
+                if(ru>=2){
+                    System.out.println("expense by date updated..." );
+                }
+                else if (ru==1){
+                    PreparedStatement ps1 = conn.prepareStatement("INSERT INTO expense_by_date " +
+                            "(user_id,amount,date_,category) " +
+                            "VALUES (?,?,?,?)");
+                    ps1.setInt(1, User.id);
+                    ps1.setDouble(2, val);
+                    ps1.setDate(3,java.sql.Date.valueOf(date_));
+                    ps1.setString(4, cat);
+
+                    int ri = ps1.executeUpdate();
+                    if(ri>0){
+                        System.out.println("expense by date inserted..." );
+                    }
+                }
+                else{
+                    PreparedStatement ps1 = conn.prepareStatement("INSERT INTO expense_by_date " +
+                            "(user_id,amount,date_,category) " +
+                            "VALUES (?,?,?,?), (?,?,?,?)");
+                    ps1.setInt(1, User.id);
+                    ps1.setDouble(2, val);
+                    ps1.setDate(3,java.sql.Date.valueOf(date_));
+                    ps1.setString(4, cat);
+                    ps1.setInt(5, User.id);
+                    ps1.setDouble(6, val1);
+                    ps1.setDate(7,java.sql.Date.valueOf(date_1));
+                    ps1.setString(8, cat1);
+
+                    int ri = ps1.executeUpdate();
+                    if(ri>0){
+                        System.out.println("expense by date inserted..." );
+                    }
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void getBalanceBydate(){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("SELECT * FROM balance_by_date " +
+                        "WHERE user_id=? AND date_ > CURRENT_DATE - INTERVAL '30 days' " +
+                        "ORDER BY date_ ASC");
+                ps.setInt(1,User.id);
+                ResultSet rs = ps.executeQuery();
+                if(!rs.next()){
+                    System.out.println("no data available...");
+                    return;
+                }
+
+                do{
+                    User.BalanceGraph.put(rs.getString("date_"), rs.getDouble("balance"));
+                }while(rs.next());
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void insertBalanceByDate(LocalDate ld){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("UPDATE balance_by_date SET " +
+                        "balance = ? " +
+                        "WHERE user_id=? AND date_ = ?");
+                ps.setDouble(1, User.Balance);
+                ps.setInt(2, User.id);
+                ps.setDate(3, java.sql.Date.valueOf(ld));
+
+                int ru = ps.executeUpdate();
+                if(ru>0){
+                    System.out.println("balance by date updated..." );
+                }
+                else{
+                    PreparedStatement ps1 = conn.prepareStatement("INSERT INTO balance_by_date " +
+                            "(user_id,balance,date_) " +
+                            "VALUES (?,?,?)");
+                    ps1.setInt(1, User.id);
+                    ps1.setDouble(2, User.Balance);
+                    ps1.setDate(3,java.sql.Date.valueOf(ld));
+                    int ri = ps1.executeUpdate();
+                    if(ri>0){
+                        System.out.println("balance by date inserted..." );
+                    }
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateBudgetInfo(BudgetPlan mb_data){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("UPDATE budget_info SET " +
+                        "expense_amount = ? " +
+                        "WHERE user_id=? AND id=?");
+                ps.setDouble(1, mb_data.expense_amount);
+                ps.setInt(2, User.id);
+                ps.setInt(3, mb_data.budget_id);
+
+                int ru = ps.executeUpdate();
+                if(ru>0){
+                    System.out.println("budget info updated..." );
+                }
+                else{
+                    System.out.println("budget info not found..." );
                 }
             }
             else{

@@ -22,7 +22,6 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import java.io.IOException;
@@ -81,12 +80,12 @@ public class FixedDeposit_Controller extends Abstract_controller{
     public void Init(){
         if(flag) {
             flag=false;
-            for (FixedDeposit_data fd_data : User.FD_data)
+            for (FixedDeposit fd_data : User.FD_data)
                 User.net_worth += fd_data.Saving_amnt;
         }
         Ts5.setText("My current net worth: BDT "+(String.format("%.2f",User.net_worth)));
         for(int i=0;i<User.FD_data.size();++i){
-            FixedDeposit_data fd_data=User.FD_data.get(i);
+            FixedDeposit fd_data=User.FD_data.get(i);
             AnchorPane anchorpane=new AnchorPane();
             anchorpane.setStyle(
                     "-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #3152d6 0.0%, #1fff7ce0 100.0%);" +
@@ -125,7 +124,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
             }
         }
 
-        FixedDeposit_data fd_data=new FixedDeposit_data();
+        FixedDeposit fd_data=new FixedDeposit();
         fd_data.dpst_BankName=tf[0].getText();
         fd_data.Invested = Double.parseDouble(tf[1].getText());
         fd_data.Init_date=datepicker.getValue();
@@ -211,7 +210,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         //SQLConnection.insertFD(User.Name,fd_data);
         Close();
     }
-    public void Add2(FixedDeposit_data fd_data){
+    public void Add2(FixedDeposit fd_data){
         AnchorPane anchorpane=new AnchorPane();
         anchorpane.setStyle(
                 "-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #3152d6 0.0%, #1fff7ce0 100.0%);" +
@@ -250,7 +249,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         timeline.play();
     }
 
-    public double current_Saving(FixedDeposit_data fd_data){
+    public double current_Saving(FixedDeposit fd_data){
         //System.out.println(fd_data.Comp_freq+" "+fd_data.interest+" "+fd_data.Maturity_unit+" "+fd_data.Maturity_val);
         //System.out.println(ChronoUnit.DAYS.between(fd_data.Init_date,LocalDate.now()));
         if(fd_data.Maturity_unit==1.0/365) {
@@ -264,7 +263,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         }
 
     }
-    public void checkTime(FixedDeposit_data fd_data){
+    public void checkTime(FixedDeposit fd_data){
         if(fd_data.Saving_amnt!=current_Saving(fd_data)) {
             fd_data.Saving_amnt = current_Saving(fd_data);
         }
@@ -277,7 +276,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
             Today=LocalDate.now();
         }
     }
-    public void showNotification(FixedDeposit_data fd_data){
+    public void showNotification(FixedDeposit fd_data){
         Platform.runLater(()->{
                 Notifications.create()
                         .title("Notification!!!")
@@ -308,7 +307,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         fd_data.Notification_checker.shutdown();
     }
 
-    public void OpenOverview(FixedDeposit_data fd_data){
+    public void OpenOverview(FixedDeposit fd_data){
         Ts0.setText("Initial deposit date: "+fd_data.Init_date);
         Ts1.setText("BDT "+ (String.format("%.2f",fd_data.Saving_amnt)));
         Ts2.setText("You Invested: BDT "+(String.format("%.2f",fd_data.Invested)));
@@ -319,7 +318,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         Cir_ProgressBar(fd_data);
     }
 
-    public void Deletion(AnchorPane anchorpane,FixedDeposit_data fd_data){
+    public void Deletion(AnchorPane anchorpane, FixedDeposit fd_data){
         vbox.getChildren().remove(anchorpane);
 
         if(fd_data.scheduledTask!=null) {
@@ -327,9 +326,9 @@ public class FixedDeposit_Controller extends Abstract_controller{
             fd_data.Notification_checker.shutdown();
         }
 
-        Iterator<FixedDeposit_data> iterator = User.FD_data.iterator();
+        Iterator<FixedDeposit> iterator = User.FD_data.iterator();
         while (iterator.hasNext()) {
-            FixedDeposit_data item = iterator.next();
+            FixedDeposit item = iterator.next();
             if (item.equals(fd_data)) {
                 iterator.remove();
                 break;
@@ -346,7 +345,7 @@ public class FixedDeposit_Controller extends Abstract_controller{
         Cir_ProgressBar();
         SQLConnection.deleteFD(User.Name,fd_data);
     }
-    public void Cir_ProgressBar(FixedDeposit_data fd_data){
+    public void Cir_ProgressBar(FixedDeposit fd_data){
         double DaysPassed = ChronoUnit.DAYS.between(fd_data.Init_date,LocalDate.now());
         double TotalDays= ChronoUnit.DAYS.between(fd_data.Init_date,fd_data.Final_date);
         double Angle;

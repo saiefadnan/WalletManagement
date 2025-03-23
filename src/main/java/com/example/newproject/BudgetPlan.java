@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 
-public class MonthlyBudget_data {
+public class BudgetPlan {
     public String Budget_name;
     public String selected_cat;
     public Color cat_color;
@@ -20,6 +20,7 @@ public class MonthlyBudget_data {
     //------------------>
     public double[] Ypoints;
     public double progress;
+    public int budget_id;
     public LocalDate Today1;
     public LocalDate Today2;
     public LocalDateTime init_time;
@@ -30,10 +31,11 @@ public class MonthlyBudget_data {
     public ScheduledExecutorService Chart_updater;
     public ScheduledFuture<?> scheduledTask3;
 
-    MonthlyBudget_data(){
+    BudgetPlan(){
         Ypoints=new double[30];
     }
-    public MonthlyBudget_data(String budgetName, String cat, int index, Color color, String period, double limit, double expense, String idate, String fdate, boolean not1, boolean not2) {
+    public BudgetPlan(int id, String budgetName, String cat, int index, Color color, String period, double limit, double expense, String idate, String fdate, boolean not1, boolean not2) {
+        budget_id = id;
         Budget_name = budgetName;
         selected_cat = cat;
         cat_color = color;

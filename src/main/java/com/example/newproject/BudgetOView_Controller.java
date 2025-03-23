@@ -7,16 +7,12 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -33,7 +29,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class Budget_Overview extends Abstract_controller {
+public class BudgetOView_Controller extends Abstract_controller {
     @FXML
     private ProgressBar Pgb;
     @FXML
@@ -45,7 +41,7 @@ public class Budget_Overview extends Abstract_controller {
     @FXML
     private Rectangle rect;
     private XYChart.Series<String, Number> series;
-    public static MonthlyBudget_data mb_data;
+    public static BudgetPlan mb_data;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -94,13 +90,20 @@ public class Budget_Overview extends Abstract_controller {
         series = new XYChart.Series<>();
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd MMM");
 
-        mb_data.Ypoints[0]=mb_data.expense_amount;
+        //mb_data.Ypoints[0]=mb_data.expense_amount;
+        LocalDate today = LocalDate.now();
         for (int i =29; i >=0; i--) {
+            LocalDate before_iDay_date = today.minusDays(i);
+            Date_CategoryKey key = new Date_CategoryKey(before_iDay_date ,mb_data.selected_cat);
+            if(!User.Expense_data.containsKey(key)){
+                User.Expense_data.put(key,0.0);
+            }
+            Double expense = User.Expense_data.get(key);
             if (i == 0) {
-                series.getData().add(new XYChart.Data<>("Today", mb_data.Ypoints[i]));
+                series.getData().add(new XYChart.Data<>("Today",expense));
             }
             else {
-                series.getData().add(new XYChart.Data<>(LocalDate.now().minusDays(i).format(dateFormatter), mb_data.Ypoints[i]));
+                series.getData().add(new XYChart.Data<>(LocalDate.now().minusDays(i).format(dateFormatter), expense));
             }
         }
         linechart.getData().add(series);
@@ -122,7 +125,11 @@ public class Budget_Overview extends Abstract_controller {
             y[i] = nextDataPoint.getYValue().doubleValue();
             mb_data.Ypoints[i-1]=y[i];
         }
-        mb_data.Ypoints[series.getData().size()-1]= mb_data.expense_amount;
+        Date_CategoryKey key = new Date_CategoryKey(LocalDate.now(), mb_data.selected_cat);
+        if(!User.Expense_data.containsKey(key)){
+            User.Expense_data.put(key,0.0);
+        }
+        mb_data.Ypoints[series.getData().size()-1]= User.Expense_data.get(key);
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd MMM");
         Platform.runLater(() -> {
             series.getData().clear();

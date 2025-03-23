@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 
-public class FixedDeposit_data {
+public class FixedDeposit {
     public String dpst_BankName;
     public double Saving_amnt;
     public double Invested;
@@ -21,11 +21,11 @@ public class FixedDeposit_data {
     public double Maturity_duration;
     public double interest;
 
-    public FixedDeposit_data(){
+    public FixedDeposit(){
 
     }
 
-    public FixedDeposit_data(String bankName, double depositAmount, double investedAmount, double maturityValue, double earnedInterest, LocalDate parse, LocalDate parse1, boolean notify, double compFreq, double maturityUnit, double maturityDuration, double interest) {
+    public FixedDeposit(String bankName, double depositAmount, double investedAmount, double maturityValue, double earnedInterest, LocalDate parse, LocalDate parse1, boolean notify, double compFreq, double maturityUnit, double maturityDuration, double interest) {
         this.dpst_BankName = bankName;
         this.Saving_amnt = depositAmount;
         this.Invested = investedAmount;

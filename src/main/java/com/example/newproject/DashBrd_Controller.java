@@ -35,13 +35,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
+import static com.example.newproject.User.*;
 
 //import static com.example.graph_2.Main.User;
 
@@ -87,8 +85,6 @@ public class DashBrd_Controller extends Abstract_controller{
             Init();
         }
         if(flag) {
-            System.out.println("Brooooooooooo");
-
             for (int i = 0; i < 11; i++)
                 User.SUM += User.Expense_Cat[i];
             System.out.println(User.SUM);
@@ -116,6 +112,7 @@ public class DashBrd_Controller extends Abstract_controller{
                 }
             }
             flag=false;
+            return;
         }
         update_data();
     }
@@ -138,21 +135,23 @@ public class DashBrd_Controller extends Abstract_controller{
             }
             if (User.Balance > 0) {
                 Tf6.setDisable(false);
-                User.storeY[series.getData().size() - 1] = User.Balance;
+                storeY[series.getData().size() - 1] = User.Balance;
                 text3.setText("BDT "+ User.Balance);
                 update_data();
             } else {
                 Tf6.setDisable(true);
             }
         }
+        Supabase.getInstance().updateBalance();
+        Supabase.getInstance().insertBalanceByDate(LocalDate.now());
     }
 
-    public void pie(KeyEvent e) throws SQLException, ClassNotFoundException {
+    public void pie(KeyEvent e) {
         if(e.getCode()==KeyCode.ENTER && !choicebox.getValue().isEmpty() && !Tf6.getText().isEmpty()) {
             double val = Double.parseDouble(Tf6.getText());
+            int l=0;
             if((!choicebox.getValue().equals("Income") && User.Balance>=val && val>0) || (choicebox.getValue().equals("Income") && val>0)){
                 User.SUM+=val;
-                int l=0;
                 for(int i=0;i<11;++i){
                     if(choicebox.getValue().equals(choice[i])){
                         l=i;
@@ -166,11 +165,11 @@ public class DashBrd_Controller extends Abstract_controller{
                     User.Balance-=val;
                 }
                 User.Expense_Cat[l]+=val;
-                User.storeY[series.getData().size() - 1] = User.Balance;
+                storeY[series.getData().size() - 1] = User.Balance;
                 text3.setText("BDT "+ User.Balance);
-
-                Date_CategoryKey key=new Date_CategoryKey(LocalDate.now(),choice[l]);
-                Date_CategoryKey key1=new Date_CategoryKey(LocalDate.now(),"All");
+                LocalDate ld= LocalDate.now();
+                Date_CategoryKey key=new Date_CategoryKey(ld,choice[l]);
+                Date_CategoryKey key1=new Date_CategoryKey(ld,"All");
                 if(!User.Expense_data.containsKey(key)){
                     User.Expense_data.put(key,0.0);
                 }
@@ -181,13 +180,9 @@ public class DashBrd_Controller extends Abstract_controller{
                 double sum_val1=User.Expense_data.get(key1)+val;
                 User.Expense_data.put(key,sum_val);
                 User.Expense_data.put(key1,sum_val1);
-//                if(SQLConnection.checkCategory(User.Name,String.valueOf(LocalDate.now()),choice[l])) {
-//                    SQLConnection.updateExpense(User.Name, choice[l], String.valueOf(LocalDate.now()), sum_val);
-//                }
-//                else{
-//                    SQLConnection.insertExpense(User.Name,choice[l], String.valueOf(LocalDate.now()),sum_val);
-//                }
-                Supabase.getInstance().updateFinancialExpenses(choice[l], String.valueOf(LocalDate.now()), sum_val);
+                Supabase.getInstance().insertExpenseByDate(key, key1, sum_val, sum_val1);
+                Supabase.getInstance().insertExpense(choice[l],sum_val);
+                Supabase.getInstance().insertBalanceByDate(ld);
                 Platform.runLater(() -> {
                     Tb.setText(Double.toString(User.Balance));
                     Tf6.clear();
@@ -210,7 +205,7 @@ public class DashBrd_Controller extends Abstract_controller{
                         }
                     }
                 });
-                Expense_Amount_Update();
+                Expense_Amount_Update(l);
             }
             else if (User.SUM == 0){
                 LinearGradient paint = new LinearGradient(
@@ -284,8 +279,8 @@ public class DashBrd_Controller extends Abstract_controller{
             System.out.println("Scheduling already in progress.");
         }
         for(int i=0;i<User.MB_data.size();++i) {
-            MonthlyBudget_data mb_data = User.MB_data.get(i);
-            Monthly_Budget mb = new Monthly_Budget();
+            BudgetPlan mb_data = User.MB_data.get(i);
+            BudgetPlan_Controller mb = new BudgetPlan_Controller();
             if ((mb_data.Notification_checker == null || mb_data.Notification_checker.isShutdown()) && (mb_data.notify1 || mb_data.notify2)) {
                 mb_data.Notification_checker = Executors.newScheduledThreadPool(1);
                 mb_data.scheduledTask2 = mb_data.Notification_checker.scheduleAtFixedRate(() -> mb.checkNotification(mb_data), 0, 15, TimeUnit.SECONDS);
@@ -312,7 +307,7 @@ public class DashBrd_Controller extends Abstract_controller{
             }
         }
         for(int i=0;i<User.FD_data.size();++i) {
-            FixedDeposit_data fd_data = User.FD_data.get(i);
+            FixedDeposit fd_data = User.FD_data.get(i);
             FixedDeposit_Controller fd = new FixedDeposit_Controller();
             if ((fd_data.Notification_checker == null || fd_data.Notification_checker.isShutdown()) && fd_data.notify) {
                 System.out.println(fd_data.notify+" helooooooooooooooooooooo");
@@ -331,6 +326,7 @@ public class DashBrd_Controller extends Abstract_controller{
             updateChart();
             today = currentDate;
         }
+        System.out.println("size "+User.NF_data.size()+"num: "+User.noti_num);
         if(User.NF_data.size()>User.noti_num){
             Task<Void>task= new Task<>() {
                 @Override
@@ -353,9 +349,9 @@ public class DashBrd_Controller extends Abstract_controller{
         for (int i = 1; i < series.getData().size(); ++i) {
             XYChart.Data<String, Number> nextDataPoint = series.getData().get(i);
             y[i] = nextDataPoint.getYValue().doubleValue();
-            User.storeY[i-1]=y[i];
+            storeY[i-1]=y[i];
         }
-        User.storeY[series.getData().size()-1]= User.Balance;
+        storeY[series.getData().size()-1]= User.Balance;
         Platform.runLater(() -> {
             series.getData().clear();
             for (int i = 29, j = 1; i >= 0 && j <= 30; i --, j++){
@@ -374,7 +370,7 @@ public class DashBrd_Controller extends Abstract_controller{
             Noti_label.setDisable(false);
             Noti_label.setText(String.valueOf(User.noti_counter));
             System.out.println("Update!!!");
-
+            Supabase.getInstance().updateUnreadNotifs(User.noti_counter);
 //            for (int i = User.noti_num; i < User.NF_data.size(); ++i) {
 //                AnchorPane anchorpane = new AnchorPane();
 //                anchorpane.setStyle(
@@ -396,12 +392,22 @@ public class DashBrd_Controller extends Abstract_controller{
         series = new XYChart.Series<>();
         dateFormatter = DateTimeFormatter.ofPattern("dd MMM");
         today = LocalDate.now().format(dateFormatter);
+        Double temp=0.0;
         for (int i = 29; i >= 0; i--) {
+            String ith_day_before = String.valueOf(LocalDate.now().minusDays(i));
+            System.out.println(ith_day_before);
             if (i == 0)
                 series.getData().add(new XYChart.Data<>("Today", 0));
-            else
-                series.getData().add(new XYChart.Data<>(LocalDate.now().minusDays(i).format(dateFormatter), 0));
+            else if(BalanceGraph.containsKey(ith_day_before)){
+                temp = BalanceGraph.get(ith_day_before);
+                series.getData().add(new XYChart.Data<>(LocalDate.now().minusDays(i).format(dateFormatter), temp));
+            }
+            else {
+                series.getData().add(new XYChart.Data<>(LocalDate.now().minusDays(i).format(dateFormatter), temp));
+                BalanceGraph.put(ith_day_before, temp);
+            }
         }
+
         linechart.getData().add(series);
         linechart.setPrefSize(500, 400);
     }
@@ -414,17 +420,19 @@ public class DashBrd_Controller extends Abstract_controller{
         linechart.lookup(".chart-plot-background").setStyle(plotBackgroundStyle);
     }
 
-    public void Expense_Amount_Update(){
+    public void Expense_Amount_Update(int l){
         for(int i=0;i< User.MB_data.size();++i) {
-            MonthlyBudget_data mb_data = User.MB_data.get(i);
-            mb_data.expense_amount = 0;
-            for (LocalDate date = mb_data.init_date; !date.isAfter(LocalDate.now()); date = date.plusDays(1)) {
-                Date_CategoryKey key = new Date_CategoryKey(date, choice1[mb_data.Expense_index]);
+            BudgetPlan mb_data = User.MB_data.get(i);
+            mb_data.expense_amount=0;
+            System.out.println(mb_data.selected_cat+"   "+ choice[l]);
+            if(Objects.equals(mb_data.selected_cat, choice[l]) || Objects.equals(mb_data.selected_cat, "All")){
+                System.out.println(mb_data.selected_cat+" ---------------> "+mb_data.budget_id);
+                Date_CategoryKey key = new Date_CategoryKey(LocalDate.now(), choice1[mb_data.Expense_index]);
                 if (!User.Expense_data.containsKey(key)) {
                     User.Expense_data.put(key, 0.0);
                 }
                 mb_data.expense_amount += User.Expense_data.get(key);
-                SQLConnection.updateMB(mb_data.Budget_name, mb_data.expense_amount,mb_data.selected_cat);
+                Supabase.getInstance().updateBudgetInfo(mb_data);
             }
         }
     }
@@ -498,9 +506,16 @@ public class DashBrd_Controller extends Abstract_controller{
             }
         }
         //Platform.runLater(() -> {
-            for (int i =0; i < series.getData().size(); ++i) {
-                series.getData().get(i).setYValue(User.storeY[i]);
-            }
+
+//            for (int i =0; i < series.getData().size(); ++i) {
+//                if(storeY[i]>=0)series.getData().get(i).setYValue(storeY[i]);
+//                else if(i>0){
+//                    storeY[i]= storeY[i-1];
+//                    series.getData().get(i).setYValue(storeY[i]);
+//                }
+//                else series.getData().get(i).setYValue(0);
+//                System.out.println(storeY[i]);
+//            }
         //});
         if(User.noti_counter==0) {
             Noti_label.setVisible(false);
@@ -527,11 +542,11 @@ public class DashBrd_Controller extends Abstract_controller{
 
     public void OpenNoti_pane() {
         User.noti_counter=0;
+        Supabase.getInstance().updateUnreadNotifs(0);
         Noti_label.setVisible(false);
         Noti_label.setDisable(true);
         Noti_pane.setVisible(true);
         Noti_pane.setDisable(false);
-
     }
 
     public void CloseNoti_pane() {

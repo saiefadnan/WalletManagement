@@ -17,7 +17,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import java.io.IOException;
@@ -32,7 +31,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class Monthly_Budget extends Abstract_controller{
+public class BudgetPlan_Controller extends Abstract_controller{
     @FXML
     private ChoiceBox choicebox1;
     @FXML
@@ -66,7 +65,7 @@ public class Monthly_Budget extends Abstract_controller{
     @Override
     public void Init(){
         for(int i=0;i< User.MB_data.size();++i){
-            MonthlyBudget_data mb_data=User.MB_data.get(i);
+            BudgetPlan mb_data=User.MB_data.get(i);
             AnchorPane rect=new AnchorPane();
             rect.setPrefSize(730,81);
             rect.setStyle(
@@ -87,12 +86,16 @@ public class Monthly_Budget extends Abstract_controller{
             AnchorPane.setTopAnchor(pgb,43.0);
             AnchorPane.setLeftAnchor(pgb,25.0);
             mb_data.expense_amount=0;
-            for(LocalDate date=mb_data.init_date;!date.isAfter(LocalDate.now());date=date.plus(1, ChronoUnit.DAYS)){
+            for(LocalDate date=mb_data.init_date;!date.isAfter(mb_data.final_date);date=date.plus(1, ChronoUnit.DAYS)){
                 Date_CategoryKey key=new Date_CategoryKey(date,choice[mb_data.Expense_index]);
                 if(!User.Expense_data.containsKey(key)){
                     User.Expense_data.put(key,0.0);
                 }
                 mb_data.expense_amount+=User.Expense_data.get(key);
+                if(Objects.equals(mb_data.Budget_name, "adiddys")) {
+                    System.out.println(date);
+                    System.out.println(mb_data.expense_amount);
+                }
             }
             mb_data.progress=mb_data.expense_amount/mb_data.limit_amount;
             pgb.setPrefWidth(800.0);
@@ -179,7 +182,7 @@ public class Monthly_Budget extends Abstract_controller{
     }
 
     public void Add1() throws SQLException, ClassNotFoundException {
-        MonthlyBudget_data mb_data=new MonthlyBudget_data();
+        BudgetPlan mb_data=new BudgetPlan();
         mb_data.Budget_name=tf1.getText();
         mb_data.limit_amount= Double.parseDouble(tf2.getText());
         mb_data.period= (String)choicebox1.getValue();
@@ -217,7 +220,6 @@ public class Monthly_Budget extends Abstract_controller{
         Date_CategoryKey key=new Date_CategoryKey(LocalDate.now(),choice[mb_data.Expense_index]);
         if(!User.Expense_data.containsKey(key)){
             User.Expense_data.put(key,0.0);
-            System.out.println("Expense");
         }
 
         mb_data.expense_amount += User.Expense_data.get(key);
@@ -242,7 +244,7 @@ public class Monthly_Budget extends Abstract_controller{
         Supabase.getInstance().insertBudgetInfo(mb_data);
     }
 
-    public void checkNotification(MonthlyBudget_data mb_data) {
+    public void checkNotification(BudgetPlan mb_data) {
         System.out.println("1->"+mb_data.notify1+" "+mb_data.expense_amount+" "+mb_data.limit_amount);
         if(mb_data.notify1 && mb_data.expense_amount>=mb_data.limit_amount){
             System.out.println("1->"+mb_data.notify1+" "+mb_data.expense_amount+" "+mb_data.limit_amount);
@@ -289,7 +291,7 @@ public class Monthly_Budget extends Abstract_controller{
 
     }
 
-    public void Add2(MonthlyBudget_data mb_data){
+    public void Add2(BudgetPlan mb_data){
         AnchorPane rect=new AnchorPane();
         rect.setPrefSize(730,90);
         rect.setStyle(
@@ -360,7 +362,7 @@ public class Monthly_Budget extends Abstract_controller{
 
     }
 
-    public void Update_Date(MonthlyBudget_data mb_data){
+    public void Update_Date(BudgetPlan mb_data){
         if(LocalDate.now().isAfter(mb_data.final_date)){
             if(mb_data.period.equals(period[0])){
                 if(mb_data.scheduledTask1!=null) {
@@ -391,7 +393,7 @@ public class Monthly_Budget extends Abstract_controller{
             }
         }
     }
-    public void Update_Chart(MonthlyBudget_data mb_data) {
+    public void Update_Chart(BudgetPlan mb_data) {
         mb_data.Ypoints[0]=mb_data.expense_amount;
         if(!mb_data.Today2.isEqual(LocalDate.now())){
             for (int i = 29; i >0; --i) {
@@ -409,8 +411,8 @@ public class Monthly_Budget extends Abstract_controller{
         User.NF_data.add(nf_data);
     }
 
-    public void graph2(ActionEvent event,MonthlyBudget_data mb_data) throws IOException {
-        Budget_Overview.mb_data=mb_data;
+    public void graph2(ActionEvent event, BudgetPlan mb_data) throws IOException {
+        BudgetOView_Controller.mb_data=mb_data;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Graph_2.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
