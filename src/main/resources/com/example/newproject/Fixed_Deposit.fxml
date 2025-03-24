@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -12,12 +13,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Arc?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -26,133 +27,233 @@
    <center>
       <AnchorPane prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="574.0" layoutX="1003.0" layoutY="164.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="433.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.9966442953020134">
-                           <color>
-                              <Color red="0.10196078568696976" green="0.21960784494876862" blue="0.5411764979362488" opacity="0.5" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.10196078568696976" green="0.21960784494876862" blue="0.5411764979362488" opacity="0.5" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab08880" height="139.0" layoutX="1025.0" layoutY="202.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab088" height="48.0" layoutX="46.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
-            <Text layoutX="71.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fixed Deposit" wrappingWidth="122.00001525878884">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="574.0" layoutX="518.0" layoutY="162.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="433.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.10196078568696976" green="0.21960784494876862" blue="0.5411764979362488" opacity="0.5" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Line endX="-100.0" endY="634.4000244140625" layoutX="550.0" layoutY="145.0" startX="-100.00001525878906" startY="-4.20001220703125" />
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab08880" height="139.0" layoutX="541.0" layoutY="202.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab08880" height="282.0" layoutX="541.0" layoutY="406.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
-            <Text fx:id="Ts1" layoutX="559.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BDT 0.0" wrappingWidth="355.60011291503884">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Text layoutX="555.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yout current savings:" wrappingWidth="182.39999999999995">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="Ts2" layoutX="557.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Invested : BDT 0.0" wrappingWidth="366.80006408691384">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="Ts3" layoutX="556.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Maturity Value : BDT 0.0" wrappingWidth="368.40003967285134">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="Ts4" layoutX="557.0" layoutY="606.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Interest Earned : BDT 0.0" wrappingWidth="367.60011291503884">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab088" height="48.0" layoutX="943.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="413.0" />
-            <Text fx:id="Ts5" layoutX="955.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My current net worth :" wrappingWidth="389.19996643066384">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="146.0" layoutX="53.0" layoutY="257.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="349.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Button layoutX="81.0" layoutY="284.0" mnemonicParsing="false" onAction="#miniScene" prefHeight="97.0" prefWidth="292.0" stylesheets="@Button4.css" text="Add savings +">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="146.0" layoutX="53.0" layoutY="496.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="349.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Button layoutX="81.0" layoutY="520.0" mnemonicParsing="false" onAction="#Recordscene" prefHeight="97.0" prefWidth="292.0" stylesheets="@Button4.css" text="See records">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <AnchorPane fx:id="miniAnchor" disable="true" layoutX="40.0" layoutY="140.0" prefHeight="595.0" prefWidth="398.0" stylesheets="@SubWindow.css" visible="false">
+            <VBox alignment="CENTER" layoutX="53.0" layoutY="50.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="730.0">
+                     <children>
+                        <Group>
+                           <children>
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab088" height="48.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+                              <Text layoutX="30.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fixed Deposit" wrappingWidth="122.00001525878884">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group>
+                           <children>
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab088" height="48.0" stroke="BLACK" strokeType="INSIDE" width="413.0" />
+                              <Text fx:id="Ts5" layoutX="12.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My current net worth :" wrappingWidth="389.19996643066384">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="100.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="574.0" prefWidth="349.0" spacing="100.0">
+                           <children>
+                              <Group>
+                                 <children>
+                                    <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="146.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="349.0">
+                                       <fill>
+                                          <LinearGradient endX="1.0" endY="1.0">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Rectangle>
+                                    <Button layoutX="28.0" layoutY="27.0" mnemonicParsing="false" onAction="#miniScene" prefHeight="97.0" prefWidth="292.0" stylesheets="@Button4.css" text="Add savings +">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </Group>
+                              <Group>
+                                 <children>
+                                    <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="146.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="349.0">
+                                       <fill>
+                                          <LinearGradient endX="1.0" endY="1.0">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.11999999731779099" green="1.0" blue="0.48674097657203674" opacity="0.8799999952316284" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Rectangle>
+                                    <Button layoutX="28.0" layoutY="24.0" mnemonicParsing="false" onAction="#Recordscene" prefHeight="97.0" prefWidth="292.0" stylesheets="@Button4.css" text="See records">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </Group>
+                           </children>
+                        </VBox>
+                        <Group>
+                           <children>
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="574.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="433.0">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.10196078568696976" green="0.21960784494876862" blue="0.5411764979362488" opacity="0.5" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Rectangle>
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab08880" height="282.0" layoutX="23.0" layoutY="229.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab08880" height="139.0" layoutX="23.0" layoutY="40.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+                              <Text fx:id="Ts1" layoutX="41.0" layoutY="113.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="BDT 0.0" wrappingWidth="355.60011291503884">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="37.0" layoutY="69.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="Yout current savings:" wrappingWidth="182.39999999999995">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="Ts2" layoutX="39.0" layoutY="327.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="You Invested : BDT 0.0" wrappingWidth="366.80006408691384">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="Ts3" layoutX="38.0" layoutY="375.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text=" Maturity Value : BDT 0.0" wrappingWidth="368.40003967285134">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="Ts4" layoutX="39.0" layoutY="427.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="Interest Earned : BDT 0.0" wrappingWidth="367.60011291503884">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="Ts0" layoutX="40.0" layoutY="269.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="Initial Deposit Date:" wrappingWidth="362.80006408691384">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="Ts6" layoutX="41.0" layoutY="474.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="Final date:" wrappingWidth="367.60011291503884">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group>
+                           <children>
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" focusTraversable="true" height="574.0" opacity="0.6" smooth="false" stroke="BLACK" strokeType="INSIDE" width="433.0">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.9966442953020134">
+                                             <color>
+                                                <Color red="0.10196078568696976" green="0.21960784494876862" blue="0.5411764979362488" opacity="0.5" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.10196078568696976" green="0.21960784494876862" blue="0.5411764979362488" opacity="0.5" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Rectangle>
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#1ab08880" height="139.0" layoutX="22.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+                              <Text layoutX="52.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maturity Period Progress Tracking" textAlignment="CENTER" wrappingWidth="325.19996643066384">
+                                 <font>
+                                    <Font name="Berlin Sans FB Bold" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="Ts7" layoutX="94.0" layoutY="353.2314453125" strokeType="OUTSIDE" strokeWidth="0.0" text="0%" textAlignment="CENTER" wrappingWidth="245.20021057128884">
+                                 <font>
+                                    <Font name="System Bold" size="35.0" />
+                                 </font>
+                              </Text>
+                              <Arc fx:id="Cir_prog1" fill="#09ff0000" layoutX="215.0" layoutY="339.0" length="360.0" radiusX="120.0" radiusY="120.0" startAngle="90.0" stroke="#020302fa" strokeType="INSIDE" strokeWidth="0.2" />
+                              <Arc fx:id="Cir_prog11" fill="#09ff0000" layoutX="215.0" layoutY="339.0" length="360.0" radiusX="80.0" radiusY="80.0" startAngle="90.0" stroke="#020302fa" strokeType="INSIDE" strokeWidth="0.2" />
+                              <Arc fx:id="Cir_prog" fill="#09ff0000" layoutX="216.0" layoutY="338.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#349e08" strokeLineCap="ROUND" strokeWidth="40.0" />
+                           </children>
+                        </Group>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Group>
+                           <children>
+                              <Button alignment="CENTER" layoutX="3.0" layoutY="-23.0" mnemonicParsing="false" onAction="#Back" prefHeight="12.0" prefWidth="22.0" stylesheets="@Back_btn.css">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <FontAwesomeIcon size="2.5em" text="" textAlignment="CENTER">
+                                       <fill>
+                                          <LinearGradient endX="1.0" endY="1.0">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.03529411926865578" green="0.5882353186607361" blue="0.7568627595901489" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </FontAwesomeIcon>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Group>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <AnchorPane fx:id="miniAnchor" disable="true" layoutX="110.0" layoutY="140.0" prefHeight="595.0" prefWidth="398.0" stylesheets="@SubWindow.css" visible="false">
                <children>
                   <Rectangle arcHeight="50.0" arcWidth="50.0" focusTraversable="true" height="569.0" layoutX="12.0" layoutY="13.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="375.0">
                      <fill>
@@ -227,23 +328,8 @@
                   </Button>
                </children>
             </AnchorPane>
-            <Text fx:id="Ts0" layoutX="558.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initial Deposit Date:" wrappingWidth="362.80006408691384">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="Ts6" layoutX="559.0" layoutY="653.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Final date:" wrappingWidth="367.60011291503884">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Text layoutX="1055.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maturity Period Progress Tracking" textAlignment="CENTER" wrappingWidth="325.19996643066384">
-               <font>
-                  <Font name="Berlin Sans FB Bold" size="25.0" />
-               </font>
-            </Text>
             <Label fx:id="Brif_msg" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="587.0" prefHeight="46.0" prefWidth="146.0" style="-fx-background-color: rgb(128,128,128); -fx-background-radius: 35px;" text="Record Added" textAlignment="CENTER" textFill="#381313" visible="false" wrapText="true" />
-            <AnchorPane fx:id="miniAnchor1" disable="true" layoutX="40.0" layoutY="140.0" prefHeight="611.0" prefWidth="398.0" stylesheets="@SubWindow.css" visible="false">
+            <AnchorPane fx:id="miniAnchor1" disable="true" layoutX="110.0" layoutY="140.0" prefHeight="611.0" prefWidth="398.0" stylesheets="@SubWindow.css" visible="false">
                <children>
                   <ScrollPane fx:id="scrollpane" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" layoutX="17.0" layoutY="18.0" prefHeight="520.0" prefWidth="364.0" stylesheets="@ScrollPane.css">
                      <content>
@@ -256,42 +342,6 @@
                   <Button layoutX="300.0" layoutY="545.0" mnemonicParsing="false" onAction="#Close1" prefWidth="81.0" stylesheets="@button4.css" text="Close" />
                </children>
             </AnchorPane>
-            <Arc fx:id="Cir_prog11" fill="#09ff0000" layoutX="1219.0" layoutY="538.0" length="360.0" radiusX="80.0" radiusY="80.0" startAngle="90.0" stroke="#020302fa" strokeType="INSIDE" strokeWidth="0.2" />
-            <Arc fx:id="Cir_prog1" fill="#09ff0000" layoutX="1219.0" layoutY="538.0" length="360.0" radiusX="120.0" radiusY="120.0" startAngle="90.0" stroke="#020302fa" strokeType="INSIDE" strokeWidth="0.2" />
-            <Arc fx:id="Cir_prog" fill="#09ff0000" layoutX="1219.0" layoutY="538.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#349e08" strokeLineCap="ROUND" strokeWidth="40.0" />
-            <Text fx:id="Ts7" layoutX="1097.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0%" textAlignment="CENTER" wrappingWidth="245.20021057128884">
-               <font>
-                  <Font name="System Bold" size="35.0" />
-               </font>
-            </Text>
-            <Button alignment="CENTER" layoutX="62.0" layoutY="745.0" mnemonicParsing="false" onAction="#Back" prefHeight="12.0" prefWidth="22.0" stylesheets="@Back_btn.css">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIcon size="2.5em" text="" textAlignment="CENTER">
-                     <fill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.03529411926865578" green="0.5882353186607361" blue="0.7568627595901489" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </fill>
-                  </FontAwesomeIcon>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
          </children>
       </AnchorPane>
    </center>

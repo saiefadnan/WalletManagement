@@ -20,6 +20,8 @@ import java.util.ResourceBundle;
 public class splashWindow implements Initializable {
     @FXML
     private AnchorPane splashAp;
+    public static double heightChange=0.0;
+    public static double widthChange=0.0;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new splash().start();
@@ -57,6 +59,14 @@ public class splashWindow implements Initializable {
                         Stage stage=new Stage();
                         stage.setScene(scene);
                         stage.show();
+                        stage.heightProperty().addListener((obs, oldHeight, newHeight) -> {
+                            heightChange = newHeight.doubleValue() - 151.0;
+                            System.out.println("Window height changed by: " + heightChange + " pixels");
+                        });
+                        stage.widthProperty().addListener((obs, oldWidth, newWidth) -> {
+                            widthChange = newWidth.doubleValue() - 214.0;
+                            System.out.println("Window height changed by: " + heightChange + " pixels");
+                        });
                         splashAp.getScene().getWindow().hide();
                     }
                 });

@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -9,6 +10,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -18,206 +21,244 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.BankAcnt_Controller">
-   <top>
+   <center>
       <AnchorPane prefHeight="824.0" prefWidth="1527.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" height="48.0" layoutX="56.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
-            <Text layoutX="90.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Account" wrappingWidth="127.59997558593727">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" focusTraversable="true" height="560.0" layoutX="62.0" layoutY="159.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="450.0" />
-            <Text fill="WHITE" layoutX="88.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Country    :" wrappingWidth="131.9999755859376">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="89.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Name       :" wrappingWidth="129.1999816894529">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <ChoiceBox fx:id="choicebox1" layoutX="225.0" layoutY="349.0" prefHeight="26.0" prefWidth="246.0" />
-            <Button alignment="CENTER" layoutX="62.0" layoutY="745.0" mnemonicParsing="false" onAction="#Back" prefHeight="12.0" prefWidth="22.0" stylesheets="@Back_btn.css">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIcon size="2.5em" text="" textAlignment="CENTER">
-                     <fill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.03529411926865578" green="0.5882353186607361" blue="0.7568627595901489" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </fill>
-                  </FontAwesomeIcon>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutX="400.0" layoutY="641.0" mnemonicParsing="false" onAction="#Call" stylesheets="@button4.css" text="Submit">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <ChoiceBox fx:id="choicebox" layoutX="225.0" layoutY="275.0" prefHeight="26.0" prefWidth="246.0" />
-            <TextField fx:id="user_field" layoutX="224.0" layoutY="432.0" prefHeight="26.0" prefWidth="248.0" />
-            <Text fill="WHITE" layoutX="88.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name         :" wrappingWidth="131.19998779296884">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="90.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No.    :" wrappingWidth="127.99997558593759">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
-            <AnchorPane fx:id="miniAnchor1" layoutX="562.0" layoutY="60.0" prefHeight="724.0" prefWidth="890.0" stylesheets="@SubWindow.css">
+            <VBox alignment="CENTER" layoutX="53.0" layoutY="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button layoutX="705.0" layoutY="642.0" mnemonicParsing="false" onAction="#webBrowse" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: black; -fx-background-radius: 35px;" text="View more details " textFill="WHITE">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <FontAwesomeIcon size="2em" text="" wrappingWidth="22.799922943115234">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                        </FontAwesomeIcon>
-                     </graphic>
-                  </Button>
-                  <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="288.0" prefHeight="142.0" prefWidth="800.0" textFill="RED">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIcon layoutX="433.0" layoutY="135.0" size="4em" text="">
-                     <fill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </fill>
-                  </FontAwesomeIcon>
-                  <Label fx:id="name" layoutX="169.0" layoutY="225.0" prefHeight="30.0" prefWidth="583.0" text="Name                           :" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="datetime" layoutX="590.0" layoutY="43.0" prefHeight="18.0" prefWidth="291.0" text="Date-time :" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="13.0" />
-                     </font></Label>
-                  <Label fx:id="acc_type" layoutX="169.0" layoutY="277.0" prefHeight="30.0" prefWidth="583.0" text="Account Type               :" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="acc_subtype" layoutX="169.0" layoutY="329.0" prefHeight="30.0" prefWidth="583.0" text="Account Subtype          :" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="des" layoutX="169.0" layoutY="381.0" prefHeight="30.0" prefWidth="583.0" text="Description                    :" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="amount" layoutX="169.0" layoutY="433.0" prefHeight="30.0" prefWidth="583.0" text="Amount                         :" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="curr" layoutX="169.0" layoutY="485.0" prefHeight="30.0" prefWidth="583.0" text="Currency                        :" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="cd_indctr" layoutX="169.0" layoutY="537.0" prefHeight="30.0" prefWidth="583.0" text="Credit/Debit Indicator   :" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="acc_id" layoutX="590.0" layoutY="75.0" prefHeight="18.0" prefWidth="291.0" text="Account ID :" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="13.0" />
-                     </font>
-                  </Label>
-                  <Arc fill="#1f93ff04" layoutX="460.0" layoutY="118.0" length="360.0" radiusX="50.0" radiusY="50.0" startAngle="45.0" strokeType="INSIDE">
-                     <stroke>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </stroke>
-                  </Arc>
-                  <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#17b08a" height="48.0" layoutX="55.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
-                  <Text layoutX="80.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Details" wrappingWidth="127.59997558593727">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Text>
+                  <HBox>
+                     <children>
+                        <Group>
+                           <children>
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" height="48.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+                              <Text layoutX="25.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Account" wrappingWidth="127.59997558593727">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="100.0">
+                     <children>
+                        <Group>
+                           <children>
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" focusTraversable="true" height="560.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="450.0" />
+                              <Text fill="WHITE" layoutX="26.0" layoutY="193.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Country    :" wrappingWidth="131.9999755859376">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="27.0" layoutY="118.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Name       :" wrappingWidth="129.1999816894529">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <ChoiceBox fx:id="choicebox1" layoutX="163.0" layoutY="190.0" prefHeight="26.0" prefWidth="246.0" />
+                              <Button layoutX="338.0" layoutY="482.0" mnemonicParsing="false" onAction="#Call" stylesheets="@button4.css" text="Submit">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <ChoiceBox fx:id="choicebox" layoutX="163.0" layoutY="116.0" prefHeight="26.0" prefWidth="246.0" />
+                              <TextField fx:id="user_field" layoutX="162.0" layoutY="273.0" prefHeight="26.0" prefWidth="248.0" />
+                              <Text fill="WHITE" layoutX="26.0" layoutY="275.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name         :" wrappingWidth="131.19998779296884">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="28.0" layoutY="353.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No.    :" wrappingWidth="127.99997558593759">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="28.0" layoutY="430.8720703125" strokeType="OUTSIDE" strokeWidth="0.0" text="Account No.      :" wrappingWidth="127.99997558593759">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                              <PasswordField fx:id="cust_no" layoutX="162.0" layoutY="351.0" prefHeight="25.0" prefWidth="248.0" />
+                              <PasswordField fx:id="Acc_no" layoutX="162.0" layoutY="428.0" prefHeight="25.0" prefWidth="248.0" />
+                              <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" height="48.0" layoutX="73.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+                              <Text layoutX="196.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Bank Balance" wrappingWidth="156.59997558593727">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <AnchorPane fx:id="miniAnchor1" prefHeight="628.0" prefWidth="827.0" stylesheets="@SubWindow.css">
+                           <children>
+                              <Group layoutX="55.0" layoutY="33.0">
+                                 <children>
+                                    <Button layoutX="650.0" layoutY="609.0" mnemonicParsing="false" onAction="#webBrowse" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: black; -fx-background-radius: 35px;" text="View more details " textFill="WHITE">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <FontAwesomeIcon size="2em" text="" wrappingWidth="22.799922943115234">
+                                             <fill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop>
+                                                         <color>
+                                                            <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                                         </color>
+                                                      </Stop>
+                                                      <Stop offset="1.0">
+                                                         <color>
+                                                            <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                                                         </color>
+                                                      </Stop>
+                                                   </stops>
+                                                </LinearGradient>
+                                             </fill>
+                                          </FontAwesomeIcon>
+                                       </graphic>
+                                    </Button>
+                                    <Label fx:id="name" layoutX="114.0" layoutY="192.0" prefHeight="30.0" prefWidth="583.0" text="Name                           :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="datetime" layoutX="535.0" layoutY="10.0" prefHeight="18.0" prefWidth="291.0" text="Date-time :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="acc_type" layoutX="114.0" layoutY="244.0" prefHeight="30.0" prefWidth="583.0" text="Account Type               :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="acc_subtype" layoutX="114.0" layoutY="296.0" prefHeight="30.0" prefWidth="583.0" text="Account Subtype          :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="des" layoutX="114.0" layoutY="348.0" prefHeight="30.0" prefWidth="583.0" text="Description                    :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="amount" layoutX="114.0" layoutY="400.0" prefHeight="30.0" prefWidth="583.0" text="Amount                         :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="curr" layoutX="114.0" layoutY="452.0" prefHeight="30.0" prefWidth="583.0" text="Currency                        :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="cd_indctr" layoutX="114.0" layoutY="504.0" prefHeight="30.0" prefWidth="583.0" text="Credit/Debit Indicator   :" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Group layoutX="535.0" layoutY="42.0">
+                                       <children>
+                                          <Label fx:id="acc_id" prefHeight="18.0" prefWidth="291.0" text="Account ID :" textFill="WHITE">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Group>
+                                    <Arc fill="#1f93ff04" layoutX="413.0" layoutY="110.0" length="360.0" radiusX="50.0" radiusY="50.0" startAngle="45.0" strokeType="INSIDE">
+                                       <stroke>
+                                          <LinearGradient endX="1.0" endY="1.0">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </stroke>
+                                    </Arc>
+                                    <Group layoutY="4.0">
+                                       <children>
+                                          <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#17b08a" height="48.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
+                                          <Text layoutX="25.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Details" wrappingWidth="127.59997558593727">
+                                             <font>
+                                                <Font name="Berlin Sans FB" size="18.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </Group>
+                                    <FontAwesomeIcon layoutX="386.0" layoutY="127.0" size="4em" text="">
+                                       <fill>
+                                          <LinearGradient endX="1.0" endY="1.0">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </FontAwesomeIcon>
+                                 </children>
+                              </Group>
+                              <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="288.0" prefHeight="142.0" prefWidth="800.0" textFill="RED">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#Back" prefHeight="12.0" prefWidth="22.0" stylesheets="@Back_btn.css">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIcon size="2.5em" text="" textAlignment="CENTER">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.03529411926865578" green="0.5882353186607361" blue="0.7568627595901489" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </FontAwesomeIcon>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
-            </AnchorPane>
-            <Text fill="WHITE" layoutX="90.0" layoutY="606.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account No.      :" wrappingWidth="127.99997558593759">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
+            </VBox>
             <Label fx:id="Brif_msg" alignment="CENTER" contentDisplay="CENTER" layoutX="917.0" layoutY="630.0" prefHeight="46.0" prefWidth="146.0" style="-fx-background-color: rgb(128,128,128); -fx-background-radius: 35px;" textAlignment="CENTER" textFill="#381313" visible="false" wrapText="true" />
-            <PasswordField fx:id="cust_no" layoutX="224.0" layoutY="510.0" prefHeight="25.0" prefWidth="248.0" />
-            <PasswordField fx:id="Acc_no" layoutX="224.0" layoutY="587.0" prefHeight="25.0" prefWidth="248.0" />
-            <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#16b28b" height="48.0" layoutX="135.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="305.0" />
-            <Text layoutX="209.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Bank Balance" wrappingWidth="156.59997558593727">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Text>
          </children>
       </AnchorPane>
-   </top>
+   </center>
 </BorderPane>

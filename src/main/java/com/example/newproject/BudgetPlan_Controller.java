@@ -1,6 +1,7 @@
 package com.example.newproject;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -11,7 +12,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -19,6 +24,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
+
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -181,7 +188,7 @@ public class BudgetPlan_Controller extends Abstract_controller{
 
     }
 
-    public void Add1() throws SQLException, ClassNotFoundException {
+    public void Add1() {
         BudgetPlan mb_data=new BudgetPlan();
         mb_data.Budget_name=tf1.getText();
         mb_data.limit_amount= Double.parseDouble(tf2.getText());
@@ -216,13 +223,16 @@ public class BudgetPlan_Controller extends Abstract_controller{
                 break;
             }
         }
-        mb_data.cat_color=color[mb_data.Expense_index];
-        Date_CategoryKey key=new Date_CategoryKey(LocalDate.now(),choice[mb_data.Expense_index]);
-        if(!User.Expense_data.containsKey(key)){
-            User.Expense_data.put(key,0.0);
+
+        for(LocalDate i=mb_data.init_date;!i.isAfter(mb_data.final_date); i=i.plusDays(1)){
+            Date_CategoryKey key=new Date_CategoryKey(i,choice[mb_data.Expense_index]);
+            if(!User.Expense_data.containsKey(key)){
+                User.Expense_data.put(key,0.0);
+            }
+            mb_data.expense_amount += User.Expense_data.get(key);
         }
 
-        mb_data.expense_amount += User.Expense_data.get(key);
+        mb_data.cat_color=color[mb_data.Expense_index];
         mb_data.periodic_update= Executors.newScheduledThreadPool(1);
         mb_data.scheduledTask1=mb_data.periodic_update.scheduleAtFixedRate(()->Update_Date(mb_data), 0, 15, TimeUnit.SECONDS);
 
@@ -238,28 +248,30 @@ public class BudgetPlan_Controller extends Abstract_controller{
 
         User.MB_data.add(mb_data);
         Add2(mb_data);
-//        SQLConnection.insertMonthlyBudget(mb_data.Budget_name, mb_data.limit_amount, mb_data.expense_amount, mb_data.period,
-//                String.valueOf(mb_data.init_date), String.valueOf(mb_data.final_date), mb_data.selected_cat,
-//                String.valueOf(mb_data.cat_color), mb_data.notify1, mb_data.notify2, mb_data.Expense_index);
         Supabase.getInstance().insertBudgetInfo(mb_data);
     }
 
     public void checkNotification(BudgetPlan mb_data) {
         System.out.println("1->"+mb_data.notify1+" "+mb_data.expense_amount+" "+mb_data.limit_amount);
+
         if(mb_data.notify1 && mb_data.expense_amount>=mb_data.limit_amount){
             System.out.println("1->"+mb_data.notify1+" "+mb_data.expense_amount+" "+mb_data.limit_amount);
-            Platform.runLater(()->{
-                Notifications.create()
-                        .title("Notification!!!")
-                        .text(User.Name+", Your expense amount has exceeded \nthe budget for "+choice[mb_data.Expense_index])
-                        .graphic(new Label())
-                        .hideAfter(Duration.seconds(9))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .darkStyle()
-                        .showInformation();
-            });
+//            Platform.runLater(()->{
+//                Notifications.create()
+//                        .title("Notification")
+//                        .text(User.Name+", Your expense amount has exceeded \nthe budget for "+choice[mb_data.Expense_index])
+//                        .graphic(new Label())
+//                        .hideAfter(Duration.seconds(9))
+//                        .position(Pos.BOTTOM_RIGHT)
+//                        .darkStyle()
+//                        .showInformation();
+//            });
+            Notification_data nf = new Notification_data(User.Name+", Your expense amount has exceeded \nthe budget for "+choice[mb_data.Expense_index]);
+            User.NF_data.add(nf);
+            nf.showSystemNotification();
+            Supabase.getInstance().update_budgetinfo_notify1_status();
+            Supabase.getInstance().storeNotifs(nf.message);
             mb_data.notify1=false;
-            AddNoti(User.Name+", Your expense amount has exceeded \nthe budget for "+choice[mb_data.Expense_index]);
         }
 
         LocalDateTime finaltime=mb_data.final_date.atTime(LocalTime.of(23,59));
@@ -270,18 +282,22 @@ public class BudgetPlan_Controller extends Abstract_controller{
         double estimated_expense = avg_spending * (total_days - time_passed);
         double remaining_expense = mb_data.limit_amount - mb_data.expense_amount;
         if (mb_data.notify2 && estimated_expense > remaining_expense) {
-            Platform.runLater(() -> {
-                Notifications.create()
-                        .title("Notification!!!")
-                        .text(User.Name + ", Your expense amount is trending \nto be overspent for " + choice[mb_data.Expense_index])
-                        .graphic(new Label())
-                        .hideAfter(Duration.seconds(5))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .darkStyle()
-                        .showInformation();
-            });
+//            Platform.runLater(() -> {
+//                Notifications.create()
+//                        .title("Notification!!!")
+//                        .text(User.Name + ", Your expense amount is trending \nto be overspent for " + choice[mb_data.Expense_index])
+//                        .graphic(new Label())
+//                        .hideAfter(Duration.seconds(5))
+//                        .position(Pos.BOTTOM_RIGHT)
+//                        .darkStyle()
+//                        .showInformation();
+//            });
+            Notification_data nf = new Notification_data(User.Name + ", Your expense amount is trending \nto be overspent for " + choice[mb_data.Expense_index]);
+            User.NF_data.add(nf);
+            nf.showSystemNotification();
+            Supabase.getInstance().update_budgetinfo_notify2_status();
+            Supabase.getInstance().storeNotifs(nf.message);
             mb_data.notify2=false;
-            AddNoti(User.Name + ", Your expense amount is trending \nto be overspent for " + choice[mb_data.Expense_index]);
         }
 
         if(!mb_data.notify1 && !mb_data.notify2){
@@ -403,13 +419,6 @@ public class BudgetPlan_Controller extends Abstract_controller{
         mb_data.Today2=LocalDate.now();
     }
 
-    public void AddNoti(String txt) {
-        Notification_data nf_data = new Notification_data();
-        nf_data.messsage.setText(txt);
-        nf_data.localdate = LocalDate.now();
-        nf_data.localtime = LocalTime.now();
-        User.NF_data.add(nf_data);
-    }
 
     public void graph2(ActionEvent event, BudgetPlan mb_data) throws IOException {
         BudgetOView_Controller.mb_data=mb_data;

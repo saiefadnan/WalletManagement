@@ -277,30 +277,28 @@ public class FixedDeposit_Controller extends Abstract_controller{
         }
     }
     public void showNotification(FixedDeposit fd_data){
-        Platform.runLater(()->{
-                Notifications.create()
-                        .title("Notification!!!")
-                        .text(fd_data.dpst_BankName+": " + User.Name + ",your maturity period is over !!!"
-                                + " You have \nsuccessfully deposited a total amount of \nBDT "
-                                + (String.format("%.2f",fd_data.Maturity_val))+"\n\n")
-                        .graphic(new Label())
-                        .hideAfter(Duration.seconds(5))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .darkStyle()
-                        .showInformation();
-        });
+//        Platform.runLater(()->{
+//                Notifications.create()
+//                        .title("Notification!!!")
+//                        .text(fd_data.dpst_BankName+": " + User.Name + ",your maturity period is over !!!"
+//                                + " You have \nsuccessfully deposited a total amount of \nBDT "
+//                                + (String.format("%.2f",fd_data.Maturity_val))+"\n\n")
+//                        .graphic(new Label())
+//                        .hideAfter(Duration.seconds(5))
+//                        .position(Pos.BOTTOM_RIGHT)
+//                        .darkStyle()
+//                        .showInformation();
+//        });
 
-        Notification_data nf_data=new Notification_data();
-        nf_data.messsage.setText(fd_data.dpst_BankName+"\n" + User.Name + ",your maturity period is over !!!"
+        Notification_data nf=new Notification_data(fd_data.dpst_BankName+"\n" + User.Name + ",your maturity period is over !!!"
                 + " You \nhave successfully deposited a total amount of \nBDT "
                 + (String.format("%.2f",fd_data.Maturity_val))+"\n\n");
-        nf_data.localdate=LocalDate.now();
-        nf_data.localtime= LocalTime.now();
+        nf.showSystemNotification();
         Platform.runLater(() -> {
             Supabase.getInstance().update_notify_status();
-            Supabase.getInstance().storeNotifs(nf_data.messsage.getText());
-            User.NF_data.add(nf_data);
-            System.out.println("Adding: " + nf_data + ", List size: " + User.NF_data.size());
+            Supabase.getInstance().storeNotifs(nf.message);
+            User.NF_data.add(nf);
+            System.out.println("Adding: " + nf + ", List size: " + User.NF_data.size());
         });
         fd_data.notify=false;
         fd_data.scheduledTask.cancel(true);
@@ -320,7 +318,6 @@ public class FixedDeposit_Controller extends Abstract_controller{
 
     public void Deletion(AnchorPane anchorpane, FixedDeposit fd_data){
         vbox.getChildren().remove(anchorpane);
-
         if(fd_data.scheduledTask!=null) {
             fd_data.scheduledTask.cancel(true);
             fd_data.Notification_checker.shutdown();
@@ -343,7 +340,8 @@ public class FixedDeposit_Controller extends Abstract_controller{
         Ts5.setText("My current net worth: BDT "+(String.format("%.2f",User.net_worth)));
         Ts6.setText("Final date:");
         Cir_ProgressBar();
-        SQLConnection.deleteFD(User.Name,fd_data);
+        //SQLConnection.deleteFD(User.Name,fd_data);
+        Supabase.getInstance().deleteFixedDepositData(fd_data.fixed_deposit_id);
     }
     public void Cir_ProgressBar(FixedDeposit fd_data){
         double DaysPassed = ChronoUnit.DAYS.between(fd_data.Init_date,LocalDate.now());

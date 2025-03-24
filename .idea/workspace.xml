@@ -4,20 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="user cache built, websocket config done, reset password added">
+    <list default="true" id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="user security enhanced, database connection configured, unnoticed bugs fixed, code refactor, file names changed">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Budget_Overview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetOView_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetPlan_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetPlan_Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/MonthlyBudget_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Monthly_Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetPlan_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Notification_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Notification_data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/SQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/SQLConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/BankAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/BankAccount.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/DashBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/DashBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Fixed_Deposit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Fixed_Deposit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Forget-password.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Forget-password.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Graph_2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Graph_2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Monthly_budget.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Monthly_budget.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Reset-password.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Reset-password.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Sign-up.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/User_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/User_profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742209713130</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="user security enhanced, database connection configured, unnoticed bugs fixed, code refactor, file names changed">
+      <option name="closed" value="true" />
+      <created>1742708896203</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742708896203</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -200,24 +217,25 @@
     <MESSAGE value="database work on going..." />
     <MESSAGE value="frontend modification done...100%backend config done 50%" />
     <MESSAGE value="user cache built, websocket config done, reset password added" />
-    <option name="LAST_COMMIT_MESSAGE" value="user cache built, websocket config done, reset password added" />
+    <MESSAGE value="user security enhanced, database connection configured, unnoticed bugs fixed, code refactor, file names changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="user security enhanced, database connection configured, unnoticed bugs fixed, code refactor, file names changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>613</line>
+          <line>628</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>614</line>
+          <line>629</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>373</line>
+          <line>378</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -237,8 +255,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>509</line>
+          <line>514</line>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetPlan_Controller.java</url>
+          <line>226</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

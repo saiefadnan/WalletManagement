@@ -355,8 +355,8 @@ public class Supabase {
                         "fdate, notify, comp_freq, maturity_unit, maturity_duration, interest) VALUES(?,?,?,?,?,?,?,?,?,?,?,?) ");
                 ps.setInt(1, User.id);
                 ps.setString(2,fd_data.dpst_BankName);
-                ps.setBigDecimal(3,new java.math.BigDecimal(fd_data.Invested));
-                ps.setBigDecimal(4,new java.math.BigDecimal(fd_data.Saving_amnt));
+                ps.setBigDecimal(3,new java.math.BigDecimal(fd_data.Invested).setScale(4, RoundingMode.HALF_UP));
+                ps.setBigDecimal(4,new java.math.BigDecimal(fd_data.Saving_amnt).setScale(4, RoundingMode.HALF_UP));
                 ps.setBigDecimal(5,new java.math.BigDecimal(fd_data.Maturity_val).setScale(4, RoundingMode.HALF_UP));
                 ps.setDate(6,java.sql.Date.valueOf(fd_data.Init_date));
                 ps.setDate(7,java.sql.Date.valueOf(fd_data.Final_date));
@@ -392,6 +392,7 @@ public class Supabase {
                     return;
                 }
                 do{
+                    int id = rs.getInt("id");
                     String bank_name=rs.getString("bank_name");
                     double invested=rs.getDouble("initial_saving");
                     double saving=rs.getDouble("current_saving");
@@ -403,7 +404,7 @@ public class Supabase {
                     double maturityUnit=rs.getDouble("maturity_unit");
                     double maturityDuration=rs.getDouble("maturity_duration");
                     double interest=rs.getDouble("interest");
-                    User.FD_data.add(new FixedDeposit(bank_name, saving, invested, maturity_val, maturity_val-invested, LocalDate.parse(idate), LocalDate.parse(fdate), notify, compFreq, maturityUnit, maturityDuration, interest));
+                    User.FD_data.add(new FixedDeposit(id, bank_name, saving, invested, maturity_val, maturity_val-invested, LocalDate.parse(idate), LocalDate.parse(fdate), notify, compFreq, maturityUnit, maturityDuration, interest));
                 }while(rs.next());
                 System.out.println("Fixed_deposit_info retrieved...!" );
             }
@@ -509,8 +510,7 @@ public class Supabase {
 
                 do{
                     String notif_content=rs.getString("content");
-                    Notification_data nf_data = new Notification_data();
-                    nf_data.messsage.setText(notif_content);
+                    Notification_data nf_data = new Notification_data(notif_content);
                     User.NF_data.add(nf_data);
                 }while(rs.next());
                 User.noti_num = User.NF_data.size() - User.temp_unread_notif;
@@ -821,6 +821,73 @@ public class Supabase {
                 }
                 else{
                     System.out.println("budget info not found..." );
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void update_budgetinfo_notify1_status(){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("UPDATE budget_info SET" +
+                        " notify1 = ? WHERE user_id=?");
+                ps.setBoolean(1,false);
+                ps.setInt(2, User.id);
+                int ru = ps.executeUpdate();
+
+                if(ru>0){
+                    System.out.println("notify1 status updated");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void update_budgetinfo_notify2_status(){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("UPDATE budget_info SET" +
+                        " notify2 = ? WHERE user_id=?");
+                ps.setBoolean(1,false);
+                ps.setInt(2, User.id);
+                int ru = ps.executeUpdate();
+
+                if(ru>0){
+                    System.out.println("notify2 status updated");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteFixedDepositData(int id){
+        try{
+            if(conn!=null){
+                PreparedStatement ps = conn.prepareStatement("DELETE FROM fixed_deposit_info " +
+                        "WHERE user_id=? AND id=?");
+                ps.setInt(1,User.id);
+                ps.setInt(2, id);
+                int rd = ps.executeUpdate();
+
+                if(rd>0){
+                    System.out.println("FD data deletion successful");
                 }
             }
             else{

@@ -234,6 +234,7 @@ public class SQLConnection {
             ResultSet rs = stmt.executeQuery();
             while(rs.next())
             {
+                int id = rs.getInt("id");
                 String bank_name=rs.getString("bank_name");
                 double deposit_amount=rs.getDouble("deposit_amount");
                 double invested_amount=rs.getDouble("invested_amount");
@@ -246,7 +247,7 @@ public class SQLConnection {
                 double maturity_unit=rs.getDouble("maturity_unit");
                 double maturity_duration=rs.getDouble("maturity_duration");
                 double interest=rs.getDouble("interest");
-                User.FD_data.add(new FixedDeposit(bank_name,deposit_amount,invested_amount,maturity_value,earned_interest,LocalDate.parse(init_date),LocalDate.parse(final_date),notify,comp_freq,maturity_unit,maturity_duration,interest));
+                User.FD_data.add(new FixedDeposit(id, bank_name,deposit_amount,invested_amount,maturity_value,earned_interest,LocalDate.parse(init_date),LocalDate.parse(final_date),notify,comp_freq,maturity_unit,maturity_duration,interest));
             }
             rs.close();
             stmt.close();

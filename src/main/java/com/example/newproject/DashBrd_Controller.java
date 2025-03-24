@@ -30,6 +30,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -242,13 +244,17 @@ public class DashBrd_Controller extends Abstract_controller{
                     pieC[i].setRadiusY(140);
                     if (User.SUM > 0) {
                         theta = pieC[i].getStartAngle()+180*User.Expense_Cat[i]/User.SUM;
+
                         Amount_label.setText("BDT " + User.Expense_Cat[i]);
                         Amount_label.setVisible(true);
-                        //Amount_label.setDisable(false);
-                        double newX=1249 + 170 * Math.cos(Math.toRadians(theta));
-                        double newY=300 - 170 * Math.sin(Math.toRadians(theta));
-                        Amount_label.setLayoutX(newX - Amount_label.getWidth() / 2);
-                        Amount_label.setLayoutY(newY - Amount_label.getHeight() / 2);
+                        System.out.println("pie X "+pieC[i].getLayoutX());
+                        System.out.println("pie Y "+pieC[i].getLayoutY());
+                        double newX = 214 + 100 * Math.cos(Math.toRadians(theta));
+                        double newY = 151 - 100 * Math.sin(Math.toRadians(theta));
+                        Amount_label.setLayoutX(newX - (Amount_label.getWidth() / 2));
+                        Amount_label.setLayoutY(newY - (Amount_label.getHeight() / 2));
+                        System.out.println("X "+Amount_label.getLayoutX());
+                        System.out.println("Y "+Amount_label.getLayoutY());
                     }
                     break;
                 }
@@ -310,7 +316,6 @@ public class DashBrd_Controller extends Abstract_controller{
             FixedDeposit fd_data = User.FD_data.get(i);
             FixedDeposit_Controller fd = new FixedDeposit_Controller();
             if ((fd_data.Notification_checker == null || fd_data.Notification_checker.isShutdown()) && fd_data.notify) {
-                System.out.println(fd_data.notify+" helooooooooooooooooooooo");
                 fd_data.Notification_checker= Executors.newScheduledThreadPool(1);
                 fd_data.scheduledTask = fd_data.Notification_checker.scheduleAtFixedRate(()->fd.checkTime(fd_data), 0, 15, TimeUnit.SECONDS);
                 //System.out.println("sucessfully->t4");
@@ -530,12 +535,14 @@ public class DashBrd_Controller extends Abstract_controller{
             AnchorPane anchorpane = new AnchorPane();
             anchorpane.setStyle(
                     "-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #3152d6 0.0%, #1fff7ce0 100.0%);" +
-                            "-fx-background-radius: 20px;"
+                            "-fx-background-radius: 8px;" +
+                            "-fx-padding: 8px;"
             );
-            AnchorPane.setTopAnchor(User.NF_data.get(i).messsage, 20.0);
-            AnchorPane.setLeftAnchor(User.NF_data.get(i).messsage, 10.0);
+            Text msg = new Text(User.NF_data.get(i).message);
+            AnchorPane.setTopAnchor(msg, 10.0);
+            AnchorPane.setLeftAnchor(msg, 10.0);
             anchorpane.setPrefSize(120, 80);
-            anchorpane.getChildren().add(User.NF_data.get(i).messsage);
+            anchorpane.getChildren().add(msg);
             vbox.getChildren().add(0,anchorpane);
         }
     }
@@ -578,8 +585,16 @@ public class DashBrd_Controller extends Abstract_controller{
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         //stage.setFullScreen(true);
+        stage.fullScreenProperty().addListener((obs, wasFullScreen, isNowFullScreen) -> {
+            if (isNowFullScreen) {
+                System.out.println("Switched to Fullscreen Mode");
+            } else {
+                System.out.println("Exited Fullscreen Mode");
+            }
+        });
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
 
     public void Debt_Loan(ActionEvent event) throws IOException {
@@ -610,7 +625,7 @@ public class DashBrd_Controller extends Abstract_controller{
         stage.show();
     }
 
-    public void Log_out(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+    public void Log_out(ActionEvent event) throws IOException {
 //        SQLConnection.updateDashboard();
 //        SQLConnection.updateCount(User.Name,User.goals_count,User.debts_count,User.lents_count);
         User.reset();
