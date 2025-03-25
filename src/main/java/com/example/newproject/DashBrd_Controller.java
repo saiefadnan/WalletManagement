@@ -244,7 +244,6 @@ public class DashBrd_Controller extends Abstract_controller{
                     pieC[i].setRadiusY(140);
                     if (User.SUM > 0) {
                         theta = pieC[i].getStartAngle()+180*User.Expense_Cat[i]/User.SUM;
-
                         Amount_label.setText("BDT " + User.Expense_Cat[i]);
                         Amount_label.setVisible(true);
                         System.out.println("pie X "+pieC[i].getLayoutX());

@@ -329,7 +329,7 @@ public class PieChart_controller implements Initializable {
             alert.setContentText("Do you really want to delete the goal "+s+"?");
             alert.setHeaderText("Warning!");
             if(alert.showAndWait().get()== ButtonType.OK) {
-                SQLConnection.deleteData(User.Name, s);
+                //SQLConnection.deleteData(User.Name, s);
                 User.goals_count--;
                 System.out.println(User.goals_count);
                 User.ap_name.remove(i);

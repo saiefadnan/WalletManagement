@@ -154,7 +154,7 @@ public class Goals implements Initializable{
                 warnLabel.setText("Saved amount cannot be greater than target amount");
                 return;
             }
-            SQLConnection.insertData(User.Name,s,t,sa,da,n);
+            //SQLConnection.insertData(User.Name,s,t,sa,da,n);
             User.ap_name.add(s);
             User.ap_target.add(t);
             User.ap_saved.add(sa);

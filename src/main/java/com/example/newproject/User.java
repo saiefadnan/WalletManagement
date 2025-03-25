@@ -50,10 +50,9 @@ public class User {
         MB_data=new ArrayList<>();
         NF_data=new ArrayList<>();
         Expense_Cat=new double[11];
-        int[] count={0, 1, 2, 3};
-        goals_count=count[0];
-        debts_count=count[1];
-        lents_count=count[2];
+        goals_count=0;
+        debts_count=0;
+        lents_count=0;
         temp_unread_notif=0;
         noti_num=0;
         noti_counter=0;

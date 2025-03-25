@@ -168,7 +168,7 @@ public class Debts implements Initializable {
             }
             double t= Double.parseDouble(target);
             double sa= Double.parseDouble(received);
-            SQLConnection.insertDebt(User.Name,s,t,sa,da,n);
+            //SQLConnection.insertDebt(User.Name,s,t,sa,da,n);
             User.ap_Dname.add(s);
             User.ap_debt.add(t);
             User.ap_repaid.add(sa);
@@ -217,7 +217,7 @@ public class Debts implements Initializable {
             }
             double t= Double.parseDouble(target);
             double sa= Double.parseDouble(received);
-            SQLConnection.insertLent(User.Name,s,t,sa,da,n);
+            //SQLConnection.insertLent(User.Name,s,t,sa,da,n);
             User.ap_Lname.add(s);
             User.ap_lent.add(t);
             User.ap_received.add(sa);

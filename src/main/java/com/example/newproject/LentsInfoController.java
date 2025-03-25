@@ -333,7 +333,7 @@ public class LentsInfoController implements Initializable {
             alert.setContentText("Do you really want to delete the lent "+s+"?");
             alert.setHeaderText("Warning!");
             if(alert.showAndWait().get()== ButtonType.OK) {
-                SQLConnection.deleteLent(User.Name, s);
+               // SQLConnection.deleteLent(User.Name, s);
                 User.lents_count--;
                 System.out.println(User.lents_count);
                 User.ap_Lname.remove(i);

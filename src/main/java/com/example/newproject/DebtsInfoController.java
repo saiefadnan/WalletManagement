@@ -336,7 +336,7 @@ public class DebtsInfoController implements Initializable {
             alert.setContentText("Do you really want to delete the debt "+s+"?");
             alert.setHeaderText("Warning!");
             if(alert.showAndWait().get()== ButtonType.OK) {
-                SQLConnection.deleteDebt(User.Name, s);
+                //SQLConnection.deleteDebt(User.Name, s);
                 User.debts_count--;
                 System.out.println(User.debts_count);
                 User.ap_Dname.remove(i);
