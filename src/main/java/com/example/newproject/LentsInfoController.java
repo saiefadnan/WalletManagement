@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -46,7 +47,7 @@ public class LentsInfoController implements Initializable {
         s=lents_tab.lents_name;
         i=User.ap_Lname.indexOf(s);
         goalLabel.setText(s);
-        dateLabel.setText(User.ap_Ldate.get(i));
+        dateLabel.setText(User.ap_Ldate.get(i).toString());
         noteLabel.setText(User.ap_Lnote.get(i));
         double remaining=User.ap_lent.get(i)-User.ap_received.get(i);
         DecimalFormat df=new DecimalFormat("#");
@@ -72,9 +73,9 @@ public class LentsInfoController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
-        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
     public void getTarget() {
         try {
@@ -86,7 +87,8 @@ public class LentsInfoController implements Initializable {
                 setValues();
                 label2.setText(String.format("%.2f", values[2]));
                 label3.setText(String.format("%.2f", values[0]) + " + ");
-                SQLConnection.updateLents(s, values[0], values[0], s, User.ap_Ldate.get(i), User.ap_Lnote.get(i));
+                //SQLConnection.updateLents(s, values[0], values[0], s, User.ap_Ldate.get(i), User.ap_Lnote.get(i));
+                Supabase.getInstance().updateLents(s, values[0], values[0], s, User.ap_Ldate.get(i), User.ap_Lnote.get(i));
                 User.ap_lent.set(i, values[0]);
                 User.ap_received.set(i, values[0]);
                 return;
@@ -95,7 +97,7 @@ public class LentsInfoController implements Initializable {
             setValues();
             label2.setText(String.format("%.2f", values[2]));
             label3.setText(String.format("%.2f", User.ap_received.get(i)) + " + ");
-            SQLConnection.updateLents(s, values[0], User.ap_received.get(i), s, User.ap_Ldate.get(i), User.ap_Lnote.get(i));
+            Supabase.getInstance().updateLents(s, values[0], User.ap_received.get(i), s, User.ap_Ldate.get(i), User.ap_Lnote.get(i));
             User.ap_lent.set(i, values[0]);
             myLabel.setText("Lent amount updated successfully.");
             myLabel.setStyle("-fx-text-fill: green;");
@@ -141,7 +143,7 @@ public class LentsInfoController implements Initializable {
                 setValues();
                 label2.setText(String.format("%.2f",values[2]));
                 label3.setText(String.format("%.2f",values[0])+" + ");
-                SQLConnection.updateLents(s,values[0],values[0],s,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
+                Supabase.getInstance().updateLents(s,values[0],values[0],s,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
                 User.ap_lent.set(i,values[0]);
                 User.ap_received.set(i,values[0]);
                 return;
@@ -150,7 +152,7 @@ public class LentsInfoController implements Initializable {
             setValues();
             label2.setText(String.format("%.2f",values[2]));
             label3.setText(String.format("%.2f",values[1])+" + ");
-            SQLConnection.updateLents(s,values[0],values[1],s,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
+            Supabase.getInstance().updateLents(s,values[0],values[1],s,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
             User.ap_lent.set(i,values[0]);
             User.ap_received.set(i,values[1]);
             myLabel.setText("Received amount updated successfully.");
@@ -206,7 +208,7 @@ public class LentsInfoController implements Initializable {
             setValues();
             label2.setText(String.format("%.2f",values[2]));
             label3.setText(String.format("%.2f",values[1])+" + ");
-            SQLConnection.updateLents(s,values[1],values[1],s,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
+            Supabase.getInstance().updateLents(s,values[1],values[1],s,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
             User.ap_received.set(i,values[1]);
             myLabel.setStyle("-fx-text-fill: green;");
             reachedFld.setDisable(true);
@@ -220,7 +222,7 @@ public class LentsInfoController implements Initializable {
         setValues();
         label2.setText(String.format("%.2f",values[2]));
         label3.setText(String.format("%.2f",values[1])+" + ");
-        SQLConnection.updateLents(s,User.ap_lent.get(i),values[1],s,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
+        Supabase.getInstance().updateLents(s,User.ap_lent.get(i),values[1],s,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
         User.ap_received.set(i,values[1]);
         myLabel.setText("Saved amount updated successfully.");
         reachedFld.setDisable(true);
@@ -244,11 +246,11 @@ public class LentsInfoController implements Initializable {
     }
     public void datePick() throws SQLException, ClassNotFoundException {
         dateLabel.setVisible(false);
-        String p=changeDateFld.getValue().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        dateLabel.setText(p);
+        LocalDate p=changeDateFld.getValue();
+        dateLabel.setText(p.toString());
         changeDateFld.setDisable(true);
         changeDateFld.setVisible(false);
-        SQLConnection.updateLents(s,User.ap_lent.get(i),User.ap_received.get(i),s,p,User.ap_Lnote.get(i));
+        Supabase.getInstance().updateLents(s,User.ap_lent.get(i),User.ap_received.get(i),s,p,User.ap_Lnote.get(i));
         User.ap_Ldate.set(i,p);
         changeDateBtn.setDisable(false);
         changeDateBtn.setVisible(true);
@@ -277,7 +279,7 @@ public class LentsInfoController implements Initializable {
         goalLabel.setText(p);
         nameFld.setDisable(true);
         nameFld.setVisible(false);
-        SQLConnection.updateLents(s,User.ap_lent.get(i),User.ap_received.get(i),p,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
+        Supabase.getInstance().updateLents(s,User.ap_lent.get(i),User.ap_received.get(i),p,User.ap_Ldate.get(i),User.ap_Lnote.get(i));
         User.ap_Lname.set(i,p);
         changeNameBtn.setDisable(false);
         changeNameBtn.setVisible(true);
@@ -306,7 +308,7 @@ public class LentsInfoController implements Initializable {
         noteLabel.setText(p);
         noteFld.setDisable(true);
         noteFld.setVisible(false);
-        SQLConnection.updateLents(s,User.ap_lent.get(i),User.ap_received.get(i),s,User.ap_Ldate.get(i),p);
+        Supabase.getInstance().updateLents(s,User.ap_lent.get(i),User.ap_received.get(i),s,User.ap_Ldate.get(i),p);
         User.ap_Lnote.set(i,p);
         changeNoteBtn.setDisable(false);
         changeNoteBtn.setVisible(true);
@@ -333,7 +335,8 @@ public class LentsInfoController implements Initializable {
             alert.setContentText("Do you really want to delete the lent "+s+"?");
             alert.setHeaderText("Warning!");
             if(alert.showAndWait().get()== ButtonType.OK) {
-               // SQLConnection.deleteLent(User.Name, s);
+               //SQLConnection.deleteLent(User.Name, s);
+                Supabase.getInstance().deleteLent(User.Name, s);
                 User.lents_count--;
                 System.out.println(User.lents_count);
                 User.ap_Lname.remove(i);
@@ -345,9 +348,9 @@ public class LentsInfoController implements Initializable {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
-                //stage.setFullScreen(true);
                 stage.setScene(scene);
                 stage.show();
+                stage.setFullScreen(true);
             }
         }
         catch(Exception e)

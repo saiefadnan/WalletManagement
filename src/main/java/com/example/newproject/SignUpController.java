@@ -78,9 +78,9 @@ public class SignUpController extends SQLConnection implements Initializable {
         scene = new Scene(root);
         stage.setX(0);
         stage.setY(0);
-        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
     public String dateChoice()
     {
@@ -169,11 +169,11 @@ public class SignUpController extends SQLConnection implements Initializable {
             System.out.println("2");
             scene = new Scene(root);
             System.out.println("3");
-            //stage.setFullScreen(true);
             System.out.println("4");
             stage.setScene(scene);
             System.out.println("5");
             stage.show();
+            stage.setFullScreen(true);
         }
         catch(Exception e) {
             System.out.println(e);

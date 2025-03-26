@@ -48,7 +48,7 @@ public class DebtsInfoController implements Initializable {
         s=debts_tab.debts_name;
         i=User.ap_Dname.indexOf(s);
         goalLabel.setText(s);
-        dateLabel.setText(User.ap_Ddate.get(i));
+        dateLabel.setText(User.ap_Ddate.get(i).toString());
         noteLabel.setText(User.ap_Dnote.get(i));
         double remaining=User.ap_debt.get(i)-User.ap_repaid.get(i);
         DecimalFormat df=new DecimalFormat("#");
@@ -74,9 +74,9 @@ public class DebtsInfoController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
-        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
     public void getTarget() {
         try {
@@ -88,7 +88,8 @@ public class DebtsInfoController implements Initializable {
                 setValues();
                 label2.setText(String.format("%.2f", values[2]));
                 label3.setText(String.format("%.2f", values[0]) + " + ");
-                SQLConnection.updateDebts(s, values[0], values[0], s, User.ap_Ddate.get(i), User.ap_Dnote.get(i));
+                //SQLConnection.updateDebts(s, values[0], values[0], s, User.ap_Ddate.get(i), User.ap_Dnote.get(i));
+                Supabase.getInstance().updateDebts(s, values[0], values[0], s, User.ap_Ddate.get(i), User.ap_Dnote.get(i));
                 User.ap_debt.set(i, values[0]);
                 User.ap_repaid.set(i, values[0]);
                 return;
@@ -97,7 +98,8 @@ public class DebtsInfoController implements Initializable {
             setValues();
             label2.setText(String.format("%.2f", values[2]));
             label3.setText(String.format("%.2f", User.ap_repaid.get(i)) + " + ");
-            SQLConnection.updateDebts(s, values[0], User.ap_repaid.get(i), s, User.ap_Ddate.get(i), User.ap_Dnote.get(i));
+           // SQLConnection.updateDebts(s, values[0], User.ap_repaid.get(i), s, User.ap_Ddate.get(i), User.ap_Dnote.get(i));
+            Supabase.getInstance().updateDebts(s, values[0], User.ap_repaid.get(i), s, User.ap_Ddate.get(i), User.ap_Dnote.get(i));
             User.ap_debt.set(i, values[0]);
             myLabel.setText("Debt amount updated successfully.");
             myLabel.setStyle("-fx-text-fill: green;");
@@ -143,7 +145,8 @@ public class DebtsInfoController implements Initializable {
                 setValues();
                 label2.setText(String.format("%.2f",values[2]));
                 label3.setText(String.format("%.2f",values[0])+" + ");
-                SQLConnection.updateDebts(s,values[0],values[0],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
+                //SQLConnection.updateDebts(s,values[0],values[0],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
+                Supabase.getInstance().updateDebts(s,values[0],values[0],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
                 User.ap_debt.set(i,values[0]);
                 User.ap_repaid.set(i,values[0]);
                 return;
@@ -152,7 +155,8 @@ public class DebtsInfoController implements Initializable {
             setValues();
             label2.setText(String.format("%.2f",values[2]));
             label3.setText(String.format("%.2f",values[1])+" + ");
-            SQLConnection.updateDebts(s,values[0],values[1],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
+            //SQLConnection.updateDebts(s,values[0],values[1],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
+            Supabase.getInstance().updateDebts(s,values[0],values[1],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
             User.ap_debt.set(i,values[0]);
             User.ap_repaid.set(i,values[1]);
             myLabel.setText("Repaid amount updated successfully.");
@@ -198,8 +202,10 @@ public class DebtsInfoController implements Initializable {
         changeReachedBtn.setDisable(true);
         changeReachedBtn.setVisible(false);
     }
-    public void reachedChange() throws SQLException, ClassNotFoundException {
+    public void reachedChange(){
         double d=Double.parseDouble(reachedFld.getText());
+        System.out.println(d);
+        System.out.println(User.ap_debt.get(i));
         if(d>=User.ap_debt.get(i)){
             myLabel.setText("Congratulations! You have repaid your debt.");
             myLabel.setStyle("-fx-text-fill: green;");
@@ -208,7 +214,7 @@ public class DebtsInfoController implements Initializable {
             setValues();
             label2.setText(String.format("%.2f",values[2]));
             label3.setText(String.format("%.2f",values[1])+" + ");
-            SQLConnection.updateDebts(s,values[1],values[1],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
+            Supabase.getInstance().updateDebts(s,values[1],values[1],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
             User.ap_repaid.set(i,values[1]);
             myLabel.setStyle("-fx-text-fill: green;");
             reachedFld.setDisable(true);
@@ -222,7 +228,7 @@ public class DebtsInfoController implements Initializable {
         setValues();
         label2.setText(String.format("%.2f",values[2]));
         label3.setText(String.format("%.2f",values[1])+" + ");
-        SQLConnection.updateDebts(s,User.ap_debt.get(i),values[1],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
+        Supabase.getInstance().updateDebts(s,User.ap_debt.get(i),values[1],s,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
         User.ap_repaid.set(i,values[1]);
         myLabel.setText("Repaid amount updated successfully.");
         reachedFld.setDisable(true);
@@ -245,13 +251,13 @@ public class DebtsInfoController implements Initializable {
         changeDateBtn.setDisable(true);
         changeDateBtn.setVisible(false);
     }
-    public void datePick() throws SQLException, ClassNotFoundException {
+    public void datePick() {
         dateLabel.setVisible(false);
-        String p=changeDateFld.getValue().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        dateLabel.setText(p);
+        LocalDate p=changeDateFld.getValue();
+        dateLabel.setText(p.toString());
         changeDateFld.setDisable(true);
         changeDateFld.setVisible(false);
-        SQLConnection.updateDebts(s,User.ap_debt.get(i),User.ap_repaid.get(i),s,p,User.ap_Dnote.get(i));
+        Supabase.getInstance().updateDebts(s,User.ap_debt.get(i),User.ap_repaid.get(i),s,p,User.ap_Dnote.get(i));
         User.ap_Ddate.set(i,p);
         changeDateBtn.setDisable(false);
         changeDateBtn.setVisible(true);
@@ -280,7 +286,7 @@ public class DebtsInfoController implements Initializable {
         goalLabel.setText(p);
         nameFld.setDisable(true);
         nameFld.setVisible(false);
-        SQLConnection.updateDebts(s,User.ap_debt.get(i),User.ap_repaid.get(i),p,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
+        Supabase.getInstance().updateDebts(s,User.ap_debt.get(i),User.ap_repaid.get(i),p,User.ap_Ddate.get(i),User.ap_Dnote.get(i));
         User.ap_Dname.set(i,p);
         changeNameBtn.setDisable(false);
         changeNameBtn.setVisible(true);
@@ -309,7 +315,7 @@ public class DebtsInfoController implements Initializable {
         noteLabel.setText(p);
         noteFld.setDisable(true);
         noteFld.setVisible(false);
-        SQLConnection.updateDebts(s,User.ap_debt.get(i),User.ap_repaid.get(i),s,User.ap_Ddate.get(i),p);
+        Supabase.getInstance().updateDebts(s,User.ap_debt.get(i),User.ap_repaid.get(i),s,User.ap_Ddate.get(i),p);
         User.ap_Dnote.set(i,p);
         changeNoteBtn.setDisable(false);
         changeNoteBtn.setVisible(true);
@@ -337,6 +343,7 @@ public class DebtsInfoController implements Initializable {
             alert.setHeaderText("Warning!");
             if(alert.showAndWait().get()== ButtonType.OK) {
                 //SQLConnection.deleteDebt(User.Name, s);
+                Supabase.getInstance().deleteDebt(User.Name, s);
                 User.debts_count--;
                 System.out.println(User.debts_count);
                 User.ap_Dname.remove(i);
@@ -348,9 +355,9 @@ public class DebtsInfoController implements Initializable {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
-                //stage.setFullScreen(true);
                 stage.setScene(scene);
                 stage.show();
+                stage.setFullScreen(true);
             }
         }
         catch(Exception e) {

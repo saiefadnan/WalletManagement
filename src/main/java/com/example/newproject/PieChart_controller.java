@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -48,7 +49,7 @@ public class PieChart_controller implements Initializable {
         s=goals_tab.goals_name;
         i=User.ap_name.indexOf(s);
         goalLabel.setText(s);
-        dateLabel.setText(User.ap_date.get(i));
+        dateLabel.setText(User.ap_date.get(i).toString());
         noteLabel.setText(User.ap_note.get(i));
         double remaining=User.ap_target.get(i)-User.ap_saved.get(i);
         DecimalFormat df=new DecimalFormat("#");
@@ -74,9 +75,9 @@ public class PieChart_controller implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
-        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
     public void getTarget() {
         try {
@@ -88,7 +89,8 @@ public class PieChart_controller implements Initializable {
                 setValues();
                 label2.setText(String.format("%.2f", values[2]));
                 label3.setText(String.format("%.2f", values[0]) + " + ");
-                SQLConnection.updateGoals(s, values[0], values[0], s, User.ap_date.get(i), User.ap_note.get(i));
+                //SQLConnection.updateGoals(s, values[0], values[0], s, User.ap_date.get(i), User.ap_note.get(i));
+                Supabase.getInstance().updateGoals(s, values[0], values[0], s, User.ap_date.get(i), User.ap_note.get(i));
                 User.ap_target.set(i, values[0]);
                 User.ap_saved.set(i, values[0]);
                 return;
@@ -97,7 +99,8 @@ public class PieChart_controller implements Initializable {
             setValues();
             label2.setText(String.format("%.2f", values[2]));
             label3.setText(String.format("%.2f", User.ap_saved.get(i)) + " + ");
-            SQLConnection.updateGoals(s, values[0], User.ap_saved.get(i), s, User.ap_date.get(i), User.ap_note.get(i));
+            //SQLConnection.updateGoals(s, values[0], User.ap_saved.get(i), s, User.ap_date.get(i), User.ap_note.get(i));
+            Supabase.getInstance().updateGoals(s, values[0], User.ap_saved.get(i), s, User.ap_date.get(i), User.ap_note.get(i));
             User.ap_target.set(i, values[0]);
             myLabel.setText("Target amount updated successfully.");
             myLabel.setStyle("-fx-text-fill: green;");
@@ -143,7 +146,8 @@ public class PieChart_controller implements Initializable {
                 setValues();
                 label2.setText(String.format("%.2f",values[2]));
                 label3.setText(String.format("%.2f",values[0])+" + ");
-                SQLConnection.updateGoals(s,values[0],values[0],s,User.ap_date.get(i),User.ap_note.get(i));
+                //SQLConnection.updateGoals(s,values[0],values[0],s,User.ap_date.get(i),User.ap_note.get(i));
+                Supabase.getInstance().updateGoals(s,values[0],values[0],s,User.ap_date.get(i),User.ap_note.get(i));
                 User.ap_target.set(i,values[0]);
                 User.ap_saved.set(i,values[0]);
                 return;
@@ -152,7 +156,8 @@ public class PieChart_controller implements Initializable {
             setValues();
             label2.setText(String.format("%.2f",values[2]));
             label3.setText(String.format("%.2f",values[1])+" + ");
-            SQLConnection.updateGoals(s,values[0],values[1],s,User.ap_date.get(i),User.ap_note.get(i));
+            //SQLConnection.updateGoals(s,values[0],values[1],s,User.ap_date.get(i),User.ap_note.get(i));
+            Supabase.getInstance().updateGoals(s,values[0],values[1],s,User.ap_date.get(i),User.ap_note.get(i));
             User.ap_target.set(i,values[0]);
             User.ap_saved.set(i,values[1]);
             myLabel.setText("Saved amount updated successfully.");
@@ -208,7 +213,8 @@ public class PieChart_controller implements Initializable {
             setValues();
             label2.setText(String.format("%.2f",values[2]));
             label3.setText(String.format("%.2f",values[1])+" + ");
-            SQLConnection.updateGoals(s,values[1],values[1],s,User.ap_date.get(i),User.ap_note.get(i));
+            //SQLConnection.updateGoals(s,values[1],values[1],s,User.ap_date.get(i),User.ap_note.get(i));
+            Supabase.getInstance().updateGoals(s,values[1],values[1],s,User.ap_date.get(i),User.ap_note.get(i));
             User.ap_saved.set(i,values[1]);
             myLabel.setStyle("-fx-text-fill: green;");
             reachedFld.setDisable(true);
@@ -222,7 +228,8 @@ public class PieChart_controller implements Initializable {
         setValues();
         label2.setText(String.format("%.2f",values[2]));
         label3.setText(String.format("%.2f",values[1])+" + ");
-        SQLConnection.updateGoals(s,User.ap_target.get(i),values[1],s,User.ap_date.get(i),User.ap_note.get(i));
+        //SQLConnection.updateGoals(s,User.ap_target.get(i),values[1],s,User.ap_date.get(i),User.ap_note.get(i));
+        Supabase.getInstance().updateGoals(s,User.ap_target.get(i),values[1],s,User.ap_date.get(i),User.ap_note.get(i));
         User.ap_saved.set(i,values[1]);
         myLabel.setText("Saved amount updated successfully.");
         reachedFld.setDisable(true);
@@ -245,11 +252,12 @@ public class PieChart_controller implements Initializable {
         changeDateBtn.setVisible(false);
     }
     public void datePick() throws SQLException, ClassNotFoundException {
-        String p=changeDateFld.getValue().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        dateLabel.setText(p);
+        //String p=changeDateFld.getValue().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        LocalDate p=changeDateFld.getValue();
+        dateLabel.setText(p.toString());
         changeDateFld.setDisable(true);
         changeDateFld.setVisible(false);
-        SQLConnection.updateGoals(s,User.ap_target.get(i),User.ap_saved.get(i),s,p,User.ap_note.get(i));
+        Supabase.getInstance().updateGoals(s,User.ap_target.get(i),User.ap_saved.get(i),s,p,User.ap_note.get(i));
         User.ap_date.set(i,p);
         changeDateBtn.setDisable(false);
         changeDateBtn.setVisible(true);
@@ -276,7 +284,8 @@ public class PieChart_controller implements Initializable {
         goalLabel.setText(p);
         nameFld.setDisable(true);
         nameFld.setVisible(false);
-        SQLConnection.updateGoals(s,User.ap_target.get(i),User.ap_saved.get(i),p,User.ap_date.get(i),User.ap_note.get(i));
+        //SQLConnection.updateGoals(s,User.ap_target.get(i),User.ap_saved.get(i),p,User.ap_date.get(i),User.ap_note.get(i));
+        Supabase.getInstance().updateGoals(s,User.ap_target.get(i),User.ap_saved.get(i),p,User.ap_date.get(i),User.ap_note.get(i));
         User.ap_name.set(i,p);
         changeNameBtn.setDisable(false);
         changeNameBtn.setVisible(true);
@@ -303,7 +312,8 @@ public class PieChart_controller implements Initializable {
         noteLabel.setText(p);
         noteFld.setDisable(true);
         noteFld.setVisible(false);
-        SQLConnection.updateGoals(s,User.ap_target.get(i),User.ap_saved.get(i),s,User.ap_date.get(i),p);
+        //SQLConnection.updateGoals(s,User.ap_target.get(i),User.ap_saved.get(i),s,User.ap_date.get(i),p);
+        Supabase.getInstance().updateGoals(s,User.ap_target.get(i),User.ap_saved.get(i),s,User.ap_date.get(i),p);
         User.ap_note.set(i,p);
         changeNoteBtn.setDisable(false);
         changeNoteBtn.setVisible(true);
@@ -341,9 +351,9 @@ public class PieChart_controller implements Initializable {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
-                //stage.setFullScreen(true);
                 stage.setScene(scene);
                 stage.show();
+                stage.setFullScreen(true);
             }
         }
         catch(Exception e)

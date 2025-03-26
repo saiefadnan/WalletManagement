@@ -294,44 +294,6 @@
                </children>
             </VBox>
             <Label fx:id="Noti_label" alignment="TOP_CENTER" disable="true" layoutX="70.0" layoutY="340.0" prefHeight="9.0" prefWidth="18.0" style="-fx-background-color: red; -fx-background-radius: 35px;" textAlignment="CENTER" textFill="WHITE" visible="false" />
-            <AnchorPane fx:id="miniAnchor" disable="true" layoutX="129.0" layoutY="172.0" prefHeight="470.0" prefWidth="371.0" stylesheets="@SubWindow.css" visible="false">
-               <children>
-                  <ChoiceBox fx:id="choicebox" layoutX="159.0" layoutY="120.0" prefHeight="38.0" prefWidth="186.0" stylesheets="@Choicebox.css" />
-                  <TextField fx:id="Tf6" disable="true" layoutX="159.0" layoutY="199.0" onKeyPressed="#pie" prefHeight="30.0" prefWidth="195.0" promptText="0 BDT" stylesheets="@textfield.css">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font></TextField>
-                  <Text fill="WHITE" layoutX="30.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount   " wrappingWidth="139.99999999999994">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Text>
-                  <Button layoutX="321.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" text="X">
-                     <stylesheets>
-                        <URL value="@button4.css" />
-                        <URL value="@Button2.css" />
-                     </stylesheets></Button>
-                  <Text fill="WHITE" layoutX="30.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category" wrappingWidth="139.99999999999994">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="Noti_pane" disable="true" layoutX="35.0" layoutY="145.0" prefHeight="582.0" prefWidth="338.0" stylesheets="@SubWindow.css" visible="false">
-               <children>
-                  <Button alignment="CENTER" layoutX="294.0" layoutY="14.0" minWidth="30.0" mnemonicParsing="false" onAction="#CloseNoti_pane" prefHeight="30.0" prefWidth="30.0" stylesheets="@Button2.css" text="X" textAlignment="CENTER">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="9.0" layoutY="51.0" prefHeight="509.0" prefWidth="318.0" stylesheets="@ScrollPane.css">
-                     <content>
-                        <VBox fx:id="vbox" alignment="TOP_RIGHT" prefHeight="474.0" prefWidth="317.0" spacing="10.0" style="-fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000044);" />
-                     </content>
-                  </ScrollPane>
-               </children>
-            </AnchorPane>
             <Group layoutX="28.0" layoutY="210.0">
                <children>
                   <Rectangle arcHeight="30.0" arcWidth="30.0" height="679.0" layoutX="-238.0" layoutY="-112.0" stroke="BLACK" strokeType="INSIDE" width="119.0" x="224.0" y="38.0">
@@ -470,6 +432,46 @@
                   </Group>
                </children>
             </Group>
+            <AnchorPane fx:id="miniAnchor" disable="true" layoutX="139.0" layoutY="172.0" prefHeight="470.0" prefWidth="370.0" stylesheets="@SubWindow.css" visible="false">
+               <children>
+                  <ChoiceBox fx:id="choicebox" layoutX="159.0" layoutY="120.0" prefHeight="38.0" prefWidth="186.0" stylesheets="@Choicebox.css" />
+                  <TextField fx:id="Tf6" disable="true" layoutX="159.0" layoutY="199.0" onKeyPressed="#pie" prefHeight="30.0" prefWidth="195.0" promptText="0 BDT" stylesheets="@textfield.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="WHITE" layoutX="30.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount   " wrappingWidth="139.99999999999994">
+                     <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="321.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" text="X">
+                     <stylesheets>
+                        <URL value="@button4.css" />
+                        <URL value="@Button2.css" />
+                     </stylesheets>
+                  </Button>
+                  <Text fill="WHITE" layoutX="30.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category" wrappingWidth="139.99999999999994">
+                     <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="Noti_pane" disable="true" layoutX="35.0" layoutY="145.0" prefHeight="582.0" prefWidth="338.0" stylesheets="@SubWindow.css" visible="false">
+               <children>
+                  <Button alignment="CENTER" layoutX="294.0" layoutY="14.0" minWidth="30.0" mnemonicParsing="false" onAction="#CloseNoti_pane" prefHeight="30.0" prefWidth="30.0" stylesheets="@Button2.css" text="X" textAlignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="9.0" layoutY="51.0" prefHeight="509.0" prefWidth="318.0" stylesheets="@ScrollPane.css">
+                     <content>
+                        <VBox fx:id="vbox" alignment="TOP_RIGHT" prefHeight="474.0" prefWidth="317.0" spacing="10.0" style="-fx-background-color: linear-gradient(from 100% 0% to 0% 100%, #000022, #000033, #000044);" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </center>

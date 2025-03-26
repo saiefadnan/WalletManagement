@@ -175,13 +175,17 @@ public class Supabase {
     public void getUserInfo(){
         try{
             if(conn!=null){
-                PreparedStatement ps = conn.prepareStatement("SELECT firstname,lastname,email,gender,dob,profession,address,phone,unread_notifs FROM userinfo WHERE id=?");
+                PreparedStatement ps = conn.prepareStatement("SELECT firstname,lastname,email,gender,dob,profession,address,phone,unread_notifs,lents_count," +
+                        "debts_count,goals_count FROM userinfo WHERE id=?");
                 ps.setInt(1, User.id);
                 ResultSet rs = ps.executeQuery();
                 if(!rs.next()){
                     System.out.println("no data available of user ID: "+ User.id);
                     return;
                 }
+                    User.lents_count = Integer.parseInt(rs.getString("lents_count"));
+                    User.debts_count = Integer.parseInt(rs.getString("debts_count"));
+                    User.goals_count = Integer.parseInt(rs.getString("goals_count"));
                     User.userInfo.add(rs.getString("firstname"));
                     User.userInfo.add(rs.getString("lastname"));
                     User.userInfo.add(rs.getString("email"));
@@ -888,6 +892,397 @@ public class Supabase {
 
                 if(rd>0){
                     System.out.println("FD data deletion successful");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+//    public static void insertGoalsCount() throws ClassNotFoundException, SQLException {
+//        try{
+//            if(conn!=null){
+//                String sql = "INSERT INTO user_data (username,goals_count,debts_count,lents_count) VALUES (?,?,?,?)";
+//                PreparedStatement stmt = conn.prepareStatement(sql);
+//                stmt.setString(1,user);
+//                stmt.setInt(2,0);
+//                stmt.setInt(3,0);
+//                stmt.setInt(4,0);
+//                boolean inserted = stmt.execute();
+//                if(inserted){
+//                    System.out.println("Successfully debt inserted");
+//                }
+//            }
+//            else{
+//                System.out.println("Connection error...try later");
+//                Main.connect_Database_On_New_thread();
+//            }
+//        }
+//        catch(SQLException e){
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void insertDebt(String debt,double target,double received,LocalDate dates,String notes){
+        try{
+            if(conn!=null){
+                String sql="INSERT INTO debts (user_id,name,debt_amount,repaid_amount,target_date,note) VALUES (?,?,?,?,?,?)";
+                PreparedStatement stmt=conn.prepareStatement(sql);
+                stmt.setInt(1,User.id);
+                stmt.setString(2,debt);
+                stmt.setDouble(3,target);
+                stmt.setDouble(4,received);
+                stmt.setDate(5,java.sql.Date.valueOf(dates));
+                stmt.setString(6,notes);
+                int inserted = stmt.executeUpdate();
+                if(inserted>0){
+                    System.out.println("Successfully debt inserted");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void insertLent(String lent,double target,double received,LocalDate dates,String notes){
+        try{
+            if(conn!=null){
+                    String sql="INSERT INTO lents (user_id,name,lent_amount,rec_amount,target_date,note) VALUES (?,?,?,?,?,?)";
+                    PreparedStatement stmt=conn.prepareStatement(sql);
+                    stmt.setInt(1,User.id);
+                    stmt.setString(2,lent);
+                    stmt.setDouble(3,target);
+                    stmt.setDouble(4,received);
+                    stmt.setDate(5,java.sql.Date.valueOf(dates));
+                    stmt.setString(6,notes);
+                    boolean inserted = stmt.execute();
+                    if(inserted){
+                        System.out.println("Successfully lent inserted");
+                    }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void insertGoal(String goal,double target,double saved,LocalDate dates,String notes){
+        try{
+            if(conn!=null){
+                String sql="INSERT INTO goals (user_id,name,target_amount,saved_amount,target_date,note) VALUES (?,?,?,?,?,?)";
+                PreparedStatement stmt=conn.prepareStatement(sql);
+                stmt.setInt(1,User.id);
+                stmt.setString(2,goal);
+                stmt.setDouble(3,target);
+                stmt.setDouble(4,saved);
+                stmt.setDate(5,java.sql.Date.valueOf(dates));
+                stmt.setString(6,notes);
+                boolean inserted = stmt.execute();
+                if(inserted){
+                    System.out.println("Successfully lent inserted");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void updateDebts(String goals,double target,double saved,String name,LocalDate date, String note){
+        try{
+            if(conn!=null){
+                String sql = "UPDATE debts SET debt_amount = ?,repaid_amount=?,target_date=?,name=?,note=? WHERE user_id = ? AND name = ?";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setDouble(1,target);
+                stmt.setDouble(2,saved);
+                stmt.setDate(3,java.sql.Date.valueOf(date));
+                stmt.setString(4,name);
+                stmt.setString(5,note);
+                stmt.setInt(6,User.id);
+                stmt.setString(7,goals);
+                int pu = stmt.executeUpdate();
+                if(pu>0){
+                    System.out.println("Successfully debt updated");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateGoals(String goals,double target,double saved,String name,LocalDate date, String note){
+        try{
+            if(conn!=null){
+                String sql = "UPDATE goals SET target_amount = ?,saved_amount=?,target_date=?,name=?,note=? WHERE user_id = ? AND name = ?";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setDouble(1,target);
+                stmt.setDouble(2,saved);
+                stmt.setDate(3,java.sql.Date.valueOf(date));
+                stmt.setString(4,name);
+                stmt.setString(5,note);
+                stmt.setInt(6,User.id);
+                stmt.setString(7,goals);
+                int pu = stmt.executeUpdate();
+                if(pu>0){
+                    System.out.println("Successfully goal updated");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateLents(String goals,double target,double saved,String name,LocalDate date, String note){
+        try{
+            if(conn!=null){
+                String sql = "UPDATE lents SET lent_amount = ?,rec_amount=?,target_date=?,name=?,note=? WHERE user_id = ? AND name = ?";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setDouble(1,target);
+                stmt.setDouble(2,saved);
+                stmt.setDate(3,java.sql.Date.valueOf(date));
+                stmt.setString(4,name);
+                stmt.setString(5,note);
+                stmt.setInt(6,User.id);
+                stmt.setString(7,goals);
+                int pu = stmt.executeUpdate();
+                if(pu>0){
+                    System.out.println("Successfully debt updated");
+                }
+                }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteLent(String user,String s){
+        try{
+            if(conn!=null){
+                String sql = "DELETE FROM lents WHERE user_name = ? AND name = ?";
+                PreparedStatement stmt=conn.prepareStatement(sql);
+                stmt.setString(1,user);
+                stmt.setString(2,s);
+                boolean deleted = stmt.execute();
+                if(deleted)System.out.println("Successfully lent deleted");
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteDebt(String user,String s){
+        try{
+            if(conn!=null){
+                String sql = "DELETE FROM debts WHERE user_name = ? AND name = ?";
+                PreparedStatement stmt=conn.prepareStatement(sql);
+                stmt.setString(1,user);
+                stmt.setString(2,s);
+                boolean deleted = stmt.execute();
+                if(deleted)System.out.println("Successfully debt deleted");
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void getLentsInfo(){
+        try{
+            if(conn!=null){
+                String sql="SELECT * FROM lents WHERE user_id = ? ORDER BY id";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setInt(1,User.id);
+                ResultSet rs = stmt.executeQuery();
+                if(!rs.next()){
+                    System.out.println("no lents data...");
+                    return;
+                }
+                do{
+                    String txt=rs.getString("name");
+                    double target=rs.getDouble("lent_amount");
+                    double saved=rs.getDouble("rec_amount");
+                    String date=rs.getString("target_date");
+                    String notes=rs.getString("note");
+                    User.ap_Lname.add(txt);
+                    User.ap_lent.add(target);
+                    User.ap_received.add(saved);
+                    User.ap_Ldate.add(LocalDate.parse(date));
+                    User.ap_Lnote.add(notes);
+                }while(rs.next());
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void getDebtsInfo(){
+        try{
+            if(conn!=null){
+                String sql="SELECT * FROM debts WHERE user_id = ? ORDER BY id";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setInt(1,User.id);
+                ResultSet rs = stmt.executeQuery();
+                if(!rs.next()){
+                    System.out.println("no debts data...");
+                    return;
+                }
+
+                do{
+                    String txt=rs.getString("name");
+                    double target=rs.getDouble("debt_amount");
+                    double saved=rs.getDouble("repaid_amount");
+                    String date=rs.getString("target_date");
+                    String notes=rs.getString("note");
+                    User.ap_Dname.add(txt);
+                    User.ap_debt.add(target);
+                    User.ap_repaid.add(saved);
+                    User.ap_Ddate.add(LocalDate.parse(date));
+                    User.ap_Dnote.add(notes);
+                    System.out.println(txt);
+                }while(rs.next());
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+        public void getGoalsInfo(){
+        try{
+            if(conn!=null){
+                String sql="SELECT * FROM goals WHERE user_id = ? ORDER BY id";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setInt(1,User.id);
+                ResultSet rs = stmt.executeQuery();
+                if(!rs.next()){
+                    System.out.println("no goals data...");
+                    return;
+                }
+                do{
+                    String txt=rs.getString("name");
+                    double target=rs.getDouble("target_amount");
+                    double saved=rs.getDouble("saved_amount");
+                    String date=rs.getString("target_date");
+                    String notes=rs.getString("note");
+                    User.ap_name.add(txt);
+                    User.ap_target.add(target);
+                    User.ap_saved.add(saved);
+                    User.ap_date.add(LocalDate.parse(date));
+                    User.ap_note.add(notes);
+                }while(rs.next());
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void updateDebtCount(){
+        try{
+            if(conn!=null){
+                String sql = "UPDATE userinfo SET debts_count=? WHERE id = ?";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setInt(1,User.debts_count);
+                stmt.setInt(2,User.id);
+                int pu = stmt.executeUpdate();
+                if(pu>0){
+                    System.out.println("debts count updated...");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateLentCount(){
+        try{
+            if(conn!=null){
+                String sql = "UPDATE userinfo SET lents_count=? WHERE id = ?";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setInt(1,User.lents_count);
+                stmt.setInt(2,User.id);
+                int pu = stmt.executeUpdate();
+                if(pu>0){
+                    System.out.println("lents count updated...");
+                }
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateGoalCount(){
+        try{
+            if(conn!=null){
+                String sql = "UPDATE userinfo SET goals_count=? WHERE id = ?";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setInt(1,User.goals_count);
+                stmt.setInt(2,User.id);
+                int pu = stmt.executeUpdate();
+                if(pu>0){
+                    System.out.println("goals count updated...");
                 }
             }
             else{

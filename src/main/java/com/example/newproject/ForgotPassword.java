@@ -75,9 +75,9 @@ public class ForgotPassword extends SQLConnection{
         scene = new Scene(root);
         stage.setX(0);
         stage.setY(0);
-        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
     public void switch5(ActionEvent event)
     {
@@ -90,9 +90,9 @@ public class ForgotPassword extends SQLConnection{
         scene = new Scene(root);
         stage.setX(0);
         stage.setY(0);
-        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
     private static boolean isInternetConnectionAvailable() {
         try {

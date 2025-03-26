@@ -47,8 +47,6 @@ public class Debts implements Initializable {
     {
         debts_count=User.debts_count;
         lents_count=User.lents_count;
-        //System.out.println(debts_count);
-        //System.out.println(lents_count);
         for(int i=0;i<debts_count;i++)
         {
             try{
@@ -56,14 +54,14 @@ public class Debts implements Initializable {
                 if(i<User.ap_Dname.size()) {
                     String s = User.ap_Dname.get(i);
                     double progress=User.ap_repaid.get(i)/User.ap_debt.get(i);
-                    String d=User.ap_Ddate.get(i);
+                    LocalDate d=User.ap_Ddate.get(i);
                     debtAp.getChildren().add(addLabel(s));
                     if(progress==1.0)
                         debtAp.getChildren().add(addDoneDebt());
                     else
                         debtAp.getChildren().add(addProgressBar(progress));
 
-                    debtAp.getChildren().add(addDate(d));
+                    debtAp.getChildren().add(addDate(d.toString()));
                 }
                 debtBox.getChildren().add(debtAp);
             }
@@ -79,13 +77,13 @@ public class Debts implements Initializable {
                 if(i<User.ap_Lname.size()) {
                     String s = User.ap_Lname.get(i);
                     double progress=User.ap_received.get(i)/User.ap_lent.get(i);
-                    String d=User.ap_Ldate.get(i);
+                    LocalDate d=User.ap_Ldate.get(i);
                     lentAp.getChildren().add(addLabel(s));
                     if(progress==1.0)
                         lentAp.getChildren().add(addDoneLent());
                     else
                         lentAp.getChildren().add(addProgressBar(progress));
-                    lentAp.getChildren().add(addDate(d));
+                    lentAp.getChildren().add(addDate(d.toString()));
                 }
                 lentBox.getChildren().add(lentAp);
             }
@@ -160,23 +158,24 @@ public class Debts implements Initializable {
             String target=targetFld.getText();
             String received=targetFld1.getText();
             LocalDate dot=dateFld.getValue();
-            String da=dot.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            //String da=dot.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             String n=noteFld.getText();
-            if(s.isEmpty()||target.isEmpty()||received.isEmpty()||da.isEmpty()){
+            if(s.isEmpty()||target.isEmpty()||received.isEmpty()||dot==null){
                 alertLabel.setText("Please fill up the fields");
                 return;
             }
             double t= Double.parseDouble(target);
             double sa= Double.parseDouble(received);
             //SQLConnection.insertDebt(User.Name,s,t,sa,da,n);
+            Supabase.getInstance().insertDebt(s,t,sa,dot,n);
             User.ap_Dname.add(s);
             User.ap_debt.add(t);
             User.ap_repaid.add(sa);
-            User.ap_Ddate.add(da);
+            User.ap_Ddate.add(dot);
             User.ap_Dnote.add(n);
             debtAp.getChildren().add(addLabel(s));
             debtAp.getChildren().add(addProgressBar(sa/t));
-            debtAp.getChildren().add(addDate(da));
+            debtAp.getChildren().add(addDate(dot.toString()));
             debtBox.getChildren().add(debtAp);
             TranslateTransition tt=new TranslateTransition();
             tt.setDuration(Duration.seconds(1));
@@ -193,6 +192,7 @@ public class Debts implements Initializable {
             debts_count++;
             User.debts_count=debts_count;
             //System.out.println(User.debts_count);
+            Supabase.getInstance().updateDebtCount();
         }
         catch(Exception e)
         {
@@ -209,23 +209,24 @@ public class Debts implements Initializable {
             String target=targetFld.getText();
             String received=targetFld1.getText();
             LocalDate dot=dateFld.getValue();
-            String da=dot.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            //String da=dot.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             String n=noteFld.getText();
-            if(s.isEmpty()||target.isEmpty()||received.isEmpty()||da.isEmpty()){
+            if(s.isEmpty()||target.isEmpty()||received.isEmpty()||dot==null){
                 alertLabel.setText("Please fill up the fields");
                 return;
             }
             double t= Double.parseDouble(target);
             double sa= Double.parseDouble(received);
             //SQLConnection.insertLent(User.Name,s,t,sa,da,n);
+            Supabase.getInstance().insertLent(s,t,sa,dot,n);
             User.ap_Lname.add(s);
             User.ap_lent.add(t);
             User.ap_received.add(sa);
-            User.ap_Ldate.add(da);
+            User.ap_Ldate.add(dot);
             User.ap_Lnote.add(n);
             lentAp.getChildren().add(addLabel(s));
             lentAp.getChildren().add(addProgressBar(sa/t));
-            lentAp.getChildren().add(addDate(da));
+            lentAp.getChildren().add(addDate(dot.toString()));
             lentBox.getChildren().add(lentAp);
             TranslateTransition tt=new TranslateTransition();
             tt.setDuration(Duration.seconds(1));
@@ -241,7 +242,8 @@ public class Debts implements Initializable {
             ft.play();
             lents_count++;
             User.lents_count=lents_count;
-            System.out.println(User.lents_count);
+            //System.out.println(User.lents_count);
+            Supabase.getInstance().updateLentCount();
         }
         catch(Exception e)
         {
@@ -255,9 +257,9 @@ public class Debts implements Initializable {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashBoard.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
 
 }

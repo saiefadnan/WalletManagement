@@ -59,6 +59,7 @@ public class splashWindow implements Initializable {
                         Stage stage=new Stage();
                         stage.setScene(scene);
                         stage.show();
+                        stage.setFullScreen(true);
                         stage.heightProperty().addListener((obs, oldHeight, newHeight) -> {
                             heightChange = newHeight.doubleValue() - 151.0;
                             System.out.println("Window height changed by: " + heightChange + " pixels");

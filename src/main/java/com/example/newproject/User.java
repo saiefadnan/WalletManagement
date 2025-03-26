@@ -1,6 +1,7 @@
 package com.example.newproject;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ScheduledExecutorService;
 
@@ -15,17 +16,17 @@ public class User {
     public static List<String> ap_name=new ArrayList<>();
     public static List<Double> ap_target=new ArrayList<>();
     public static List<Double> ap_saved=new ArrayList<>();
-    public static List<String> ap_date=new ArrayList<>();
+    public static List<LocalDate> ap_date=new ArrayList<>();
     public static List<String> ap_note=new ArrayList<>();
     public static List<String> ap_Dname=new ArrayList<>();
     public static List<Double> ap_debt=new ArrayList<>();
     public static List<Double> ap_repaid=new ArrayList<>();
-    public static List<String> ap_Ddate=new ArrayList<>();
+    public static List<LocalDate> ap_Ddate=new ArrayList<>();
     public static List<String> ap_Dnote=new ArrayList<>();
     public static List<String> ap_Lname=new ArrayList<>();
     public static List<Double> ap_lent=new ArrayList<>();
     public static List<Double> ap_received=new ArrayList<>();
-    public static List<String> ap_Ldate=new ArrayList<>();
+    public static List<LocalDate> ap_Ldate=new ArrayList<>();
     public static List<String> ap_Lnote=new ArrayList<>();
     public static List<FixedDeposit> FD_data;
     public static List<BudgetPlan>MB_data;
@@ -100,10 +101,12 @@ public class User {
         Supabase.getInstance().getFixedDepositInfo();
         Supabase.getInstance().getExpenseByDate();
         Supabase.getInstance().getBalanceBydate();
+        Supabase.getInstance().getLentsInfo();
+        Supabase.getInstance().getDebtsInfo();
+        Supabase.getInstance().getGoalsInfo();
 //        SQLConnection.wholeTable(Name);
 //        SQLConnection.wholeTableDebt(Name);
 //        SQLConnection.wholeTableLent(Name);
         //SQLConnection.retrieveExpense(Name);
-        //SQLConnection.getFD(Name);
     }
 }

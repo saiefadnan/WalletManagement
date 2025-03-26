@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1668.0" style="-fx-background-color: #141428;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.Goals">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" style="-fx-background-color: #141428;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.Goals">
    <left>
       <ScrollPane prefHeight="200.0" prefWidth="280.0" styleClass="root" BorderPane.alignment="CENTER">
          <content>
@@ -29,9 +29,9 @@
       </ScrollPane>
    </left>
    <top>
-      <AnchorPane prefHeight="130.0" prefWidth="1668.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="130.0" prefWidth="1315.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="130.0" prefWidth="1596.0" styleClass="root" stylesheets="@Background-color.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <AnchorPane prefHeight="130.0" prefWidth="1550.0" style="-: #141440;" styleClass="root" stylesheets="@Background-color.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <HBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="86.0" prefWidth="1352.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                      <children>
@@ -57,7 +57,7 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="root" stylesheets="@Background-color.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="760.0" prefWidth="1028.0" styleClass="root" stylesheets="@Background-color.css" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane fx:id="anchorpane" layoutX="251.0" layoutY="110.0" prefHeight="540.0" prefWidth="767.0" style="-fx-background-color: #141440;" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="251.0" AnchorPane.topAnchor="110.0">
                <children>

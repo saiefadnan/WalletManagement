@@ -416,84 +416,84 @@ public class SQLConnection {
         conn.close();
         System.out.println("Successfully updated");
     }
-    public static void wholeTable(String user) throws ClassNotFoundException, SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection(URL,USER,PASS);
-        String sql="SELECT * FROM user_goals WHERE user_name = ? ORDER BY id";
-        stmt = conn.prepareStatement(sql);
-        stmt.setString(1,user);
-        ResultSet rs = stmt.executeQuery();
-        while(rs.next())
-        {
-            String txt=rs.getString("goals_name");
-            double target=rs.getDouble("target_amount");
-            double saved=rs.getDouble("saved_amount");
-            String date=rs.getString("target_date");
-            String notes=rs.getString("note");
-            User.ap_name.add(txt);
-            User.ap_target.add(target);
-            User.ap_saved.add(saved);
-            User.ap_date.add(date);
-            User.ap_note.add(notes);
-        }
-        rs.close();
-        stmt.close();
-        conn.close();
-    }
-    public static void wholeTableDebt(String user) throws ClassNotFoundException, SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection(URL,USER,PASS);
-        String sql="SELECT * FROM user_debts WHERE user_name = ? ORDER BY id";
-        stmt = conn.prepareStatement(sql);
-        stmt.setString(1,user);
-        ResultSet rs = stmt.executeQuery();
-        while(rs.next())
-        {
-            String txt=rs.getString("debts_name");
-            double target=rs.getDouble("debt_amount");
-            double saved=rs.getDouble("repaid_amount");
-            String date=rs.getString("target_date");
-            String notes=rs.getString("note");
-            User.ap_Dname.add(txt);
-            User.ap_debt.add(target);
-            User.ap_repaid.add(saved);
-            User.ap_Ddate.add(date);
-            User.ap_Dnote.add(notes);
-        }
-        rs.close();
-        stmt.close();
-        conn.close();
-    }
-    public static void wholeTableLent(String user) throws ClassNotFoundException, SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn= DriverManager.getConnection(URL,USER,PASS);
-        String sql="SELECT * FROM user_lents WHERE user_name = ? ORDER BY id";
-        stmt = conn.prepareStatement(sql);
-        stmt.setString(1,user);
-        ResultSet rs = stmt.executeQuery();
-        while(rs.next())
-        {
-            String txt=rs.getString("lents_name");
-            double target=rs.getDouble("lent_amount");
-            double saved=rs.getDouble("rec_amount");
-            String date=rs.getString("target_date");
-            String notes=rs.getString("note");
-            User.ap_Lname.add(txt);
-            User.ap_lent.add(target);
-            User.ap_received.add(saved);
-            User.ap_Ldate.add(date);
-            User.ap_Lnote.add(notes);
-        }
-        rs.close();
-        stmt.close();
-        conn.close();
-    }
+//    public static void wholeTable(String user) throws ClassNotFoundException, SQLException {
+//        Connection conn = null;
+//        PreparedStatement stmt = null;
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//        conn = DriverManager.getConnection(URL,USER,PASS);
+//        String sql="SELECT * FROM user_goals WHERE user_name = ? ORDER BY id";
+//        stmt = conn.prepareStatement(sql);
+//        stmt.setString(1,user);
+//        ResultSet rs = stmt.executeQuery();
+//        while(rs.next())
+//        {
+//            String txt=rs.getString("goals_name");
+//            double target=rs.getDouble("target_amount");
+//            double saved=rs.getDouble("saved_amount");
+//            String date=rs.getString("target_date");
+//            String notes=rs.getString("note");
+//            User.ap_name.add(txt);
+//            User.ap_target.add(target);
+//            User.ap_saved.add(saved);
+//            User.ap_date.add(date);
+//            User.ap_note.add(notes);
+//        }
+//        rs.close();
+//        stmt.close();
+//        conn.close();
+//    }
+//    public static void wholeTableDebt(String user) throws ClassNotFoundException, SQLException {
+//        Connection conn = null;
+//        PreparedStatement stmt = null;
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//        conn= DriverManager.getConnection(URL,USER,PASS);
+//        String sql="SELECT * FROM user_debts WHERE user_name = ? ORDER BY id";
+//        stmt = conn.prepareStatement(sql);
+//        stmt.setString(1,user);
+//        ResultSet rs = stmt.executeQuery();
+//        while(rs.next())
+//        {
+//            String txt=rs.getString("debts_name");
+//            double target=rs.getDouble("debt_amount");
+//            double saved=rs.getDouble("repaid_amount");
+//            String date=rs.getString("target_date");
+//            String notes=rs.getString("note");
+//            User.ap_Dname.add(txt);
+//            User.ap_debt.add(target);
+//            User.ap_repaid.add(saved);
+//            User.ap_Ddate.add(date);
+//            User.ap_Dnote.add(notes);
+//        }
+//        rs.close();
+//        stmt.close();
+//        conn.close();
+//    }
+//    public static void wholeTableLent(String user) throws ClassNotFoundException, SQLException {
+//        Connection conn = null;
+//        PreparedStatement stmt = null;
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//        conn= DriverManager.getConnection(URL,USER,PASS);
+//        String sql="SELECT * FROM user_lents WHERE user_name = ? ORDER BY id";
+//        stmt = conn.prepareStatement(sql);
+//        stmt.setString(1,user);
+//        ResultSet rs = stmt.executeQuery();
+//        while(rs.next())
+//        {
+//            String txt=rs.getString("lents_name");
+//            double target=rs.getDouble("lent_amount");
+//            double saved=rs.getDouble("rec_amount");
+//            String date=rs.getString("target_date");
+//            String notes=rs.getString("note");
+//            User.ap_Lname.add(txt);
+//            User.ap_lent.add(target);
+//            User.ap_received.add(saved);
+//            User.ap_Ldate.add(date);
+//            User.ap_Lnote.add(notes);
+//        }
+//        rs.close();
+//        stmt.close();
+//        conn.close();
+//    }
     public static void insertData(String user,String goal,double target,double saved,String dates,String notes) throws ClassNotFoundException, SQLException{
         Connection conn=null;
         PreparedStatement stmt=null;

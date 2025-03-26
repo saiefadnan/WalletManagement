@@ -58,13 +58,13 @@ public class Goals implements Initializable{
                     if(i<User.ap_name.size()) {
                         String s = User.ap_name.get(i);
                         double progress=User.ap_saved.get(i)/User.ap_target.get(i);
-                        String d=User.ap_date.get(i);
+                        LocalDate d=User.ap_date.get(i);
                         tabAp.getChildren().add(addLabel(s));
                         if(progress==1.0)
                             tabAp.getChildren().add(addDone());
                         else
                             tabAp.getChildren().add(addProgressBar(progress));
-                        tabAp.getChildren().add(addDate(d));
+                        tabAp.getChildren().add(addDate(d.toString()));
                     }
                     goalsBox.getChildren().add(tabAp);
                 }
@@ -121,9 +121,9 @@ public class Goals implements Initializable{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashBoard.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
     @FXML
     private void anchorPaneAdder(ActionEvent event) throws IOException
@@ -134,9 +134,9 @@ public class Goals implements Initializable{
             String target=targetFld.getText();
             String saved=savedFld.getText();
             LocalDate dot=dateFld.getValue();
-            String da=dot.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            //String da=dot.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             String n=noteFld.getText();
-            if(s.isEmpty()||target.isEmpty()||saved.isEmpty()||da.isEmpty()){
+            if(s.isEmpty()||target.isEmpty()||saved.isEmpty()||dot==null){
                 warnLabel.setText("Please fill up the fields");
                 return;
             }
@@ -155,14 +155,15 @@ public class Goals implements Initializable{
                 return;
             }
             //SQLConnection.insertData(User.Name,s,t,sa,da,n);
+            Supabase.getInstance().insertGoal(s,t,sa,dot,n);
             User.ap_name.add(s);
             User.ap_target.add(t);
             User.ap_saved.add(sa);
-            User.ap_date.add(da);
+            User.ap_date.add(dot);
             User.ap_note.add(n);
             tabAp.getChildren().add(addLabel(s));
             tabAp.getChildren().add(addProgressBar(sa/t));
-            tabAp.getChildren().add(addDate(da));
+            tabAp.getChildren().add(addDate(dot.toString()));
             goalsBox.getChildren().add(tabAp);
             TranslateTransition tt=new TranslateTransition();
             tt.setDuration(Duration.seconds(1));
@@ -179,6 +180,7 @@ public class Goals implements Initializable{
             count++;
             User.goals_count=count;
             System.out.println(User.goals_count);
+            Supabase.getInstance().updateGoalCount();
             goalsFld.setText("");
             targetFld.setText("");
             savedFld.setText("");
