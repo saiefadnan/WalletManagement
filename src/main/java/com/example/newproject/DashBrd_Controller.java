@@ -327,7 +327,7 @@ public class DashBrd_Controller extends Abstract_controller{
             updateChart();
             today = currentDate;
         }
-        System.out.println("size "+User.NF_data.size()+"num: "+User.noti_num);
+//        System.out.println("size "+User.NF_data.size()+"num: "+User.noti_num);
         if(User.NF_data.size()>User.noti_num){
             Task<Void>task= new Task<>() {
                 @Override

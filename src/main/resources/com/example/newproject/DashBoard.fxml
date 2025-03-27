@@ -26,11 +26,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1550.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.DashBrd_Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1612.0" stylesheets="@Background-color.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newproject.DashBrd_Controller">
    <center>
-      <AnchorPane fx:id="anchorPane" prefHeight="901.0" prefWidth="1550.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="anchorPane" prefHeight="890.0" prefWidth="1395.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" layoutX="151.0" layoutY="43.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+            <VBox alignment="CENTER" layoutX="151.0" layoutY="43.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                <children>
                   <HBox alignment="CENTER" spacing="88.0">
                      <children>
@@ -71,7 +71,7 @@
                         </Group>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" spacing="50.0">
+                  <HBox alignment="CENTER" prefHeight="438.0" prefWidth="1413.0" spacing="50.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="438.0" prefWidth="254.0" spacing="40.0">
                            <children>
@@ -294,144 +294,6 @@
                </children>
             </VBox>
             <Label fx:id="Noti_label" alignment="TOP_CENTER" disable="true" layoutX="70.0" layoutY="340.0" prefHeight="9.0" prefWidth="18.0" style="-fx-background-color: red; -fx-background-radius: 35px;" textAlignment="CENTER" textFill="WHITE" visible="false" />
-            <Group layoutX="28.0" layoutY="210.0">
-               <children>
-                  <Rectangle arcHeight="30.0" arcWidth="30.0" height="679.0" layoutX="-238.0" layoutY="-112.0" stroke="BLACK" strokeType="INSIDE" width="119.0" x="224.0" y="38.0">
-                     <fill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.09019608050584793" green="0.6901960968971252" blue="0.5411764979362488" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </fill>
-                  </Rectangle>
-                  <Group layoutX="12.0">
-                     <children>
-                        <Button alignment="CENTER" layoutX="2.0" minWidth="43.0" mnemonicParsing="false" onAction="#User_profile" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css" textAlignment="CENTER" textFill="#d6d6d600">
-                           <graphic>
-                              <FontAwesomeIcon selectionEnd="0" selectionFill="BLACK" size="2.5em" stroke="BLACK" text="" textAlignment="CENTER" wrappingWidth="32.29997634887695">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="1.0">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                              </FontAwesomeIcon>
-                           </graphic>
-                           <effect>
-                              <Glow />
-                           </effect>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button alignment="CENTER" layoutX="2.0" layoutY="253.0" minWidth="43.0" mnemonicParsing="false" onAction="#BankAccount" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css" textAlignment="CENTER" textFill="#d6d6d600">
-                           <graphic>
-                              <FontAwesomeIcon selectionEnd="0" selectionFill="BLACK" size="2.5em" stroke="BLACK" text="" textAlignment="CENTER" wrappingWidth="32.29997634887695">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="1.0">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                              </FontAwesomeIcon>
-                           </graphic>
-                           <effect>
-                              <Glow />
-                           </effect>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button alignment="CENTER" layoutX="2.0" layoutY="390.0" minWidth="30.0" mnemonicParsing="false" onAction="#Log_out" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css" textAlignment="CENTER">
-                           <effect>
-                              <Glow />
-                           </effect>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <FontAwesomeIcon size="3em" stroke="BLACK" text="" textAlignment="CENTER" wrappingWidth="67.04996109008789">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="1.0">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                              </FontAwesomeIcon>
-                           </graphic>
-                        </Button>
-                        <Button alignment="CENTER" layoutX="2.0" layoutY="129.0" minWidth="30.0" mnemonicParsing="false" onAction="#OpenNoti_pane" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css">
-                           <effect>
-                              <Glow />
-                           </effect>
-                           <graphic>
-                              <FontAwesomeIcon rotate="30.0" size="2.5em" stroke="BLACK" text="">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="1.0">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                              </FontAwesomeIcon>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </Group>
-               </children>
-            </Group>
             <AnchorPane fx:id="miniAnchor" disable="true" layoutX="139.0" layoutY="172.0" prefHeight="470.0" prefWidth="370.0" stylesheets="@SubWindow.css" visible="false">
                <children>
                   <ChoiceBox fx:id="choicebox" layoutX="159.0" layoutY="120.0" prefHeight="38.0" prefWidth="186.0" stylesheets="@Choicebox.css" />
@@ -475,4 +337,144 @@
          </children>
       </AnchorPane>
    </center>
+   <left>
+      <Group BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="30.0" arcWidth="30.0" height="788.0" layoutX="-238.0" layoutY="-112.0" stroke="BLACK" strokeType="INSIDE" width="119.0" x="224.0" y="38.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.09019608050584793" green="0.6901960968971252" blue="0.5411764979362488" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Group layoutX="12.0">
+               <children>
+                  <Button alignment="CENTER" layoutX="2.0" minWidth="43.0" mnemonicParsing="false" onAction="#User_profile" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css" textAlignment="CENTER" textFill="#d6d6d600">
+                     <graphic>
+                        <FontAwesomeIcon selectionEnd="0" selectionFill="BLACK" size="2.5em" stroke="BLACK" text="" textAlignment="CENTER" wrappingWidth="32.29997634887695">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </FontAwesomeIcon>
+                     </graphic>
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="2.0" layoutY="253.0" minWidth="43.0" mnemonicParsing="false" onAction="#BankAccount" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css" textAlignment="CENTER" textFill="#d6d6d600">
+                     <graphic>
+                        <FontAwesomeIcon selectionEnd="0" selectionFill="BLACK" size="2.5em" stroke="BLACK" text="" textAlignment="CENTER" wrappingWidth="32.29997634887695">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" opacity="0.8799999952316284" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </FontAwesomeIcon>
+                     </graphic>
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="2.0" layoutY="390.0" minWidth="30.0" mnemonicParsing="false" onAction="#Log_out" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css" textAlignment="CENTER">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <FontAwesomeIcon size="3em" stroke="BLACK" text="" textAlignment="CENTER" wrappingWidth="67.04996109008789">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </FontAwesomeIcon>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="2.0" layoutY="129.0" minWidth="30.0" mnemonicParsing="false" onAction="#OpenNoti_pane" prefHeight="64.0" prefWidth="64.0" stylesheets="@Side_buttons.css">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <graphic>
+                        <FontAwesomeIcon rotate="30.0" size="2.5em" stroke="BLACK" text="">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.1921568661928177" green="0.32156863808631897" blue="0.8392156958580017" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.12156862765550613" green="1.0" blue="0.48627451062202454" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </FontAwesomeIcon>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Group>
+         </children>
+      </Group>
+   </left>
 </BorderPane>

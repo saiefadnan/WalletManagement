@@ -73,8 +73,6 @@ public class ForgotPassword extends SQLConnection{
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,splashWindow.width,splashWindow.height);
-        stage.setX(0);
-        stage.setY(0);
         stage.setScene(scene);
         stage.show();
         //stage.setFullScreen(true);
@@ -88,8 +86,6 @@ public class ForgotPassword extends SQLConnection{
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,splashWindow.width,splashWindow.height);
-        stage.setX(0);
-        stage.setY(0);
         stage.setScene(scene);
         stage.show();
         //stage.setFullScreen(true);

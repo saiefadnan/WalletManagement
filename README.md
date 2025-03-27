@@ -19,8 +19,10 @@ Database: PostgreSQL on Supabase
 Its a serverless application...
 
 <h2> Prerequisites</h2>
-<h3>Jar files </h3>
-Necessary jar files need to be included before running the program:
+<h3>Setup Maven/Jar files</h3>
+Resolve all the Maven dependencies of pom.xml file.if fails then a 2nd way is:
+
+Include necessary jar files before running the program:
 
 ![img.png](img.png)
 

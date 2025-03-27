@@ -38,7 +38,6 @@ public class splashWindow implements Initializable {
                     public void run() {
                         Parent root = null;
                         try {
-
                             if(!Objects.equals(LoginManager.getUserID(), "") && Supabase.getInstance().checkValidity()){
                                 User.id = Integer.parseInt(LoginManager.getUserID());
                                 User.Name = LoginManager.getUsername();
@@ -62,11 +61,11 @@ public class splashWindow implements Initializable {
                         stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/wallet-logo.jpg")));
                         stage.show();
                         stage.heightProperty().addListener((obs, oldHeight, newHeight) -> {
-                            height = (double) newHeight;
+                            height += newHeight.doubleValue()-oldHeight.doubleValue();
                             System.out.println("Window height changed to: " + newHeight + " pixels");
                         });
                         stage.widthProperty().addListener((obs, oldWidth, newWidth) -> {
-                            width = (double) newWidth;
+                            width += newWidth.doubleValue()-oldWidth.doubleValue();
                             System.out.println("Window width changed to: " + newWidth + " pixels");
                         });
                         //stage.setFullScreen(true);

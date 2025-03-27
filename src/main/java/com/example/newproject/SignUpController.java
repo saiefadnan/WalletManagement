@@ -76,8 +76,6 @@ public class SignUpController extends SQLConnection implements Initializable {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,splashWindow.width,splashWindow.height);
-        stage.setX(0);
-        stage.setY(0);
         stage.setScene(scene);
         stage.show();
         //stage.setFullScreen(true);

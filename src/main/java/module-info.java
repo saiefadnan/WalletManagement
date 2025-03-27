@@ -11,9 +11,8 @@ module com.example.newproject {
     requires org.json;
     requires java.net.http;
     requires java.desktop;
-    requires mysql.connector.j;
+    requires mysql.connector.java;
     requires org.postgresql.jdbc;
-    requires java.dotenv;
     requires tyrus.server;
     requires tyrus.container.grizzly.server;
     //requires javax.websocket.api;
@@ -21,7 +20,8 @@ module com.example.newproject {
     requires tyrus.standalone.client;
     requires jakarta.activation;
     requires jakarta.mail;
+    requires java.dotenv;
 
-    opens com.example.newproject to javafx.fxml;
+    opens com.example.newproject to javafx.base, javafx.controls, javafx.fxml;
     exports com.example.newproject;
 }
