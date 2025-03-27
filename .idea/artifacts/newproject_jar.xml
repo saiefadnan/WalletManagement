@@ -1,84 +1,42 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="newproject:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/newproject_jar</output-path>
-    <root id="archive" name="newproject.jar">
+    <root id="archive" name="newproject_jar.jar">
       <element id="module-output" name="newproject" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/controlsfx-11.1.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1-win.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/controlsfx/controlsfx/11.1.2/controlsfx-11.1.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/json-20231013.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kordamp/bootstrapfx/bootstrapfx-core/0.4.0/bootstrapfx-core-0.4.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1-win.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/activation.jar/activation.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/tyrus/tyrus-container-grizzly-server/1.9/tyrus-container-grizzly-server-1.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/tyrus/tyrus-client/1.9/tyrus-client-1.9.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1-win.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/fontawesomefx-8.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/javax.mail-1.6.2.jar/javax.mail-1.6.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1-win.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/mysql-connector-j-8.1.0/mysql-connector-j-8.1.0/mysql-connector-j-8.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/github/cdimascio/java-dotenv/5.2.0/java-dotenv-5.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/grizzly/grizzly-http-server/2.3.15-gfa/grizzly-http-server-2.3.15-gfa.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20.0.1/javafx-base-20.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/postgresql/postgresql/42.3.6/postgresql-42.3.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20211205/json-20211205.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kordamp/bootstrapfx/bootstrapfx-core/0.4.0/bootstrapfx-core-0.4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/tyrus/bundles/tyrus-standalone-client/1.9/tyrus-standalone-client-1.9.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/synedra/validatorfx/0.4.0/validatorfx-0.4.0.jar" path-in-jar="/" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-console-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-console-l1-2-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-datetime-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-debug-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-errorhandling-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-file-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-file-l1-2-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-file-l2-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-handle-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-heap-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-interlocked-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-libraryloader-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-localization-l1-2-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-memory-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-namedpipe-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-processenvironment-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-processthreads-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-processthreads-l1-1-1.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-profile-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-string-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-synch-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-synch-l1-2-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-sysinfo-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-timezone-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-core-util-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-conio-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-convert-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-environment-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-filesystem-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-heap-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-locale-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-math-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-multibyte-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-private-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-process-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-runtime-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-stdio-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-string-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-time-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/api-ms-win-crt-utility-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/decora_sse.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/fxplugins.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/glass.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/glib-lite.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/gstreamer-lite.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/javafx_font.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/javafx_iio.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/jfxmedia.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/jfxwebkit.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/msvcp140.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/msvcp140_1.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/msvcp140_2.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/prism_common.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/prism_d3d.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/prism_sw.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/ucrtbase.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/vcruntime140.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/bin/vcruntime140_1.dll" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/grizzly/grizzly-http/2.3.15-gfa/grizzly-http-2.3.15-gfa.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/controlsfx/controlsfx/11.1.2/controlsfx-11.1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/tyrus/tyrus-spi/1.9/tyrus-spi-1.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sun/activation/jakarta.activation/2.0.1/jakarta.activation-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/tyrus/tyrus-core/1.9/tyrus-core-1.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.0/kotlin-stdlib-common-1.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/20.0.1/javafx-graphics-20.0.1-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/tyrus/tyrus-server/1.9/tyrus-server-1.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.8.0/kotlin-stdlib-1.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/de/jensd/fontawesomefx/8.2/fontawesomefx-8.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/tyrus/tyrus-container-grizzly-client/1.9/tyrus-container-grizzly-client-1.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/13.0/annotations-13.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/grizzly/grizzly-framework/2.3.15-gfa/grizzly-framework-2.3.15-gfa.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

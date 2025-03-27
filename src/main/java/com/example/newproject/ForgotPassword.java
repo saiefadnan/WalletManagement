@@ -32,9 +32,15 @@ import java.util.Random;
 import java.util.regex.Pattern;
 
 public class ForgotPassword extends SQLConnection{
-    private static final Dotenv dotenv = Dotenv.load();
-    private static final String app_acc = dotenv.get("APP_ACCOUNT");
-    private static final String app_pass = dotenv.get("APP_PASSWORD");
+    //for running in IDE
+//    private static final Dotenv dotenv = Dotenv.load();
+//    private static final String app_acc = dotenv.get("APP_ACCOUNT");
+//    private static final String app_pass = dotenv.get("APP_PASSWORD");
+
+    //for deploying
+    private static final String app_acc = System.getenv("APP_ACCOUNT");
+    private static final String app_pass = System.getenv("APP_PASSWORD");
+
     private static final Pattern passwordPattern =
             Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$");
     @FXML

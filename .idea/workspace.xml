@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="newproject:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch...">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="64d0e454-33b0-40b9-90ad-48479a19256a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/newproject_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/newproject_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/newproject_jar/newproject.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/newproject_jar/newproject.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/ForgotPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/ForgotPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/DashBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/DashBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,65 +29,33 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
-}</component>
-  <component name="ProjectId" id="2tGbg5m1n5VpR9PQDA5avq4Ahrc" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2utGtow2xfJOCzUL01LYUBzxp5e" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Project_Java/jars/kotlin-stdlib-1.8.0.jar",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Project_Java\WalletManagement\src\main\resources\com\example\newproject" />
-      <recent name="E:\Project_Java\WalletManagement" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.newproject.Main" />
-      <module name="newproject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.newproject.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="supabase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.newproject.supabase" />
-      <module name="newproject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.newproject.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="WalletManagement" />
       <method v="2">
@@ -107,289 +69,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.supabase" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="" />
-      <created>1739981466828</created>
+      <changelist id="64d0e454-33b0-40b9-90ad-48479a19256a" name="Changes" comment="" />
+      <created>1743060675603</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1739981466828</updated>
+      <updated>1743060675603</updated>
     </task>
-    <task id="LOCAL-00001" summary="supabase connected....login controller working fine...">
-      <option name="closed" value="true" />
-      <created>1740073453812</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1740073453812</updated>
-    </task>
-    <task id="LOCAL-00002" summary="supabase connected....login controller working fine...">
-      <option name="closed" value="true" />
-      <created>1740073607886</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1740073607886</updated>
-    </task>
-    <task id="LOCAL-00003" summary="database work on going....">
-      <option name="closed" value="true" />
-      <created>1740138488407</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1740138488407</updated>
-    </task>
-    <task id="LOCAL-00004" summary="database work on going...">
-      <option name="closed" value="true" />
-      <created>1740138603474</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1740138603474</updated>
-    </task>
-    <task id="LOCAL-00005" summary="frontend modification done...100%backend config done 50%">
-      <option name="closed" value="true" />
-      <created>1740769262591</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1740769262591</updated>
-    </task>
-    <task id="LOCAL-00006" summary="frontend modification done...100%backend config done 50%">
-      <option name="closed" value="true" />
-      <created>1740769538612</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1740769538612</updated>
-    </task>
-    <task id="LOCAL-00007" summary="user cache built, websocket config done, reset password added">
-      <option name="closed" value="true" />
-      <created>1742209713130</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1742209713130</updated>
-    </task>
-    <task id="LOCAL-00008" summary="user security enhanced, database connection configured, unnoticed bugs fixed, code refactor, file names changed">
-      <option name="closed" value="true" />
-      <created>1742708896203</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1742708896203</updated>
-    </task>
-    <task id="LOCAL-00009" summary="responsiveness configured!!! ui bug fixed !!!">
-      <option name="closed" value="true" />
-      <created>1742842742391</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1742842742391</updated>
-    </task>
-    <task id="LOCAL-00010" summary="responsiveness configured-1.2!!!">
-      <option name="closed" value="true" />
-      <created>1742930124906</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1742930124906</updated>
-    </task>
-    <task id="LOCAL-00011" summary="database configured complete!!!">
-      <option name="closed" value="true" />
-      <created>1742976337685</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1742976337685</updated>
-    </task>
-    <task id="LOCAL-00012" summary="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch...">
-      <option name="closed" value="true" />
-      <created>1743044976135</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1743044976135</updated>
-    </task>
-    <task id="LOCAL-00013" summary="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch...">
-      <option name="closed" value="true" />
-      <created>1743047692125</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1743047692125</updated>
-    </task>
-    <task id="LOCAL-00014" summary="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch...">
-      <option name="closed" value="true" />
-      <created>1743047852877</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1743047852877</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
     <servers />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="supabase connected....login controller working fine..." />
-    <MESSAGE value="database work on going...." />
-    <MESSAGE value="database work on going..." />
-    <MESSAGE value="frontend modification done...100%backend config done 50%" />
-    <MESSAGE value="user cache built, websocket config done, reset password added" />
-    <MESSAGE value="user security enhanced, database connection configured, unnoticed bugs fixed, code refactor, file names changed" />
-    <MESSAGE value="responsiveness configured!!! ui bug fixed !!!" />
-    <MESSAGE value="responsiveness configured-1.2!!!" />
-    <MESSAGE value="database configured complete!!!" />
-    <MESSAGE value="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch..." />
-    <option name="LAST_COMMIT_MESSAGE" value="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch..." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>374</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java</url>
-          <line>196</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>510</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetPlan_Controller.java</url>
-          <line>226</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/Debts.java</url>
-          <line>168</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/Debts.java</url>
-          <line>219</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/Goals.java</url>
-          <line>156</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
-          <line>341</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DebtsInfoController.java</url>
-          <line>344</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/LentsInfoController.java</url>
-          <line>337</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DebtsInfoController.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
-          <line>148</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
-          <line>158</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DebtsInfoController.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
-          <line>230</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
-          <line>215</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
-          <line>286</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java</url>
-          <line>314</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/LentsInfoController.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DebtsInfoController.java</url>
-          <line>147</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DebtsInfoController.java</url>
-          <line>157</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java</url>
-          <line>930</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

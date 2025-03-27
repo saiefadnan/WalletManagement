@@ -10,10 +10,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Supabase {
-    private static final Dotenv dotenv = Dotenv.load();
-    private static final String URL = dotenv.get("DB_URL");
-    private static final String USER = dotenv.get("DB_USER");
-    private static final String PASSWORD = dotenv.get("DB_PASSWORD");
+    //for runnind in IDE
+//    private static final Dotenv dotenv = Dotenv.load();
+//    private static final String URL = dotenv.get("DB_URL");
+//    private static final String USER = dotenv.get("DB_USER");
+//    private static final String PASSWORD = dotenv.get("DB_PASSWORD");
+
+    //for deploying
+    private static final String URL = System.getenv("DB_URL");
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASSWORD");
     private static Supabase instance;
     private static Connection conn;
 
