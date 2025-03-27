@@ -1,14 +1,61 @@
 <h1 align="center">Wallet Management</h1>
 <h2> Introduction</h2>
-As-Salamu Alaikum. Welcome to the official repository of Wallet Management application.</br>
+As-Salamu Alaikum. Welcome to the official repository of Wallet Management application.
+This is our java project aims to track the daily expenses and income of the user to make him/her aware of his current economical state before it's too late.
+<h2> Features</h2>
+Our application included some beneficial features like:</br>
+<br>1) Visual representation of total expenses of each category, incomes and current balance </br>
+<br>2) Track savings for future goals within the target period</br>
+<br>3) Track lents and debts untill the deadline</br>
+<br>4) Budget plan for certain category/section within selected period. </br>
+<br>5) Fixed deposit tracker to track the updated deposited amount till the maturity period</br>
+<br>6) Notification system integrated to let the user know if he reached on overspent or if the maturity period ended</br>
+<br>7) Reset password </br>
 
-1. To run the application we need to first set up the database system. To do so please create a schema named `project` in your MySQL Workbench.</br>
-2. Then run the sql script (database.sql) to create different tables that will be used to store the data.</br></br>
-3. After doing so, please change the `USER` and `PASS` from the `src/main/java/com/example/newproject/SQLConnection.java`.
-4. Don't forget to add the required `.jar` files.</br>
-   ![image](https://github.com/user-attachments/assets/5678e2fb-620f-49f4-ac7f-a544c2f45bf7)
+<h2> Techs Used</h2>
+Frontend: Javafx & scene builder
+Database: PostgreSQL on Supabase
 
-5. If the schema is created by a different name then please change the `URL` in `src/main/java/com/example/newproject/SQLConnection.java` and replace `project` with your given schema name.  
+Its a serverless application...
 
-<h3 align="center">Thank you!</h3>
+<h2> Prerequisites</h2>
+<h3>Jar files </h3>
+Necessary jar files need to be included before running the program:
 
+![img.png](img.png)
+
+<h3>Database connection </h3>
+Open a new project in Supabase, collect the DB_URL, DB_USER & DB_PASSWORD
+and add these variables ina .env file.
+
+Create these 10 tables:
+
+![img_1.png](img_1.png)
+
+1)![img_2.png](img_2.png)
+
+2)![img_3.png](img_3.png)
+
+3)![img_4.png](img_4.png)
+
+4)![img_5.png](img_5.png)
+
+5)![img_6.png](img_6.png)
+
+6)![img_7.png](img_7.png)
+
+7)![img_8.png](img_8.png)
+
+8)![img_9.png](img_9.png)
+
+9)![img_10.png](img_10.png)
+
+10)![img_11.png](img_11.png)
+
+<h3>Reset password </h3>
+For enabling reset password feature open a gmail acoount and create a passkey.Then include the APP_ACCOUNT, APP_PASSWORD in same .env file.
+
+Conclusion:
+Run the program, some error may still occur for jar files due to the version related issues as they changes over time. Make sure to include the similar versions for each one otherwise they may cause error.
+
+HAPPY CODDING!!!

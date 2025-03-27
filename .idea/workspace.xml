@@ -4,30 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="database configured complete!!!">
+    <list default="true" id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch...">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/wallet-logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/BankAcnt_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BankAcnt_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetOView_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetOView_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetPlan_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetPlan_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Debts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Debts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/DebtsInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/DebtsInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/ForgotPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/ForgotPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Goals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Goals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/LentsInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/LentsInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Notification_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Notification_data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/User_profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/User_profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/debts_tab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/debts_tab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/goals_tab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/goals_tab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/lents_tab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/lents_tab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742976337685</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch...">
+      <option name="closed" value="true" />
+      <created>1743044976135</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743044976135</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -251,7 +243,8 @@
     <MESSAGE value="responsiveness configured!!! ui bug fixed !!!" />
     <MESSAGE value="responsiveness configured-1.2!!!" />
     <MESSAGE value="database configured complete!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="database configured complete!!!" />
+    <MESSAGE value="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch..." />
+    <option name="LAST_COMMIT_MESSAGE" value="database configured done&#10;smooth window change done&#10;logo added&#10;almost ready to launch..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
