@@ -38,9 +38,10 @@ public class goals_tab {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("More info.fxml")));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
             stage.setScene(scene);
             stage.show();
+            //stage.setFullScreen(true);
         }
         catch(Exception e)
         {

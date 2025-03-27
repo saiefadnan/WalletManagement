@@ -72,12 +72,12 @@ public class ForgotPassword extends SQLConnection{
             throw new RuntimeException(ex);
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setX(0);
         stage.setY(0);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
     public void switch5(ActionEvent event)
     {
@@ -87,12 +87,12 @@ public class ForgotPassword extends SQLConnection{
             throw new RuntimeException(ex);
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setX(0);
         stage.setY(0);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
     private static boolean isInternetConnectionAvailable() {
         try {

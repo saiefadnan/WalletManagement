@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="responsiveness configured-1.2!!!">
+    <list default="true" id="dd9c2579-4305-41fb-a4e6-dbfb1608a26b" name="Changes" comment="database configured complete!!!">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/wallet-logo.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/BankAcnt_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BankAcnt_Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetOView_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/BudgetOView_Controller.java" afterDir="false" />
@@ -16,18 +17,17 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/FixedDeposit_Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/ForgotPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/ForgotPassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Goals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Goals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/LentsInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/LentsInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Notification_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Notification_data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/PieChart_controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/SQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/SQLConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/SignUpController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/Supabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/User_profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/User_profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/debts_tab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/debts_tab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/goals_tab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/goals_tab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/lents_tab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/lents_tab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/newproject/splashWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/DashBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/DashBoard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Goalsetter.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/newproject/Goalsetter.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,24 +51,28 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2tGbg5m1n5VpR9PQDA5avq4Ahrc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Project_Java/jars/kotlin-stdlib-1.8.0.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "E:/Project_Java/jars/kotlin-stdlib-1.8.0.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Project_Java\WalletManagement\src\main\resources\com\example\newproject" />
@@ -211,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742930124906</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="database configured complete!!!">
+      <option name="closed" value="true" />
+      <created>1742976337685</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1742976337685</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -229,6 +241,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="supabase connected....login controller working fine..." />
     <MESSAGE value="database work on going...." />
     <MESSAGE value="database work on going..." />
@@ -237,24 +250,15 @@
     <MESSAGE value="user security enhanced, database connection configured, unnoticed bugs fixed, code refactor, file names changed" />
     <MESSAGE value="responsiveness configured!!! ui bug fixed !!!" />
     <MESSAGE value="responsiveness configured-1.2!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="responsiveness configured-1.2!!!" />
+    <MESSAGE value="database configured complete!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="database configured complete!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>626</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>627</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>377</line>
+          <line>374</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -264,7 +268,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/newproject/DashBrd_Controller.java</url>
-          <line>513</line>
+          <line>510</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -42,9 +42,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import static com.example.newproject.User.*;
-
-//import static com.example.graph_2.Main.User;
-
 public class DashBrd_Controller extends Abstract_controller{
     @FXML
     private Arc arc1, arc2, arc3, arc4, arc5, arc6,arc7,arc8,arc9,arc10,arc11;
@@ -563,78 +560,69 @@ public class DashBrd_Controller extends Abstract_controller{
     public void Budget_Goal(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Goalsetter.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
 
     public void Monthly_Budget(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Monthly_budget.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
 
     public void Fixed_Deposit(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Fixed_Deposit.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.fullScreenProperty().addListener((obs, wasFullScreen, isNowFullScreen) -> {
-            if (isNowFullScreen) {
-                System.out.println("Switched to Fullscreen Mode");
-            } else {
-                System.out.println("Exited Fullscreen Mode");
-            }
-        });
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
 
     public void Debt_Loan(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Debt & Loan.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
 
     public void BankAccount(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("BankAccount.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
 
     public void User_profile(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("User_profile.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
 
     public void Log_out(ActionEvent event) throws IOException {
-//        SQLConnection.updateDashboard();
-//        SQLConnection.updateCount(User.Name,User.goals_count,User.debts_count,User.lents_count);
         User.reset();
         flag=true;
         FixedDeposit_Controller.flag=true;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
     public void miniScene(){
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), miniAnchor);

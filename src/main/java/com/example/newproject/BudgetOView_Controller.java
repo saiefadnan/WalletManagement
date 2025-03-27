@@ -151,9 +151,9 @@ public class BudgetOView_Controller extends Abstract_controller {
     public void Back(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Monthly_Budget.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
 }

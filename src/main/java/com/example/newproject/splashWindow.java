@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -20,8 +21,8 @@ import java.util.ResourceBundle;
 public class splashWindow implements Initializable {
     @FXML
     private AnchorPane splashAp;
-    public static double heightChange=0.0;
-    public static double widthChange=0.0;
+    public static double height=890;
+    public static double width=1550;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new splash().start();
@@ -55,19 +56,20 @@ public class splashWindow implements Initializable {
                         } catch (ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }
-                        Scene scene = new Scene(root, 1550, 890);
+                        Scene scene = new Scene(root, width, height);
                         Stage stage=new Stage();
                         stage.setScene(scene);
+                        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/wallet-logo.jpg")));
                         stage.show();
-                        stage.setFullScreen(true);
                         stage.heightProperty().addListener((obs, oldHeight, newHeight) -> {
-                            heightChange = newHeight.doubleValue() - 151.0;
-                            System.out.println("Window height changed by: " + heightChange + " pixels");
+                            height = (double) newHeight;
+                            System.out.println("Window height changed to: " + newHeight + " pixels");
                         });
                         stage.widthProperty().addListener((obs, oldWidth, newWidth) -> {
-                            widthChange = newWidth.doubleValue() - 214.0;
-                            System.out.println("Window height changed by: " + heightChange + " pixels");
+                            width = (double) newWidth;
+                            System.out.println("Window width changed to: " + newWidth + " pixels");
                         });
+                        //stage.setFullScreen(true);
                         splashAp.getScene().getWindow().hide();
                     }
                 });

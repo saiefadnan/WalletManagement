@@ -35,7 +35,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-//import static com.example.graph_2.Main.User;
 
 public class FixedDeposit_Controller extends Abstract_controller{
     @FXML
@@ -386,10 +385,10 @@ public class FixedDeposit_Controller extends Abstract_controller{
     public void Back(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashBoard.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
     public void miniScene(){
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), miniAnchor);

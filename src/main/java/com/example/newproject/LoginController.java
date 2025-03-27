@@ -63,12 +63,12 @@ public class LoginController extends SQLConnection
         try {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Forget-password.fxml")));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
+            scene = new Scene(root,splashWindow.width,splashWindow.height);
             stage.setX(0);
             stage.setY(0);
             stage.setScene(scene);
             stage.show();
-            stage.setFullScreen(true);
+            //stage.setFullScreen(true);
         }catch(Exception e){
             System.out.println(e);
         }
@@ -78,12 +78,12 @@ public class LoginController extends SQLConnection
     {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Sign-up.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setX(0);
         stage.setY(0);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
     public void exitEntered(MouseEvent event){
         extBtn.setStyle("-fx-background-color: #ff0000;");
@@ -120,9 +120,9 @@ public class LoginController extends SQLConnection
         LoginManager.saveLoginDetails(User.id,username,password);
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashBoard.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
 }

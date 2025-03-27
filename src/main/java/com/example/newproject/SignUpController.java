@@ -75,12 +75,12 @@ public class SignUpController extends SQLConnection implements Initializable {
     {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,splashWindow.width,splashWindow.height);
         stage.setX(0);
         stage.setY(0);
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
     public String dateChoice()
     {
@@ -166,14 +166,10 @@ public class SignUpController extends SQLConnection implements Initializable {
             //SQLConnection.insertDashboard(signUp[2]);
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            System.out.println("2");
-            scene = new Scene(root);
-            System.out.println("3");
-            System.out.println("4");
+            scene = new Scene(root,splashWindow.width,splashWindow.height);
             stage.setScene(scene);
-            System.out.println("5");
             stage.show();
-            stage.setFullScreen(true);
+            //stage.setFullScreen(true);
         }
         catch(Exception e) {
             System.out.println(e);

@@ -19,7 +19,7 @@ public class Notification_data {
     public void showSystemNotification() {
         if (SystemTray.isSupported()) {
             SystemTray tray = SystemTray.getSystemTray();
-            Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
+            Image image = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/images/wallet-logo.jpg"));
 
             TrayIcon trayIcon = new TrayIcon(image, "App Notification");
             trayIcon.setImageAutoSize(true);

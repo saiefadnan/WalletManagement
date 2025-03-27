@@ -1086,12 +1086,32 @@ public class Supabase {
         }
     }
 
-    public void deleteLent(String user,String s){
+    public void deleteGoal(String s){
         try{
             if(conn!=null){
-                String sql = "DELETE FROM lents WHERE user_name = ? AND name = ?";
+                String sql = "DELETE FROM goals WHERE user_id = ? AND name = ?";
                 PreparedStatement stmt=conn.prepareStatement(sql);
-                stmt.setString(1,user);
+                stmt.setInt(1,User.id);
+                stmt.setString(2,s);
+                boolean deleted = stmt.execute();
+                if(deleted)System.out.println("Successfully goal deleted");
+            }
+            else{
+                System.out.println("Connection error...try later");
+                Main.connect_Database_On_New_thread();
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteLent(String s){
+        try{
+            if(conn!=null){
+                String sql = "DELETE FROM lents WHERE user_id = ? AND name = ?";
+                PreparedStatement stmt=conn.prepareStatement(sql);
+                stmt.setInt(1,User.id);
                 stmt.setString(2,s);
                 boolean deleted = stmt.execute();
                 if(deleted)System.out.println("Successfully lent deleted");
@@ -1106,12 +1126,12 @@ public class Supabase {
         }
     }
 
-    public void deleteDebt(String user,String s){
+    public void deleteDebt(String s){
         try{
             if(conn!=null){
-                String sql = "DELETE FROM debts WHERE user_name = ? AND name = ?";
+                String sql = "DELETE FROM debts WHERE user_id = ? AND name = ?";
                 PreparedStatement stmt=conn.prepareStatement(sql);
-                stmt.setString(1,user);
+                stmt.setInt(1,User.id);
                 stmt.setString(2,s);
                 boolean deleted = stmt.execute();
                 if(deleted)System.out.println("Successfully debt deleted");

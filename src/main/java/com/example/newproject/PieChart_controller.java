@@ -73,11 +73,11 @@ public class PieChart_controller implements Initializable {
     {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Goalsetter.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
     public void getTarget() {
         try {
@@ -340,7 +340,9 @@ public class PieChart_controller implements Initializable {
             alert.setHeaderText("Warning!");
             if(alert.showAndWait().get()== ButtonType.OK) {
                 //SQLConnection.deleteData(User.Name, s);
+                Supabase.getInstance().deleteGoal(s);
                 User.goals_count--;
+                Supabase.getInstance().updateGoalCount();
                 System.out.println(User.goals_count);
                 User.ap_name.remove(i);
                 User.ap_target.remove(i);
@@ -349,11 +351,11 @@ public class PieChart_controller implements Initializable {
                 User.ap_note.remove(i);
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Goalsetter.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
+                Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
                 scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
                 stage.setScene(scene);
                 stage.show();
-                stage.setFullScreen(true);
+                //stage.setFullScreen(true);
             }
         }
         catch(Exception e)

@@ -71,11 +71,11 @@ public class LentsInfoController implements Initializable {
     {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Debt & Loan.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
         stage.setScene(scene);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
     public void getTarget() {
         try {
@@ -336,8 +336,9 @@ public class LentsInfoController implements Initializable {
             alert.setHeaderText("Warning!");
             if(alert.showAndWait().get()== ButtonType.OK) {
                //SQLConnection.deleteLent(User.Name, s);
-                Supabase.getInstance().deleteLent(User.Name, s);
+                Supabase.getInstance().deleteLent(s);
                 User.lents_count--;
+                Supabase.getInstance().updateLentCount();
                 System.out.println(User.lents_count);
                 User.ap_Lname.remove(i);
                 User.ap_lent.remove(i);
@@ -346,11 +347,11 @@ public class LentsInfoController implements Initializable {
                 User.ap_Lnote.remove(i);
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Debt & Loan.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
+                Scene scene = new Scene(root,splashWindow.width,splashWindow.height);
                 scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("pbcustom.css")).toExternalForm());
                 stage.setScene(scene);
                 stage.show();
-                stage.setFullScreen(true);
+                //stage.setFullScreen(true);
             }
         }
         catch(Exception e)
