@@ -57,7 +57,7 @@ Create these 10 tables:
 <h3>Reset password </h3>
 For enabling reset password feature open a gmail acoount and create a passkey.Then include the APP_ACCOUNT, APP_PASSWORD in same .env file.
 
-Conclusion:
+<h3>Conclusion </h3>
 Run the program, some error may still occur for jar files due to the version related issues as they changes over time. Make sure to include the similar versions for each one otherwise they may cause error.
 
-HAPPY CODDING!!!
+<h4>HAPPY CODDING!!!</h4>
